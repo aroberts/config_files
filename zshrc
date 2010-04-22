@@ -21,3 +21,4 @@ setopt prompt_subst
 
 # prompt
 export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
+

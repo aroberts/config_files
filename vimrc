@@ -12,6 +12,9 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 
+" Hide pyc files by default
+let g:netrw_list_hide = "^.*.pyc"
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
