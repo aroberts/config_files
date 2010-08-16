@@ -10,7 +10,6 @@
  * links when the link HREF contans certain substrings.
  */
 
-A:link[HREF*="javascript:void"]  IMG, 
 A:link[HREF*="addata"]  IMG, 
 A:link[HREF*="ad."]  IMG, 
 A:link[HREF*="ads."]  IMG, 
@@ -99,6 +98,7 @@ A:link[HREF*="load."],
 A:link[HREF*="loads."], 
 IFRAME[SRC*="load."], 
 IFRAME[SRC*="loads."],
+A:link[HREF*="/click"] IMG[SRC*="bantler"], 
 A:link[HREF*="click.mp3"] IMG { display: inline ! important }
 
 
