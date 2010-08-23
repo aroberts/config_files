@@ -99,6 +99,7 @@ A:link[HREF*="loads."],
 IFRAME[SRC*="load."], 
 IFRAME[SRC*="loads."],
 A:link[HREF*="/click"] IMG[SRC*="bantler"], 
+A:link[HREF*="upload."]  IMG, 
 A:link[HREF*="click.mp3"] IMG { display: inline ! important }
 
 
