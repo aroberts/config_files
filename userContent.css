@@ -29,6 +29,7 @@ A:link[HREF*="adserve"]  IMG,
 A:link[HREF*=".banner"]  IMG, 
 A:link[HREF*="bluestreak"]  IMG, 
 A:link[HREF*="doubleclick"]  IMG, 
+A:link[HREF*="tribalfusion"]  IMG, 
 A:link[HREF*="/rd."]  IMG, 
 A:link[HREF*="/0AD"]  IMG, 
 A:link[HREF*=".falkag."]  IMG, 
@@ -69,6 +70,7 @@ IFRAME[SRC*=".falkag."],
 IFRAME[SRC*="trackoffer."],
 IFRAME[SRC*="connextra."],
 IFRAME[ID*="merchandisingMERC"],
+IFRAME[SRC*="tf-iframe"],
 IFRAME[SRC*="tracksponsor."]  { display: none ! important } 
 
 
