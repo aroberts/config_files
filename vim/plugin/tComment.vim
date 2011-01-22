@@ -177,6 +177,9 @@ call TCommentDefineType('xslt_inline',      g:tcommentInlineXML)
 call TCommentDefineType('xslt_block',       g:tcommentBlockXML )
 call TCommentDefineType('yaml',             '# %s'             )
 
+" my types
+call TCommentDefineType('gnuplot',          '# %s'             )
+
 let s:tcommentFileTypesDirty = 1
 
 function! s:DefaultValue(option)
