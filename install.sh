@@ -2,34 +2,58 @@
 
 cutstring="DO NOT EDIT BELOW THIS LINE"
 
-for name in *; do
-  target="$HOME/.$name"
-  if [ -e $target ]; then
-    if [ ! -L $target ]; then
-      cutline=`grep -n -m1 "$cutstring" "$target" | sed "s/:.*//"`
+install() # src, target
+{
+  src=$1
+  dst=$2
+
+  if [ -e $dst ]; then
+    if [ ! -L $dst ]; then
+      cutline=`grep -n -m1 "$cutstring" "$dst" | sed "s/:.*//"`
       if [[ -n $cutline ]]; then
         let "cutline = $cutline - 1"
-        echo "Updating $target"
-        head -n $cutline "$target" > update_tmp
-        startline=`tail -r "$name" | grep -n -m1 "$cutstring" | sed "s/:.*//"`
+        echo "Updating $dst"
+        head -n $cutline "$dst" > update_tmp
+        startline=`tail -r "$src" | grep -n -m1 "$cutstring" | sed "s/:.*//"`
         if [[ -n $startline ]]; then
-          tail -n $startline "$name" >> update_tmp
+          tail -n $startline "$src" >> update_tmp
         else
-          cat "$name" >> update_tmp
+          cat "$src" >> update_tmp
         fi
-        mv update_tmp "$target"
+        mv update_tmp "$dst"
       else
-        echo "WARNING: $target exists but is not a symlink."
+        # TODO: force
+        # if force: warn about overwrite, overwrite
+        # else
+        # vvvvvv
+        echo "WARNING: $dst exists but is not a symlink."
       fi
     fi
   else
-    if [[ ! `grep "^$name$" do_not_install` ]]; then
-      echo "Creating $target"
-      if [[ -n `grep "$cutstring" "$name"` ]]; then
-        cp "$PWD/$name" "$target"
-      else
-        ln -s "$PWD/$name" "$target"
-      fi
+    echo "Creating $dst"
+    if [[ -n `grep "$cutstring" "$src"` ]]; then
+      cp "$PWD/$src" "$dst"
+    else
+      ln -s "$PWD/$src" "$dst"
+    fi
+  fi
+}
+
+# should be for name in <basedir this_file> TODO
+for name in *; do
+  target="$HOME/.$name"
+
+  if [[ ! `grep "^$name$" $PWD/do_not_install` ]]; then
+    if [ -d $target -a ! -L $target ]; then
+      for subname in $name/*; do
+        subtarget=$HOME/.$subname
+        # echo "install $subname $subtarget"
+        install $subname $subtarget
+      done
+    else
+      # test
+      # echo "install $name $target"
+      install $name $target
     fi
   fi
 done
