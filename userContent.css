@@ -88,6 +88,10 @@ A:link[onmouseover*="AdSolution"] IMG,
 *[ID=contextualLinks],
 IMG[SRC*=".msads."] { display: none ! important } 
 
+IFRAME[class*="AdFrame"],
+EMBED[SRC*="AdManager"],
+EMBED[SRC*="doubleclick.net"] { display: none ! important } 
+
 
 /* turning some false positives back off */
 
