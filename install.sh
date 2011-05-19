@@ -39,7 +39,9 @@ install() # src, target
   fi
 }
 
-# should be for name in <basedir this_file> TODO
+# make sure we're installing from the right directory
+cd `dirname $0`
+
 for name in *; do
   target="$HOME/.$name"
 
