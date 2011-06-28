@@ -71,6 +71,7 @@ IFRAME[SRC*=".falkag."],
 IFRAME[SRC*="trackoffer."],
 IFRAME[SRC*="connextra."],
 IFRAME[ID*="merchandisingMERC"],
+IFRAME[ID*="ad_iframe"],
 IFRAME[SRC*="tf-iframe"],
 IFRAME[SRC*="tracksponsor."]  { display: none ! important } 
 
@@ -86,6 +87,7 @@ A:link[onmouseover*="AdSolution"] IMG,
 *[ID=inlinead],
 *[ID=ad_creative],
 *[ID=contextualLinks],
+*[ID=welcomeRowTable],
 IMG[SRC*=".msads."] { display: none ! important } 
 
 IFRAME[class*="AdFrame"],
