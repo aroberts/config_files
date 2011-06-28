@@ -46,6 +46,9 @@ if has("autocmd")
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 
+  " automatically format xml files with xmllint
+  au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
