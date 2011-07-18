@@ -1,5 +1,7 @@
 # ADD LOCAL CONFIGURATION HERE
-
+[user]
+	name = Andrew Roberts
+	email = adroberts@gmail.com
 
 # DO NOT EDIT BELOW THIS LINE
 [color]
