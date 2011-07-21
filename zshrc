@@ -2,6 +2,7 @@
 autoload -U compinit
 compinit
 
+
 # automatically enter directories without cd
 setopt auto_cd
 
