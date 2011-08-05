@@ -6,6 +6,9 @@ compinit
 # automatically enter directories without cd
 setopt auto_cd
 
+# no dups in command history
+setopt histignoredups
+
 # use vim as an editor
 export EDITOR=vim
 
@@ -28,9 +31,9 @@ export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
 # exists.  It defines a function (__workon_with_load) that loads the real
 # workon, sets up the environment, and removes the alias we made to do the
 # loading on the first invocation of workon.
-if [ -d $HOME/.virtualenvs ]; then
+export WORKON_HOME=$HOME/.virtualenvs
+if [ -d $WORKON_HOME ]; then
   __workon_with_load () {
-    export WORKON_HOME=~/.virtualenvs
     unalias workon
     source /usr/local/bin/virtualenvwrapper.sh
     export PIP_VIRTUALENV_BASE=$WORKON_HOME
