@@ -25,6 +25,10 @@ setopt prompt_subst
 
 export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
 
+# include zsh files
+for config_file ($HOME/.zsh/*.zsh) source $config_file
+
+
 # virtualenvwrapper setup
 #
 # this block is a lazy-loader for workon that only runs if ~/.virtualenvs
