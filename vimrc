@@ -48,6 +48,7 @@ if has("autocmd")
 
   " automatically format xml files with xmllint
   au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+  " au FileType json exe ":silent 1,$!python -mjson.tool"
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
