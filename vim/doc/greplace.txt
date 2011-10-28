@@ -57,7 +57,7 @@ One example sequence of commands for using this plugin is:
     :Greplace
     <The above command will load each of the buffer which needs to be changed
     and ask you to confirm whether to make the change or not>
-    
+
     :wall
     <To save all the modified buffers>
 

@@ -114,7 +114,7 @@ function! s:gReplace()
 
             let e_idx1 += 2
 
-            if (s_idx + 1) == e_idx1 
+            if (s_idx + 1) == e_idx1
                 " If there is nothing to highlight, then highlight the
                 " last character
                 let e_idx1 += 1

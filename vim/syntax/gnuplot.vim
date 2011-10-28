@@ -39,7 +39,7 @@ syn match   plotOption "\(no\)\?m\?[xyz]2\?tics"
 syn match   plotOption "\(no\)\?m\?cbtics"
 syn match   plotOption "[xyz]2\?[md]tics"
 syn keyword plotOption cbtics cblabel cbrange cbdata
-syn keyword plotOption cbdtics cbmtics 
+syn keyword plotOption cbdtics cbmtics
 hi def link plotOption Identifier
 
 " --- Operator ---
@@ -77,17 +77,17 @@ syn keyword plotPair labels nolabels
 syn keyword plotPair autotitles noautotitles
 syn keyword plotPair filled nofilled
 syn keyword plotPair offset nooffset
-syn keyword plotPair undefined noundefined 
+syn keyword plotPair undefined noundefined
 syn keyword plotPair reverse noreverse
 syn keyword plotPair ratio noratio
 syn keyword plotPair head nohead
 syn keyword plotPair rotate norotate
-syn keyword plotPair point nopoint 
+syn keyword plotPair point nopoint
 syn keyword plotPair box nobox
 syn keyword plotPair square nosquare
 syn keyword plotPair mirror nomirror
 syn keyword plotPair verbose noverbose
-syn keyword plotPair altdiagonal noaltdiagonal 
+syn keyword plotPair altdiagonal noaltdiagonal
 syn keyword plotPair ftriangles noftriangles
 syn keyword plotPair hidden3d nohidden3d
 syn keyword plotPair bentover nobentover
@@ -103,27 +103,27 @@ hi def link plotPair plotConst
 
 " --- Constant ---
 syn keyword plotConst pi
-syn keyword plotConst degrees radians 
+syn keyword plotConst degrees radians
 syn keyword plotConst default restore user
 syn keyword plotConst left right center top bottom outside below Left Right
 syn keyword plotConst front back layerdefault
 syn keyword plotConst tiny small medium large giant size
-syn keyword plotConst absolute relative 
+syn keyword plotConst absolute relative
 syn keyword plotConst vertical horizontal
 syn keyword plotConst min max fixmin fixmax fix keepfix
 syn keyword plotConst on off begin end in out push pop
 syn keyword plotConst zero one two
-syn keyword plotConst empty solid pattern 
-syn keyword plotConst linear cubicspline bspline 
-syn keyword plotConst bdefault base both 
+syn keyword plotConst empty solid pattern
+syn keyword plotConst linear cubicspline bspline
+syn keyword plotConst bdefault base both
 syn keyword plotConst iso_8859_1 iso_8859_2 iso_8859_15 cp850 cp852 cp437 koi8r
 syn keyword plotConst cartesian spherical cylindrical
 syn keyword plotConst gray color positive negative
-syn keyword plotConst fill line 
+syn keyword plotConst fill line
 syn keyword plotConst linestyle ls
 syn keyword plotConst linetype lt
 syn keyword plotConst linewidth lw
-syn keyword plotConst pointtype pt 
+syn keyword plotConst pointtype pt
 syn keyword plotConst pointsize ps
 syn keyword plotConst textcolor tc
 syn keyword plotConst xy xz yz xyz
@@ -132,7 +132,7 @@ syn keyword plotConst trianglepattern labeloptions
 syn keyword plotConst heads arrowstyle as rto
 syn keyword plotConst boxes filledcurves financebars candlesticks
 syn keyword plotConst boxerrorbars boxxyerrorbars xerrorbars xerrorlines
-syn keyword plotConst xyerrorbars xyerrorlines yerrorbars yerrorlines 
+syn keyword plotConst xyerrorbars xyerrorlines yerrorbars yerrorlines
 syn keyword plotConst dots fsteps histeps impulses lines linespoints steps
 syn keyword plotConst points vectors
 syn keyword plotConst binary matrix axis autofreq
