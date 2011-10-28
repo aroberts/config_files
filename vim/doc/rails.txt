@@ -190,7 +190,7 @@ actually edit a file from a Rails application.
 			download it.  More useful is to define a :OpenURL
 			command, which will be used instead (see
 			|rails-:OpenURL|).
-			
+
 						*rails-:Rpreview!*
 :Rpreview! [{path}]	As with :Rpreview, except :OpenURL is never used.
 
@@ -303,7 +303,7 @@ Two commands, :A and :R, are used quickly jump to an "alternate" and a
 :R			These are similar |rails-:A| and friends above, only
 :RE			they jump to the "related" file rather than the
 :RS			"alternate."  A mapping for :R is ]f .
-:RV			
+:RV
 :RT
 
 					*rails-alternate* *rails-related*
@@ -573,12 +573,12 @@ Partial Extraction ~
 The :Rextract command can be used to extract a partial to a new file.
 
 						*rails-:Rextract*
-:[range]Rextract [{controller}/]{name}	
+:[range]Rextract [{controller}/]{name}
 			Create a {name} partial from [range] lines (default:
 			current line).
 
 						*rails-:Rpartial*
-:[range]Rpartial [{controller}/]{name}	
+:[range]Rpartial [{controller}/]{name}
 			Deprecated alias for :Rextract.
 
 If this is your file, in app/views/blog/show.rhtml: >
@@ -742,9 +742,9 @@ can approximate your own with |:Rcommand|.
 >
 	Rcommand specmodel      spec/models      -glob=**/*
 		\ -suffix=_spec.rb               -default=model()
-	Rcommand spechelper     spec/helpers     -glob=**/* 
+	Rcommand spechelper     spec/helpers     -glob=**/*
 		\ -suffix=_helper_spec.rb        -default=controller()
-	Rcommand speccontroller spec/controllers -glob=**/* 
+	Rcommand speccontroller spec/controllers -glob=**/*
 		\ -suffix=_controller_spec.rb    -default=controller()
 	Rcommand specview spec/views -glob=**/* -suffix=_view_spec.rb
 <
@@ -779,7 +779,7 @@ Rabbrev pa[ params		pa[:id]			params[:id]
 Rabbrev pa[ params		pa<C-]>			params
 Rabbrev pa[ params		pa.inspect		params.inspect
 Rabbrev AR:: ActionRecord	AR::Base		ActiveRecord::Base
-Rabbrev :a :action\ =>\		render :a<Tab>		render :action => 
+Rabbrev :a :action\ =>\		render :a<Tab>		render :action =>
 
 In short, :: expands on :, ( expands on (, and [ expands on both . and [.
 These trailing punctuation marks are NOT part of the final abbreviation, and
@@ -884,7 +884,7 @@ enabled.
 
 					*rails-'makeprg'*	*rails-'mp'*
 					*rails-'errorformat'*	*rails-'efm'*
-Rake is used as the 'makeprg', so |:make| will work as expected.  Also, 
+Rake is used as the 'makeprg', so |:make| will work as expected.  Also,
 'errorformat' is set appropriately to handle your tests.
 
 					*rails-'filetype'*	*rails-'ft'*
@@ -1023,7 +1023,7 @@ existing project from the menu.  Defaults to the README.
 						*g:rails_default_database*  >
 	let g:rails_default_database='sqlite3'
 Database to use for new applications.  Defaults to letting Rails decide.
- 
+
 					*rails-slow* *g:rails_expensive*  >
 	let g:rails_expensive=1
 Enables or disables expensive (slow) features (typically involving calls to
