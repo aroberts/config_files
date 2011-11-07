@@ -2,7 +2,6 @@
 autoload -U compinit
 compinit
 
-
 # automatically enter directories without cd
 setopt auto_cd
 
@@ -19,6 +18,8 @@ fi
 
 # vi mode
 bindkey -v
+
+export PATH=$HOME/bin:$PATH
 
 # expand functions in the prompt
 setopt prompt_subst
@@ -45,4 +46,13 @@ if [ -d $WORKON_HOME ]; then
     workon $1
   }
   alias workon='__workon_with_load'
+  _workon_complete () {
+    reply=( $( (\cd "$WORKON_HOME"; \
+                for f in */bin/activate; do echo $f; done) 2>/dev/null |\
+                  \sed 's|^\./||' |\
+                  \sed "s|/bin/activate||" |\
+                  \sort |\
+                  (unset GREP_OPTIONS; \egrep -v '^\*$') ) )
+  }
+  compctl -K _workon_complete __workon_with_load
 fi
