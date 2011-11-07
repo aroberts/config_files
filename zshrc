@@ -43,7 +43,12 @@ if [ -d $WORKON_HOME ]; then
   }
   alias workon='__workon_with_load'
   _workon_complete () {
-    reply=( $( (\cd "$WORKON_HOME"; for f in */bin/activate; do echo $f; done) 2>/dev/null | \sed 's|^\./||' | \sed "s|/bin/activate||" | \sort | (unset GREP_OPTIONS; \egrep -v '^\*$') ) )
+    reply=( $( (\cd "$WORKON_HOME"; \
+                for f in */bin/activate; do echo $f; done) 2>/dev/null |\
+                  \sed 's|^\./||' |\
+                  \sed "s|/bin/activate||" |\
+                  \sort |\
+                  (unset GREP_OPTIONS; \egrep -v '^\*$') ) )
   }
   compctl -K _workon_complete __workon_with_load
 fi
