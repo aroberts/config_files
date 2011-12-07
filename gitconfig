@@ -20,3 +20,4 @@
   plre = pull --rebase
   st = status
   unpushed = log HEAD..origin
+  incoming = !sh -c 'git fetch && git whatchanged -p ..origin'
