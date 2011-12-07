@@ -1,3 +1,4 @@
+import os
 # Configuration file for ipython.
 
 c = get_config()
@@ -59,7 +60,15 @@ c = get_config()
 # c.TerminalIPythonApp.extra_extension = ''
 
 # List of files to run at IPython startup.
-# c.TerminalIPythonApp.exec_files = []
+c.TerminalIPythonApp.exec_files = []
+
+candidate_files = ['.ipythonrc.py',
+                   '.ipythonrc',
+                   'ipythonrc.py']
+for f in candidate_files:
+  if os.path.exists(f):
+    print "Initialized interpreter with %s" % f
+    c.TerminalIPythonApp.exec_files.append(f)
 
 # Whether to overwrite existing config files when copying
 # c.TerminalIPythonApp.overwrite = False
