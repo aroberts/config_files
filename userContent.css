@@ -89,6 +89,7 @@ A:link[onmouseover*="AdSolution"] IMG,
 *[ID=contextualLinks],
 *[ID=welcomeRowTable],
 DIV[class=MktMPI],
+EMBED[SRC*="spe.atdmt.com"],
 IMG[SRC*=".msads."] { display: none ! important } 
 
 IFRAME[class*="AdFrame"],
