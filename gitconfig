@@ -21,3 +21,14 @@
   st = status
   unpushed = log HEAD..origin
   incoming = !sh -c 'git fetch && git whatchanged -p ..origin'
+  glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  la = log --pretty=\"format:%ad %h (%an): %s\" --date=short
+  lc = log ORIG_HEAD.. --stat --no-merges
+  cancel = reset --soft HEAD^
+  changes = diff --name-stats -r
+  diffstat = diff --stat -r
+  new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+[github]
+  user = aroberts
+
+
