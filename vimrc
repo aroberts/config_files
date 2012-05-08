@@ -14,7 +14,7 @@ set incsearch		" do incremental searching
 set exrc       " project-specific .vimrc files
 
 " Hide pyc files by default
-let g:netrw_list_hide = "^.*.pyc"
+let g:netrw_list_hide = "^.*\.pyc$,^.*\.sw.$,^.*\.egg-info"
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
