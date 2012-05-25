@@ -1,3 +1,9 @@
 #!/bin/zsh
 # This hook is run after a new virtualenv is created and before it is activated.
 
+# $1 is the env name, passed in by virtualenvwrapper
+sourcedir="$HOME/Source/$1"
+
+# move to the appropriate directory if it exists
+[[ -d $sourcedir ]] || mkdir -p $sourcedir
+
