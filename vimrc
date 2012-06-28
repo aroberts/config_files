@@ -98,6 +98,10 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Normal mode: ,t
 map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
+" Opens a write command with the path of the currently edited file filled in
+" Normal mode: ,w
+map ,w :w <C-R>=expand("%:p:h") . "/" <CR>
+
 " Duplicates the current tab
 " Normal mode: Ctrl+T
 map <C-T> :tabe <C-R>=expand("%:p") <CR> <CR>
