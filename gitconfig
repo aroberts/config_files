@@ -21,6 +21,7 @@
   st = status
   unpushed = log HEAD..origin
   incoming = !sh -c 'git fetch && git whatchanged -p ..origin'
+  authorlist = !sh -c 'git log --format="%aN" --reverse | sort | uniq'
   glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   la = log --pretty=\"format:%ad %h (%an): %s\" --date=short
   lc = log ORIG_HEAD.. --stat --no-merges
