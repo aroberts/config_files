@@ -19,6 +19,7 @@
   ps = push
   plre = pull --rebase
   st = status
+  mst = multi-status ..
   unpushed = log HEAD..origin
   incoming = !sh -c 'git fetch && git whatchanged -p ..origin'
   authorlist = !sh -c 'git log --format="%aN" --reverse | sort | uniq'
