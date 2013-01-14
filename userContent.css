@@ -73,6 +73,7 @@ IFRAME[SRC*="connextra."],
 IFRAME[ID*="merchandisingMERC"],
 IFRAME[ID*="ad_iframe"],
 IFRAME[SRC*="tf-iframe"],
+IFRAME[SRC*="rubiconproject"],
 IFRAME[SRC*="tracksponsor."]  { display: none ! important } 
 
 
