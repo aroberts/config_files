@@ -170,3 +170,7 @@ endif
 
 set cc=81
 
+" relative line numbering
+" set relativenumber
+" set numberwidth=2
+
