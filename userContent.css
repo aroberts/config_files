@@ -114,7 +114,6 @@ A:link[HREF*="/click"] IMG[SRC*="bantler"],
 A:link[HREF*="upload."]  IMG, 
 A:link[HREF*="click.mp3"] IMG { display: inline ! important }
 
-
 /* 
  * For more examples see http://www.mozilla.org/unix/customizing.html
  */
