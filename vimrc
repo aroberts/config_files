@@ -84,6 +84,9 @@ set expandtab
 
 hi MatchParen ctermbg=0 ctermfg=3
 
+" ignore compiled files
+set wildignore+=*.o,*~,*.pyc,*$py.class
+
 " Always display the status line
 set laststatus=2
 
@@ -167,6 +170,11 @@ endif
 " Lines > 80 chars get some noise
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 " match OverLength /\%81v.\+/
-
 set cc=81
+
+
+" ctrlp configuration
+let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_map = '<c-t>'
+let g:ctrlp_cmd = 'CtrlPMixed'
 
