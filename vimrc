@@ -178,3 +178,8 @@ let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_map = '<c-t>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
+
+" relative line numbering
+" set relativenumber
+" set numberwidth=2
+
