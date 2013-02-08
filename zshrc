@@ -34,6 +34,9 @@ export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
 # include zsh files
 for config_file ($HOME/.zsh/*.zsh) source $config_file
 
+# tab completion for custom git scripts
+zstyle ':completion:*:git:*' user-commands ${${(k)commands[(I)git-*]}#git-}
+
 
 # virtualenvwrapper setup
 #
