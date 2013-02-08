@@ -1,15 +1,16 @@
 # ADD LOCAL CONFIGURATION HERE
 [user]
-	name = Andrew Roberts
-	email = adroberts@gmail.com
+  name = Andrew Roberts
+  email = adroberts@gmail.com
 
 # DO NOT EDIT BELOW THIS LINE
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+  diff = auto
+  status = auto
+  branch = auto
+  ui = auto
 [core]
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 [alias]
   c = commit -m
   a = add
