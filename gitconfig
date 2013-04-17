@@ -31,6 +31,7 @@
   changes = diff --name-stats -r
   diffstat = diff --stat -r
   new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+  alias = !sh -c 'git config --list | grep "^alias" | sed "s/^alias\\.//"'
 [github]
   user = aroberts
 
