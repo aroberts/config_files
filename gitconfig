@@ -13,6 +13,7 @@
   excludesfile = ~/.gitignore
 [alias]
   c = commit -m
+  ca = commit -a -m
   a = add
   di = diff
   dic = diff --cached
