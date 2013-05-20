@@ -1,3 +1,4 @@
 # alias migrate="rake db:migrate db:test:prepare"
 # alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
 alias versions_pip="pip freeze | grep -v \"^\-e\" | cut -d = -f 1 | xargs -n 1 pip search | grep -B2 'LATEST:'"
+alias outline='ack --nocolor "^\s*(class|def)\s"'
