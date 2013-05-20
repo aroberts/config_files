@@ -101,6 +101,7 @@ EMBED[SRC*="doubleclick.net"] { display: none ! important }
 /* turning some false positives back off */
 
 A:link[HREF*="/add"]  IMG, 
+A:link[HREF*="/adidas"]  IMG, 
 A:link[HREF*="/adsl"] IMG,
 A:link[HREF*="thread."] IMG,
 A:link[HREF*="download."] IMG,
