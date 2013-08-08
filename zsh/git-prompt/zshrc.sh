@@ -1,5 +1,7 @@
 # To install source this file from your .zshrc file
 
+# from https://github.com/olivierverdier/zsh-git-prompt
+
 # Change this to reflect your installation directory
 export __GIT_PROMPT_DIR=~/.zsh/git-prompt
 # Initialize colors.
