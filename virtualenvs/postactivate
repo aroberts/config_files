@@ -5,4 +5,5 @@ sourcedir="$HOME/Source/`basename $VIRTUAL_ENV`"
 
 # move to the appropriate directory if it exists
 [[ -d $sourcedir ]] && cd $sourcedir
+[[ -f .env ]] && export $(cat .env)
 
