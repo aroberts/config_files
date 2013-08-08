@@ -29,7 +29,8 @@ export PATH=$HOME/bin:$PATH
 # expand functions in the prompt
 setopt prompt_subst
 
-export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
+source $HOME/.zsh/git-prompt/zshrc.sh
+export PS1='[${SSH_CONNECTION+"%n@%m:"}%~]$(git_super_status) '
 
 # include zsh files
 for config_file ($HOME/.zsh/*.zsh) source $config_file
@@ -37,6 +38,8 @@ for config_file ($HOME/.zsh/*.zsh) source $config_file
 # tab completion for custom git scripts
 zstyle ':completion:*:git:*' user-commands ${${(k)commands[(I)git-*]}#git-}
 
+
+export PYTHONDONTWRITEBYTECODE=1
 
 # virtualenvwrapper setup
 #
