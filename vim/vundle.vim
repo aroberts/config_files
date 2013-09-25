@@ -98,6 +98,7 @@ Bundle 'indenthtml.vim'
 Bundle 'mutewinter/tomdoc.vim'
 Bundle 'jc00ke/vim-tomdoc'
 ""    Other Languages
+Bundle 'indentpython.vim'
 Bundle 'msanders/cocoa.vim'
 Bundle 'mutewinter/taskpaper.vim'
 Bundle 'mutewinter/nginx.vim'
