@@ -383,7 +383,7 @@ let g:tcommentMaps = 1
 " Netrw
 " ---------------
 " Hide python garbage files by default
-let g:netrw_list_hide = "^.*\.pyc$,^.*\.sw.$,^.*\.egg-info"
+let g:netrw_list_hide = "^\.\/$,^.*\.pyc$,^.*\.sw.$,^.*\.egg-info"
 
 
 
