@@ -27,11 +27,21 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'bling/vim-airline'
 " Bundle 'scrooloose/nerdtree'
 Bundle 'Rykka/colorv.vim'
-Bundle 'nanotech/jellybeans.vim'
 Bundle 'mhinz/vim-signify'
 Bundle 'mhinz/vim-startify'
 " Bundle 'mbbill/undotree'
 " Bundle 'jszakmeister/vim-togglecursor'
+
+""" Color schemes
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'w0ng/vim-hybrid'
+Bundle 'tomasr/molokai'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'jnurmine/Zenburn'
+Bundle 'morhetz/gruvbox'
+Bundle 'zeis/vim-kolor'
+Bundle 'tpope/vim-vividchalk'
+Bundle 'aroberts/colorbundle.vim'
 
 """ Commands
 Bundle 'tomtom/tcomment_vim'
