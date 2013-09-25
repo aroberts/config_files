@@ -14,7 +14,8 @@ set lines=57
 let &columns = g:halfsize
 
 " Font
-set guifont=Monaco:h16.00
+set guifont=Monaco\ for\ Powerline:h16.00
+" set guifont=Source\ Code\ Pro\ for\ Powerline:h16
 set anti
 
 " No audible bell

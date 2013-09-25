@@ -31,7 +31,7 @@ set ruler          " Ruler on
 set number         " Line numbers on
 set nowrap         " Line wrapping off
 set laststatus=2   " Always show the statusline
-set cmdheight=1    " Make the command area two lines high
+set cmdheight=2    " Make the command area two lines high
 set encoding=utf-8
 set noshowmode     " Don't show the mode since Powerline shows it
 set title          " Set the title of the window in the terminal to the file
@@ -69,7 +69,7 @@ set scrolloff=3        " Keep three lines below the last line when scrolling
 set gdefault           " this makes search/replace global by default
 set switchbuf=useopen  " Switch to an existing buffer if one exists
 " set exrc               " project-specific .vimrc files
-set showcmd            " info about currently executing command in status bar
+" set showcmd            " info about currently executing command in status bar
 
 " ---------------
 " Text Format
