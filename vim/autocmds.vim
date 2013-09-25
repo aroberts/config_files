@@ -26,6 +26,9 @@ if has("autocmd")
 
     autocmd BufNewFile,BufRead *.vim set filetype=vim
 
+    " set python files properly
+    autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+
     " Help mode bindings
     " <enter> to follow tag, <bs> to go back, and q to quit.
     " From http://ctoomey.com/posts/an-incremental-approach-to-vim/
