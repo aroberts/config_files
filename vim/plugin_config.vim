@@ -124,7 +124,7 @@ let g:airline_mode_map = {
       \ '' : 'VB',
       \ }
 " Show the current working directory folder name
-let g:airline_section_b = '%{substitute(getcwd(), ".*\/", "", "g")} '
+" let g:airline_section_b = '%{substitute(getcwd(), ".*\/", "", "g")} '
 " Just show the file name
 let g:airline_section_c = '%t'
 
