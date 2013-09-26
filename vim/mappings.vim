@@ -165,7 +165,7 @@ inoremap <F1> <Esc>
 " cnoremap w' w<CR>
 
 " Don't use Ex mode, use Q for formatting
-nnoremap Q gq
+map Q gq
 
 " Removes doc lookup mapping because it's easy to fat finger and never useful.
 " nnoremap K k
