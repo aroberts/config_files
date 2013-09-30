@@ -227,7 +227,8 @@ let g:signify_mapping_prev_hunk = '<leader>gk'
 let g:signify_mapping_toggle_highlight="<nop>"
 let g:signify_mapping_toggle="<nop>"
 " Makes switching buffers in large repos have no delay
-let g:signify_update_on_bufenter = 0
+let g:signify_update_on_bufenter = 1
+let g:signify_update_on_focusgained = 1
 let g:signify_sign_overwrite = 0
 
 " ---------------
