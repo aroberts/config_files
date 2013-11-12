@@ -34,6 +34,6 @@
   new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
   alias = !sh -c 'git config --list | grep "^alias" | sed "s/^alias\\.//"'
 [github]
-  user = aroberts
-
-
+  --all user = aroberts
+[push]
+	default = simple
