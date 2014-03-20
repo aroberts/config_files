@@ -5,3 +5,4 @@ alias outline='ack --nocolor "^\s*(class|def)\s"'
 alias sl=ls
 alias mivm=mvim
 
+which htodp >/dev/null && alias top=htop
