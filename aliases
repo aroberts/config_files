@@ -6,4 +6,6 @@ alias sl=ls
 alias mivm=mvim
 alias unflac='find . -iname \*.flac -print0 | xargs -0 -n 1 flac2mp3'
 
-which htodp >/dev/null && alias top=htop
+alias xjcp='xargs -J % cp %'
+
+which htop >/dev/null && alias top=htop
