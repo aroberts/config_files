@@ -48,6 +48,7 @@ if has("autocmd")
     " For all text files set 'textwidth' to 78 characters.
     autocmd FileType text setlocal textwidth=78
 
+    autocmd TabEnter * normal "<Esc>"
     " Leave the return key alone when in command line windows, since it's used
     " to run commands there.
     autocmd! CmdwinEnter * :unmap <cr>
