@@ -12,3 +12,6 @@ setopt prompt_subst
 source $HOME/.zsh/git-prompt/zshrc.sh
 export PS1='[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}]$(git_super_status) '
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
