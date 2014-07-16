@@ -62,9 +62,12 @@ c = get_config()
 # List of files to run at IPython startup.
 c.TerminalIPythonApp.exec_files = []
 
-candidate_files = ['.ipythonrc.py',
-                   '.ipythonrc',
-                   'ipythonrc.py']
+candidate_files = [
+    '.ipythonrc.py',
+    '.ipythonrc',
+    'ipythonrc.py',
+    'ipy-test.py',
+]
 for f in candidate_files:
   if os.path.exists(f):
     print "Initialized interpreter with %s" % f
