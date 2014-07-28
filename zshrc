@@ -45,6 +45,7 @@ zstyle ':completion:*:git:*' user-commands ${${(k)commands[(I)git-*]}#git-}
 
 
 export PYTHONDONTWRITEBYTECODE=1
+export NOSE_REDNOSE=1
 
 # virtualenvwrapper setup
 #
