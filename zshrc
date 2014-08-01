@@ -29,7 +29,7 @@ fi
 # vi mode
 bindkey -v
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # expand functions in the prompt
 setopt prompt_subst
