@@ -137,8 +137,8 @@ hi! link cssAttr Constant
 " ---------------
 " Ag.vim
 " ---------------
-nnoremap <silent> <leader>as :AgFromSearch<CR>
-nnoremap <leader>ag :Ag<space>
+" nnoremap <silent> <leader>as :AgFromSearch<CR>
+" nnoremap <leader>ag :Ag<space>
 
 " ---------------
 " surround.vim
