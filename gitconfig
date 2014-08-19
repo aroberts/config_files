@@ -38,3 +38,5 @@
   user = aroberts
 [push]
   default = simple
+[fetch]
+  prune = true
