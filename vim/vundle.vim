@@ -5,119 +5,134 @@
 set nocompatible " be iMproved
 filetype off     " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
+    !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
+endif
+
+set runtimepath+=~/.vim/bundle/vundle/
+
+call vundle#begin()
 
 " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " ---------------
-" Plugin Bundles
+" Plugin Plugins
 " ---------------
 
 """ Navigation
-" Bundle 'ZoomWin'
+" Plugin 'ZoomWin'
 " This fork is required due to remapping ; to :
-" Bundle 'christoomey/vim-space'
-Bundle 'kien/ctrlp.vim'
-Bundle 'JazzCore/ctrlp-cmatcher'
+" Plugin 'christoomey/vim-space'
+Plugin 'kien/ctrlp.vim'
+Plugin 'JazzCore/ctrlp-cmatcher'
 
 """ UI Additions
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'bling/vim-airline'
-" Bundle 'scrooloose/nerdtree'
-Bundle 'Rykka/colorv.vim'
-Bundle 'mhinz/vim-signify'
-Bundle 'mhinz/vim-startify'
-" Bundle 'mbbill/undotree'
-" Bundle 'jszakmeister/vim-togglecursor'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'bling/vim-airline'
+" Plugin 'scrooloose/nerdtree'
+Plugin 'Rykka/colorv.vim'
+Plugin 'mhinz/vim-signify'
+Plugin 'mhinz/vim-startify'
+" Plugin 'mbbill/undotree'
+" Plugin 'jszakmeister/vim-togglecursor'
 
 """ Color schemes
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'w0ng/vim-hybrid'
-Bundle 'tomasr/molokai'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'jnurmine/Zenburn'
-Bundle 'morhetz/gruvbox'
-Bundle 'zeis/vim-kolor'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'aroberts/colorbundle.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jnurmine/Zenburn'
+Plugin 'morhetz/gruvbox'
+Plugin 'zeis/vim-kolor'
+Plugin 'tpope/vim-vividchalk'
+Plugin 'aroberts/colorbundle.vim'
 
 """ Commands
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'godlygeek/tabular'
-Bundle 'rking/ag.vim'
-" Bundle 'milkypostman/vim-togglelist'
-Bundle 'tpope/vim-abolish'
-" Bundle 'scratch.vim'
-" Bundle 'mattn/emmet-vim'
-" Bundle 'mutewinter/GIFL'
-Bundle 'AndrewRadev/switch.vim'
-" Bundle 'tpope/vim-eunuch'
-" Bundle 'itspriddle/vim-marked'
-Bundle 'mutewinter/UnconditionalPaste'
-Bundle 'HelpClose'
-Bundle 'mattn/gist-vim'
-Bundle 'nelstrom/vim-visual-star-search'
-Bundle 'sk1418/Join'
-" Bundle 'SirVer/ultisnips'
-Bundle 'g3orge/vim-voogle'
-" Bundle 'benmills/vimux'
-" Bundle 'jgdavey/vim-turbux'
-" Bundle 'ecomba/vim-ruby-refactoring'
-" Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'godlygeek/tabular'
+
+if executable('ag')
+  Plugin 'epmatsw/ag.vim.git'
+elseif executable('ack')
+  Plugin 'mileszs/ack.vim'
+endif
+
+" Plugin 'milkypostman/vim-togglelist'
+Plugin 'tpope/vim-abolish'
+" Plugin 'scratch.vim'
+" Plugin 'mattn/emmet-vim'
+" Plugin 'mutewinter/GIFL'
+Plugin 'AndrewRadev/switch.vim'
+" Plugin 'tpope/vim-eunuch'
+" Plugin 'itspriddle/vim-marked'
+Plugin 'mutewinter/UnconditionalPaste'
+Plugin 'HelpClose'
+Plugin 'mattn/gist-vim'
+Plugin 'nelstrom/vim-visual-star-search'
+Plugin 'sk1418/Join'
+" Plugin 'SirVer/ultisnips'
+Plugin 'g3orge/vim-voogle'
+" Plugin 'benmills/vimux'
+" Plugin 'jgdavey/vim-turbux'
+" Plugin 'ecomba/vim-ruby-refactoring'
+" Plugin 'christoomey/vim-tmux-navigator'
 
 """ Automatic Helpers
-Bundle 'IndexedSearch'
-Bundle 'xolox/vim-session'
-" Bundle 'Raimondi/delimitMate'
-" Bundle 'scrooloose/syntastic'
-" Bundle 'ervandew/supertab'
-Bundle 'Valloric/MatchTagAlways'
-" Bundle 'Valloric/YouCompleteMe'
-" Bundle 'kballenegger/vim-autoreadwatch'
+Plugin 'IndexedSearch'
+Plugin 'xolox/vim-session'
+" Plugin 'Raimondi/delimitMate'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'ervandew/supertab'
+Plugin 'Valloric/MatchTagAlways'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'kballenegger/vim-autoreadwatch'
 
 """ Language Additions
 ""    Ruby
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-bundler'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-bundler'
 ""    JavaScript
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'leshill/vim-json'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'leshill/vim-json'
 ""    HTML
-Bundle 'nono/vim-handlebars'
-Bundle 'othree/html5.vim'
-Bundle 'indenthtml.vim'
+Plugin 'nono/vim-handlebars'
+Plugin 'othree/html5.vim'
+Plugin 'indenthtml.vim'
 ""    TomDoc
-Bundle 'mutewinter/tomdoc.vim'
-Bundle 'jc00ke/vim-tomdoc'
+Plugin 'mutewinter/tomdoc.vim'
+Plugin 'jc00ke/vim-tomdoc'
 ""    Other Languages
-Bundle 'indentpython.vim'
-Bundle 'msanders/cocoa.vim'
-Bundle 'mutewinter/taskpaper.vim'
-Bundle 'mutewinter/nginx.vim'
-Bundle 'timcharper/textile.vim'
-Bundle 'mutewinter/vim-css3-syntax'
-Bundle 'mutewinter/vim-tmux'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'groenewege/vim-less'
-Bundle 'wavded/vim-stylus'
-Bundle 'tpope/vim-cucumber'
-Bundle 'chrisbra/csv.vim'
-Bundle 'lepture/vim-jinja'
+Plugin 'indentpython.vim'
+Plugin 'msanders/cocoa.vim'
+Plugin 'mutewinter/taskpaper.vim'
+Plugin 'mutewinter/nginx.vim'
+Plugin 'timcharper/textile.vim'
+Plugin 'mutewinter/vim-css3-syntax'
+" Plugin 'mutewinter/vim-tmux'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'groenewege/vim-less'
+Plugin 'wavded/vim-stylus'
+Plugin 'tpope/vim-cucumber'
+Plugin 'chrisbra/csv.vim'
+Plugin 'lepture/vim-jinja'
 """ MatchIt
-" Bundle 'matchit.zip'
-" Bundle 'kana/vim-textobj-user'
-" Bundle 'nelstrom/vim-textobj-rubyblock'
+" Plugin 'matchit.zip'
+" Plugin 'kana/vim-textobj-user'
+" Plugin 'nelstrom/vim-textobj-rubyblock'
 " Libraries
-Bundle 'L9'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-speeddating'
-" Bundle 'mattn/webapi-vim'
-Bundle 'xolox/vim-misc'
+Plugin 'L9'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-speeddating'
+" Plugin 'mattn/webapi-vim'
+Plugin 'xolox/vim-misc'
+
+call vundle#end()
+filetype plugin indent on
+
