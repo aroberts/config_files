@@ -1,5 +1,8 @@
 " Credit github.com/mutewinter/dot_vim
 
+" sets a bunch of variables we want when loading Vundle bundles
+colorscheme default
+
 " All of the plugins are installed with Vundle from this file.
 source ~/.vim/vundle.vim
 
