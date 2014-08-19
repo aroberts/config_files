@@ -5,7 +5,7 @@
 set nocompatible " be iMproved
 filetype off     " required!
 
-if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
+if !isdirectory(expand('~/.vim/bundle/vundle/.git'))
     !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
 endif
 
