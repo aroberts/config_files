@@ -25,6 +25,8 @@ if has("autocmd")
     "       \ silent! :StripTrailingWhiteSpace
 
     autocmd BufNewFile,BufRead *.vim set filetype=vim
+    autocmd BufNewFile,BufRead .ipythonrc set filetype=python
+    
 
     " set python files properly
     autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
