@@ -121,7 +121,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'wavded/vim-stylus'
 Plugin 'tpope/vim-cucumber'
 Plugin 'chrisbra/csv.vim'
-Plugin 'lepture/vim-jinja'
+Plugin 'mitsuhiko/vim-jinja'
 """ MatchIt
 " Plugin 'matchit.zip'
 " Plugin 'kana/vim-textobj-user'
@@ -130,7 +130,7 @@ Plugin 'lepture/vim-jinja'
 Plugin 'L9'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
-" Plugin 'mattn/webapi-vim'
+Plugin 'mattn/webapi-vim'
 Plugin 'xolox/vim-misc'
 
 call vundle#end()
