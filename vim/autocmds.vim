@@ -26,12 +26,11 @@ if has("autocmd")
 
     autocmd BufNewFile,BufRead *.vim set filetype=vim
     autocmd BufNewFile,BufRead .ipythonrc set filetype=python
-    autocmd BufNewFile,BufRead *.jinja set filetype=html
+    autocmd BufNewFile,BufRead *.jinja set filetype=htmljinja
     
 
     " set python files properly
     autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
-    " autocmd FileType jinja set tabstop=2|set shiftwidth=2|set expandtab
 
     " Help mode bindings
     " <enter> to follow tag, <bs> to go back, and q to quit.

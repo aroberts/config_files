@@ -68,7 +68,8 @@ set nostartofline      " Don't go to the start of the line after some commands
 set scrolloff=3        " Keep three lines below the last line when scrolling
 set gdefault           " this makes search/replace global by default
 set switchbuf=useopen  " Switch to an existing buffer if one exists
-" set exrc               " project-specific .vimrc files
+set exrc               " project-specific .vimrc files
+set secure             " project-specific .vimrc files must be owned by me
 " set showcmd            " info about currently executing command in status bar
 
 " ---------------
