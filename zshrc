@@ -1,7 +1,5 @@
 # antigen
-source "$HOME/.zsh/antigen.zsh"
-source "$HOME/.zsh/antigen-bundles.zsh"
-
+source "$HOME/.zsh/antigen/antigen.zsh"
 
 # completion
 autoload -U compinit
