@@ -25,9 +25,6 @@ if [ -e "$HOME/.rvm/scripts/rvm" ]; then
   source "$HOME/.rvm/scripts/rvm"
 fi
 
-# vi mode
-bindkey -v
-
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # expand functions in the prompt
@@ -35,9 +32,9 @@ setopt prompt_subst
 
 source $HOME/.zsh/git-prompt/zshrc.sh
 
-# include zsh files
+# include zsh files - handled by antigen, and causes double-sourceing of
+# antigen-bundles if uncommented (see source cmd at top of file)
 # for config_file ($HOME/.zsh/*.zsh) source $config_file
-
 
 # tab completion for custom git scripts
 zstyle ':completion:*:git:*' user-commands ${${(k)commands[(I)git-*]}#git-}
@@ -56,9 +53,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 psa() {
   # TODO: is this useful? move it to an antigen plugin
   if [ ! -z $1 ] ; then
-    echo "Grepping for processes matching $1..."
     ps aux | ack $1 | ack -v ack
   else
-    echo "!! Need name to grep for"
+    ps aux
   fi
 }

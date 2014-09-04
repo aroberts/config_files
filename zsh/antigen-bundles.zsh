@@ -3,6 +3,7 @@ antigen bundle brew
 antigen bundle fabric
 antigen bundle heroku
 antigen bundle brew
+antigen bundle vi-mode
 
 # antigen bundle virtualenv # the prompt provided here sucks
 antigen bundle tonyseek/oh-my-zsh-virtualenv-prompt
