@@ -1,6 +1,8 @@
 antigen bundle pip
 antigen bundle brew
 antigen bundle fabric
+antigen bundle heroku
+
 # antigen bundle virtualenv # the prompt provided here sucks
 antigen bundle tonyseek/oh-my-zsh-virtualenv-prompt
 antigen bundle virtualenvwrapper
