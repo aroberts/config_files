@@ -1,0 +1,8 @@
+#compdef wo
+#autoload
+
+cmds=( ${(uf)"$( wo )"} ) 
+
+_describe 'completion for wo function' cmds
+
+

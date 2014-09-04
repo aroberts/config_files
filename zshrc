@@ -1,5 +1,6 @@
 # antigen
 source "$HOME/.zsh/antigen/antigen.zsh"
+source "$HOME/.zsh/antigen-bundles.zsh"
 
 # completion
 autoload -U compinit
@@ -35,7 +36,8 @@ setopt prompt_subst
 source $HOME/.zsh/git-prompt/zshrc.sh
 
 # include zsh files
-for config_file ($HOME/.zsh/*.zsh) source $config_file
+# for config_file ($HOME/.zsh/*.zsh) source $config_file
+
 
 # tab completion for custom git scripts
 zstyle ':completion:*:git:*' user-commands ${${(k)commands[(I)git-*]}#git-}
@@ -50,3 +52,13 @@ export NOSE_REDNOSE=1
 
 # virtualenvwrapper setup
 export WORKON_HOME=$HOME/.virtualenvs
+
+psa() {
+  # TODO: is this useful? move it to an antigen plugin
+  if [ ! -z $1 ] ; then
+    echo "Grepping for processes matching $1..."
+    ps aux | ack $1 | ack -v ack
+  else
+    echo "!! Need name to grep for"
+  fi
+}
