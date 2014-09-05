@@ -9,7 +9,6 @@ export CLICOLOR=1
 setopt prompt_subst
 
 # prompt
-source $HOME/.zsh/git-prompt/zshrc.sh
 export PS1='$(virtualenv_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}]$(git_super_status) '
 
 

@@ -30,7 +30,7 @@ export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 # expand functions in the prompt
 setopt prompt_subst
 
-source $HOME/.zsh/git-prompt/zshrc.sh
+# source $HOME/.zsh/git-prompt/zshrc.sh
 
 # include zsh files - handled by antigen, and causes double-sourceing of
 # antigen-bundles if uncommented (see source cmd at top of file)

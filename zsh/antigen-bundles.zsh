@@ -12,6 +12,8 @@ antigen bundle virtualenvwrapper
 # let's be clear about when we're overriding default OMZ
 antigen bundle aroberts/oh-my-zsh plugins/invoke
 
+# other crap
+antigen bundle aroberts/zsh-git-prompt
+
 # my bundles
 antigen bundle $HOME/.zsh/wo
-
