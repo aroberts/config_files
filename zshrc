@@ -40,6 +40,9 @@ zstyle ':completion:*:git:*' user-commands ${${(k)commands[(I)git-*]}#git-}
 # apply antigen bundles
 antigen-apply
 
+# enable caching of git-prompt
+# ZSH_THEME_GIT_PROMPT_CACHE=1
+
 export PS1='$(virtualenv_prompt_info)[${SSH_CONNECTION+"%n@%m:"}%~]$(git_super_status) '
 
 export PYTHONDONTWRITEBYTECODE=1
