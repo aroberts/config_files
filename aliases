@@ -9,4 +9,4 @@ alias unflac='find . -iname \*.flac -print0 | xargs -0 -n 1 flac2mp3'
 alias xjcp='xargs -J % cp %'
 
 which htop >/dev/null && alias top=htop
-# which hub >/dev/null && alias git=hub
+which hub >/dev/null && alias git=hub
