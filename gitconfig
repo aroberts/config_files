@@ -41,3 +41,5 @@
   default = simple
 [fetch]
   prune = true
+[mergetool]
+	keepBackup = false
