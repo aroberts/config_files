@@ -124,9 +124,6 @@ nnoremap <leader>h *<C-O>
 " Begin to edit any file in .vim directory
 " nnoremap <leader>v :e ~/.vim/
 
-" Quickly switch to last buffer
-nnoremap <leader>, :e#<CR>
-
 " Underline the current line with '-'
 nnoremap <silent> <leader>ul :t.\|s/./-/\|:nohls<cr>
 
@@ -149,6 +146,9 @@ nnoremap <leader>fef mx=ggG='x
 " Format a json file with Python's built in json.tool.
 " from https://github.com/spf13/spf13-vim/blob/3.0/.vimrc#L390
 nnoremap <leader>jt <Esc>:%!underscore print<CR><Esc>:set filetype=json<CR>
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
 
 " Split window vertically or horizontally *and* switch to the new split!
 " nnoremap <silent> <leader>hs :split<Bar>:wincmd j<CR>
@@ -193,8 +193,20 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 nnoremap cl o<Esc>^Dk
 
-" Maps autocomplete to tab
-inoremap <Tab> <C-N>
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+set wildmode=list:longest,list:full
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
 
 " Press ^F from insert mode to insert the current file name
 imap <C-F> <C-R>=expand("%")<CR>

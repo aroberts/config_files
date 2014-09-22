@@ -27,7 +27,6 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.vim set filetype=vim
     autocmd BufNewFile,BufRead .ipythonrc set filetype=python
     autocmd BufNewFile,BufRead *.jinja set filetype=htmljinja
-    
 
     " set python files properly
     autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
@@ -49,6 +48,9 @@ if has("autocmd")
 
     " For all text files set 'textwidth' to 78 characters.
     autocmd FileType text setlocal textwidth=78
+
+    " Allow stylesheets to autocomplete hyphenated words
+    autocmd FileType css,scss,sass setlocal iskeyword+=-
 
     autocmd TabEnter * normal "<Esc>"
     " Leave the return key alone when in command line windows, since it's used

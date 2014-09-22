@@ -72,6 +72,10 @@ set exrc               " project-specific .vimrc files
 set secure             " project-specific .vimrc files must be owned by me
 " set showcmd            " info about currently executing command in status bar
 
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
 " ---------------
 " Text Format
 " ---------------
@@ -107,9 +111,9 @@ set list
 " Reset the listchars
 set listchars=""
 " make tabs visible
-set listchars=tab:▸▸
+set listchars=tab:»·
 " show trailing spaces as dots
-set listchars+=trail:.
+set listchars+=trail:·
 " The character to show in the last column when wrap is off and the line
 " continues beyond the right of the screen
 set listchars+=extends:>

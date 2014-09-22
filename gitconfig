@@ -14,11 +14,12 @@
 [alias]
   c = commit -m
   ca = commit -a -m
+  ca = commit --amend
+  ap = add --patch
   a = add
   di = diff
   dic = diff --cached
   pl = pull
-  ps = push
   plre = pull --rebase
   st = status
   mst = multi-status ..
@@ -35,6 +36,9 @@
   new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
   alias = !sh -c 'git config --list | grep "^alias" | sed "s/^alias\\.//"'
   sweep = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+  up = !git fetch origin && git rebase origin/master
+  pr = !hub pull-request
+  co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
 [github]
   user = aroberts
 [push]

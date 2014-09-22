@@ -24,11 +24,14 @@ let g:space_disable_select_mode = 1
 " ---------------
 " Syntastic
 " ---------------
+let g:syntastic_check_on_open=1
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['scss'] }
+
 
 " Hat tip http://git.io/SPIBfg
 let g:syntastic_error_symbol = '✗'
@@ -100,6 +103,17 @@ let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_map = '<c-t>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
 " Leader Commands
 " nnoremap <leader>t :CtrlPRoot<CR>
 " nnoremap <leader>b :CtrlPBuffer<CR>
@@ -125,7 +139,9 @@ let g:airline_mode_map = {
       \ }
 " Show the current working directory folder name
 " let g:airline_section_b = '%{substitute(getcwd(), ".*\/", "", "g")} '
-" Just show the file name
+" show the directory and file name
+let g:airline_section_c = '%{substitute(getcwd(), ".*\/", "", "g")}/%t'
+" just show the file name
 let g:airline_section_c = '%t'
 
 " ---------------
@@ -133,6 +149,10 @@ let g:airline_section_c = '%t'
 " ---------------
 " Make cssAttrs (center, block, etc.) the same color as units
 hi! link cssAttr Constant
+
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
+
 
 " ---------------
 " Ag.vim
