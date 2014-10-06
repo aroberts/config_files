@@ -86,7 +86,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 psa() {
   # TODO: is this useful? move it to an antigen plugin
   if [ ! -z $1 ] ; then
-    ps aux | ack $1 | ack -v ack
+    ps aux | ag $1
   else
     ps aux
   fi
