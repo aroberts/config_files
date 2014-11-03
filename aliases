@@ -12,3 +12,4 @@ alias xjcp='xargs -J % cp %'
 
 which htop >/dev/null && alias top=htop
 which hub >/dev/null && alias git=hub
+which rerun >/dev/null && alias prerun='rerun -p "**/*.{py,env,foreman}"'
