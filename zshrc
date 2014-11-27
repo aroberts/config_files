@@ -78,6 +78,7 @@ unsetopt nomatch
 export PS1='$(virtualenv_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}]$(git_super_status) '
 
 export PYTHONDONTWRITEBYTECODE=1
+export PYTHONUNBUFFERED=1
 export NOSE_REDNOSE=1
 
 # virtualenvwrapper setup

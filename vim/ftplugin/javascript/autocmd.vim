@@ -5,6 +5,6 @@ if exists("g:loaded_javascript_autocmds")
 endif
 
 let g:loaded_javascript_autocmds = 1
-autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 expandtab
+autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 sw=2 expandtab
 
 

@@ -31,6 +31,9 @@ if has("autocmd")
     " set python files properly
     autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
 
+    " scss files
+    autocmd FileType scss set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
+
     " Help mode bindings
     " <enter> to follow tag, <bs> to go back, and q to quit.
     " From http://ctoomey.com/posts/an-incremental-approach-to-vim/
