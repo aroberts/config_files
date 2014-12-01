@@ -3,6 +3,7 @@ source "$HOME/.zsh/antigen/antigen.zsh"
 source "$HOME/.zsh/antigen-bundles.zsh"
 
 # completion
+fpath=('/usr/local/share/zsh/site-functions' $fpath)
 autoload -U compinit
 compinit
 
