@@ -173,15 +173,20 @@ map Q gq
 
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: ,e
-map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>e :e <C-R>=expand("%:h") . "/" <CR>
 
 " Opens a tab edit command with the path of the currently edited file filled in
 " Normal mode: ,t
-map <leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>t :tabe <C-R>=expand("%:h") . "/" <CR>
 
 " Opens a write command with the path of the currently edited file filled in
 " Normal mode: ,w
-map <leader>w :w <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>w :w <C-R>=expand("%:h") . "/" <CR>
+
+" Rename the current file with Fugitive
+" (TODO: make it work in non-git projects)
+" Normal mode: ,r
+map <leader>r :Gmove <C-R>=expand("%:h") . "/" <CR>
 
 " Edits the previously edited file
 " Normal mode: gb
