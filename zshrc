@@ -39,6 +39,8 @@ if [ -e "$HOME/.rvm/scripts/rvm" ]; then
   source "$HOME/.rvm/scripts/rvm"
 fi
 
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/heroku/bin:$PATH
 
 # expand functions in the prompt
