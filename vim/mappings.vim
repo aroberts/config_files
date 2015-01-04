@@ -4,7 +4,7 @@
 
 " Set leader to ,
 " Note: This line MUST come before any <leader> mappings
-let mapleader=","
+let mapleader=" "
 
 " ---------------
 " Regular Mappings
