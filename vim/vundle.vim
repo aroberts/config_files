@@ -97,6 +97,7 @@ Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-bundler'
+Plugin 'thoughtbot/vim-rspec'
 ""    JavaScript
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'

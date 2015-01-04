@@ -387,6 +387,15 @@ let g:voogle_map="<leader>gg"
 
 
 " ---------------
+" rspec.vim
+" ---------------
+map <Leader>tt :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+
+" ---------------
 " Turbux
 " ---------------
 " let g:no_turbux_mappings = 1
