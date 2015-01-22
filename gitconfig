@@ -13,7 +13,6 @@
   excludesfile = ~/.gitignore
 [alias]
   c = commit -m
-  ca = commit -a -m
   ca = commit --amend
   ap = add --patch
   a = add
