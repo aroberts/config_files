@@ -33,6 +33,7 @@ if has("autocmd")
 
     " scss files
     autocmd FileType scss set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
+    autocmd FileType handlebars set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 
     " Help mode bindings
     " <enter> to follow tag, <bs> to go back, and q to quit.
