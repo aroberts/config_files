@@ -88,6 +88,9 @@ export NOSE_REDNOSE=1
 # virtualenvwrapper setup
 export WORKON_HOME=$HOME/.virtualenvs
 
+# GRC aliases
+source "`brew --prefix`/etc/grc.bashrc"
+
 psa() {
   # TODO: is this useful? move it to an antigen plugin
   if [ ! -z $1 ] ; then
