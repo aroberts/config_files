@@ -55,7 +55,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
 
 if executable('ag')
-  Plugin 'epmatsw/ag.vim.git'
+  Plugin 'epmatsw/ag.vim'
 elseif executable('ack')
   Plugin 'mileszs/ack.vim'
 endif
@@ -123,6 +123,7 @@ Plugin 'wavded/vim-stylus'
 Plugin 'tpope/vim-cucumber'
 Plugin 'chrisbra/csv.vim'
 Plugin 'mitsuhiko/vim-jinja'
+Plugin 'keith/swift.vim'
 """ MatchIt
 " Plugin 'matchit.zip'
 " Plugin 'kana/vim-textobj-user'
