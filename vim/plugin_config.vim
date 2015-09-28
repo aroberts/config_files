@@ -11,9 +11,9 @@ function BundleReloadAndRun(command)
   execute a:command
 endfunction
 
-nnoremap <Leader>bi :call BundleReloadAndRun("BundleInstall")<CR>
-nnoremap <Leader>bu :call BundleReloadAndRun("BundleInstall!")<CR>
-nnoremap <Leader>bc :call BundleReloadAndRun("BundleClean")<CR>
+" nnoremap <Leader>bi :call BundleReloadAndRun("BundleInstall")<CR>
+" nnoremap <Leader>bu :call BundleReloadAndRun("BundleInstall!")<CR>
+" nnoremap <Leader>bc :call BundleReloadAndRun("BundleClean")<CR>
 
 " ---------------
 " space.vim

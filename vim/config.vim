@@ -5,6 +5,7 @@
 " ---------------
 " Color
 " ---------------
+set background=dark
 colorscheme hybrid
 
 " Force 256 color mode if available
