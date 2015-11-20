@@ -91,6 +91,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 # GRC aliases
 source "`brew --prefix`/etc/grc.bashrc"
 
+if [ -e "$HOME/.zshrc.local" ]; then
+  source "$HOME/.zshrc.local"
+fi
+
 psa() {
   # TODO: is this useful? move it to an antigen plugin
   if [ ! -z $1 ] ; then
