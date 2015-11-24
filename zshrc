@@ -39,6 +39,12 @@ if [ -e "$HOME/.rvm/scripts/rvm" ]; then
   source "$HOME/.rvm/scripts/rvm"
 fi
 
+# docker
+: ${DOCKER_VIRTUALBOX_NAME:=dockerbox}
+if [ -d "$HOME/.docker/machine/machines/$DOCKER_VIRTUALBOX_NAME" ]; then
+  eval "$(docker-machine env $DOCKER_VIRTUALBOX_NAME)"
+fi
+
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export PATH=./.git/safe/../../bin:$PATH
