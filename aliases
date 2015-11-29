@@ -9,6 +9,8 @@ alias unflac='find . -iname \*.flac -print0 | xargs -0 -n 1 flac2mp3'
 alias ag='\ag --pager="less -XFR"'
 
 alias xjcp='xargs -J % cp %'
+alias ftlsave='cp ~/Library/Application\ Support/FasterThanLight/continue.sav ~'
+alias ftlload='cp ~/continue.sav ~/Library/Application\ Support/FasterThanLight'
 
 which htop >/dev/null && alias top=htop
 which hub >/dev/null && alias git=hub
