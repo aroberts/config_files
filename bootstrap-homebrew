@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# install homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# install packages
+brew install \
+  caskroom/cask/brew-cask \
+  zsh \
+  readline \
+  python \
+  python3 \
+  macvim \
+  flac \
+  hub \
+  git \
+  gnu-tar \
+  grc \
+  lame \
+  wget \
+

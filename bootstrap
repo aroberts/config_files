@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until script has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Enable character repeat on keydown
+# defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Set a shorter Delay until key repeat
+defaults write NSGlobalDomain InitialKeyRepeat -int 35
+
+# Set keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 2
+
+# Full keyboard access (tabbable controls
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
+
+# Set default Finder location to home folder (~/)
+defaults write com.apple.finder NewWindowTarget -string "PfLo" && \
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
+
+# Use current directory as default search scope in Finder
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Show icons for hard drives, servers, and removable media on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true && \
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true && \
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true && \
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Enable the Develop menu and the Web Inspector in Safari
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true && \
+defaults write com.apple.Safari IncludeDevelopMenu -bool true && \
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true && \
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true && \
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+
