@@ -11,6 +11,7 @@ brew install \
   python \
   python3 \
   macvim \
+  vim \
   flac \
   hub \
   git \
