@@ -110,6 +110,7 @@ Plugin 'indenthtml.vim'
 Plugin 'mutewinter/tomdoc.vim'
 Plugin 'jc00ke/vim-tomdoc'
 ""    Other Languages
+Plugin 'derekwyatt/vim-scala'
 Plugin 'indentpython.vim'
 Plugin 'msanders/cocoa.vim'
 Plugin 'mutewinter/taskpaper.vim'
