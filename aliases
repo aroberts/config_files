@@ -16,3 +16,7 @@ which htop >/dev/null && alias top=htop
 which hub >/dev/null && alias git=hub
 which rerun >/dev/null && alias prerun='rerun -p "**/*.{py,env,dev,foreman,js,css,hbs,scss}"'
 which rerun >/dev/null && alias pfs='prerun foreman start'
+
+
+which docker >/dev/null && \
+        alias docker-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }} {{ .Name }}'"
