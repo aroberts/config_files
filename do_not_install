@@ -2,3 +2,5 @@ do_not_install
 install.sh
 userContent.css
 osx
+bootstrap
+bootstrap-homebrew
