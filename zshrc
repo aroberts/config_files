@@ -40,10 +40,10 @@ if [ -e "$HOME/.rvm/scripts/rvm" ]; then
 fi
 
 # docker
-: ${DOCKER_VIRTUALBOX_NAME:=dockerbox}
-if [ -d "$HOME/.docker/machine/machines/$DOCKER_VIRTUALBOX_NAME" ]; then
-  eval "$(docker-machine env $DOCKER_VIRTUALBOX_NAME)"
-fi
+# : ${DOCKER_VIRTUALBOX_NAME:=dockerbox}
+# if [ -d "$HOME/.docker/machine/machines/$DOCKER_VIRTUALBOX_NAME" ]; then
+#   eval "$(docker-machine env $DOCKER_VIRTUALBOX_NAME)"
+# fi
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
