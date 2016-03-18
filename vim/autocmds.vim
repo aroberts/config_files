@@ -25,8 +25,12 @@ if has("autocmd")
     "       \ silent! :StripTrailingWhiteSpace
 
     autocmd BufNewFile,BufRead *.vim set filetype=vim
+    autocmd BufNewFile,BufRead *.eye set filetype=ruby
     autocmd BufNewFile,BufRead .ipythonrc set filetype=python
     autocmd BufNewFile,BufRead *.jinja set filetype=htmljinja
+
+    " set javascript tabs
+    autocmd FileType javascript set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 
     " set python files properly
     autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
