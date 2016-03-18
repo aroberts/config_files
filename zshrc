@@ -94,6 +94,9 @@ export NOSE_REDNOSE=1
 # virtualenvwrapper setup
 export WORKON_HOME=$HOME/.virtualenvs
 
+# javaaaaaaa
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 # GRC aliases
 source "`brew --prefix`/etc/grc.bashrc"
 
