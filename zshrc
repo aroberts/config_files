@@ -1,5 +1,6 @@
 # antigen
 source "$HOME/.zsh/antigen/antigen.zsh"
+source "$HOME/.zsh/antigen-bundle-conf.zsh"
 source "$HOME/.zsh/antigen-bundles.zsh"
 
 # completion
