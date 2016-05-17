@@ -40,10 +40,23 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['scss'] }
 
+let g:syntastic_ignore_files = ['\m\c\.h$', '\m\.sbt$']
+
+" Scala has fsc and scalac checkers--running both is pretty redundant and
+" slow. An explicit `:SyntasticCheck scalac` can always run the other.
+let g:syntastic_scala_checkers = ['fsc']
 
 " Hat tip http://git.io/SPIBfg
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
+
+
+" ---------------
+" ENSIME
+" ---------------
+au FileType scala nnoremap <localleader>y :EnTypeCheck<CR>
+au FileType scala nnoremap <localleader>b :EnDeclaration<CR>
+
 
 " ---------------
 " NERDTree
@@ -396,10 +409,10 @@ let g:voogle_map="<leader>gg"
 " ---------------
 " rspec.vim
 " ---------------
-map <Leader>tt :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" map <Leader>tt :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
 
 
 " ---------------
