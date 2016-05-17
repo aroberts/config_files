@@ -77,8 +77,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 " ---------------
 " Session
 " ---------------
-let g:session_autosave = 1
-let g:session_autoload = 0
+let g:session_autosave = 'yes'
+let g:session_autoload = 'no'
 nnoremap <leader>os :OpenSession<CR>
 nnoremap <leader>ss :SaveSession<CR>
 
