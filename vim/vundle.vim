@@ -84,7 +84,7 @@ Plugin 'g3orge/vim-voogle'
 Plugin 'IndexedSearch'
 Plugin 'xolox/vim-session'
 " Plugin 'Raimondi/delimitMate'
-" Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 " Plugin 'ervandew/supertab'
 Plugin 'Valloric/MatchTagAlways'
 " Plugin 'Valloric/YouCompleteMe'
@@ -135,6 +135,9 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
 Plugin 'mattn/webapi-vim'
 Plugin 'xolox/vim-misc'
+
+" Ensime
+Plugin 'ensime/ensime-vim'
 
 call vundle#end()
 filetype plugin indent on
