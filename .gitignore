@@ -3,3 +3,8 @@ vim/.netrwhist
 vim/bundle
 vim/sessions
 .DS_STORE
+
+sbt/0.13/plugins/project/
+sbt/0.13/plugins/target/
+sbt/boot/
+
