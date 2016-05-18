@@ -46,6 +46,9 @@ let g:syntastic_ignore_files = ['\m\c\.h$', '\m\.sbt$']
 " slow. An explicit `:SyntasticCheck scalac` can always run the other.
 let g:syntastic_scala_checkers = ['fsc']
 
+let g:syntastic_javascript_checkers = ['jshint']
+
+
 " Hat tip http://git.io/SPIBfg
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
