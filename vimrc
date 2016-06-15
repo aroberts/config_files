@@ -3,8 +3,9 @@
 " sets a bunch of variables we want when loading Vundle bundles
 colorscheme default
 
-" All of the plugins are installed with Vundle from this file.
-source ~/.vim/vundle.vim
+" All of the plugins are installed with vim-plug from this file.
+" source ~/.vim/vundle.vim
+source ~/.vim/vim-plug.vim
 
 " Automatically detect file types. (must turn on after Vundle)
 filetype plugin indent on

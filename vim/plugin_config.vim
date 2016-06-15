@@ -3,19 +3,6 @@
 " ----------------------------------------
 
 " ---------------
-" Vundle
-" ---------------
-command! ReloadVundle source ~/.vim/vundle.vim
-function BundleReloadAndRun(command)
-  :ReloadVundle
-  execute a:command
-endfunction
-
-" nnoremap <Leader>bi :call BundleReloadAndRun("BundleInstall")<CR>
-" nnoremap <Leader>bu :call BundleReloadAndRun("BundleInstall!")<CR>
-" nnoremap <Leader>bc :call BundleReloadAndRun("BundleClean")<CR>
-
-" ---------------
 " space.vim
 " ---------------
 " Disables space mappings in select mode to fix snipMate.
