@@ -3,12 +3,6 @@
 " ----------------------------------------
 
 " ---------------
-" space.vim
-" ---------------
-" Disables space mappings in select mode to fix snipMate.
-let g:space_disable_select_mode = 1
-
-" ---------------
 " Syntastic
 " ---------------
 
@@ -170,8 +164,8 @@ let g:html_indent_tags = 'li\|p'
 " ---------------
 " Ag.vim
 " ---------------
-" nnoremap <silent> <leader>as :AgFromSearch<CR>
-" nnoremap <leader>ag :Ag<space>
+nnoremap <silent> <leader>as :AgFromSearch<CR>
+nnoremap <leader>ag :Ag<space>
 
 " ---------------
 " surround.vim
@@ -179,10 +173,10 @@ let g:html_indent_tags = 'li\|p'
 " Use # to get a variable interpolation (inside of a string)}
 " ysiw#   Wrap the token under the cursor in #{}
 " Thanks to http://git.io/_XqKzQ
-" let g:surround_35  = "#{\r}"
+let g:surround_35  = "#{\r}"
 " Expand {xyz} to { xyz }
 " mnemonic: Change to Open Brace
-" nnoremap cob :normal cs{{<cr>
+nnoremap cob :normal cs{{<cr>
 
 " ---------------
 " Gifl - Google I'm Feeling Lucky URL Grabber
@@ -197,10 +191,10 @@ let g:GIFLSuppressRubyWarning = 1
 noremap gs :SidewaysRight<cr>
 noremap gS :SidewaysLeft<cr>
 
-" ---------------
-" switch.vim
-" ---------------
-nnoremap - :Switch<cr>
+" " ---------------
+" " switch.vim
+" " ---------------
+" nnoremap - :Switch<cr>
 
 " ---------------
 " indenthtml
@@ -285,88 +279,6 @@ let g:startify_show_files_number = 5
 " ---------------
 let g:togglecursor_leave='line'
 
-" ---------------
-" rails.vim
-" ---------------
-" nnoremap <leader>a <CR>
-" nnoremap <leader>r   :R
-" nnoremap <leader>rmm :Rmodel<space>
-
-" nnoremap <leader>rff :Rfabricator<space>
-" nnoremap <leader>rll :Rlayout<space>
-" nnoremap <leader>rla :Rlayout<space>
-" nnoremap <leader>rlo :Rlocale<space>
-" nnoremap <leader>rlb :Rlib<space>
-" nnoremap <leader>rcc :Rcontroller<space>
-" nnoremap <leader>rvv :Rview<space>
-" nnoremap <leader>ree :Renvironment<space>
-" nnoremap <leader>rhh :Rhelper<space>
-" nnoremap <leader>rii :Rinitializer<space>
-" nnoremap <leader>rjj :Rjavascript<space>
-" nnoremap <leader>rtt :Rtemplate<space>
-
-" nnoremap <leader>rss :Rspec<space>
-" nnoremap <leader>rsm :Rspec models/
-" nnoremap <leader>rsc :Rspec controllers/
-" nnoremap <leader>rsv :Rspec views/
-" nnoremap <leader>rsl :Rspec lib/
-
-" Add custom commands for Rails.vim
-" Thanks to http://git.io/_cBVeA and http://git.io/xIKnCw
-" let g:rails_projections = {
-"       \ 'app/models/*.rb': {'keywords': 'validates_conditional'},
-"       \ 'db/seeds/*.rb': {'command': 'seeds'},
-"       \ 'app/concerns/*.rb': {'command': 'concern'},
-"       \ 'spec/support/*.rb': {'command': 'support'},
-"       \ 'db/seeds.rb': {'command': 'seeds'}}
-"
-" let g:rails_gem_projections = {
-"       \ 'factory_girl_rails': {
-"       \   'spec/factories.rb': {'command': 'factory'},
-"       \   'spec/factories/*_factory.rb': {
-"       \     'command': 'factory',
-"       \     'affinity': 'model',
-"       \     'alternate': 'app/models/%s.rb',
-"       \     'related': 'db/schema.rb#%p',
-"       \     'test': 'spec/models/%s_spec.rb',
-"       \     'template': "FactoryGirl.define do\n  factory :%s do\n  end\nend",
-"       \     'keywords': 'factory sequence'
-"       \   },
-"       \   'spec/factories/*.rb': {
-"       \     'command': 'factory',
-"       \     'affinity': 'collection',
-"       \     'alternate': 'app/models/%o.rb',
-"       \     'related': 'db/schema.rb#%s',
-"       \     'test': 'spec/models/%o_spec.rb',
-"       \     'template': "FactoryGirl.define do\n  factory :%o do\n  end\nend",
-"       \     'keywords': 'factory sequence'
-"       \   },
-"       \  },
-"       \ 'fabrication': {
-"       \   'spec/fabricators/*_fabricator.rb': {
-"       \     'command': 'fabricator',
-"       \     'affinity': 'model',
-"       \     'alternate': 'app/models/%s.rb',
-"       \     'related': 'db/schema.rb#%p',
-"       \     'test': 'spec/models/%s_spec.rb',
-"       \     'template': "Fabricator(:%s) do\nend",
-"       \     'keywords': 'sequence initialize_with on_init transient after_build before_validation after_validation before_save before_create after_create after_save'
-"       \   },
-"       \ },
-"       \ 'draper': {
-"       \   'app/decorators/*_decorator.rb': {
-"       \     'command': 'decorator',
-"       \     'affinity': 'model',
-"       \     'test': 'spec/decorators/%s_spec.rb',
-"       \     'related': 'app/models/%s.rb',
-"       \     'template': "class %SDecorator < Draper::Decorator\nend"
-"       \   }
-"       \ },
-"       \ 'cucumber-rails': {
-"       \   'features/*.feature': {'command': 'feature'},
-"       \   'features/step_definitions/*_steps.rb': {'command': 'steps'},
-"       \   'features/support/*.rb': {'command': 'support'}
-"       \ }}
 
 " ---------------
 " UltiSnips
@@ -391,29 +303,6 @@ let g:togglecursor_leave='line'
 " let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpForwardTrigger="<tab>"
 
-" ---------------
-" Voogle
-" ---------------
-let g:voogle_map="<leader>gg"
-
-
-" ---------------
-" rspec.vim
-" ---------------
-" map <Leader>tt :call RunCurrentSpecFile()<CR>
-" map <Leader>s :call RunNearestSpec()<CR>
-" map <Leader>l :call RunLastSpec()<CR>
-" map <Leader>a :call RunAllSpecs()<CR>
-
-
-" ---------------
-" Turbux
-" ---------------
-" let g:no_turbux_mappings = 1
-" map <leader>e <Plug>SendTestToTmux
-" map <leader>x <Plug>SendFocusedTestToTmux
-" let g:turbux_command_rspec = 'spring rspec'
-" let g:turbux_command_cucumber = 'spring cucumber'
 
 " ---------------
 " tcomment_vim
@@ -429,6 +318,4 @@ let g:tcommentMaps = 1
 " ---------------
 " Hide python garbage files by default
 let g:netrw_list_hide = "^\.\/$,^.*\.pyc$,^.*\.sw.$,^.*\.egg-info"
-
-
 
