@@ -65,12 +65,13 @@ au FileType scala nnoremap <localleader>b :EnDeclaration<CR>
 let g:indent_guides_enable_on_vim_startup = 1
 
 " ---------------
-" Session
+" ProSession
 " ---------------
-let g:session_autosave = 'yes'
-let g:session_autoload = 'no'
-nnoremap <leader>os :OpenSession<CR>
-nnoremap <leader>ss :SaveSession<CR>
+" let g:loaded_prosession = 1
+" let g:prosession_on_startup = 1
+" let g:prosession_default_session = 0
+" let g:prosession_per_branch = 0
+
 
 " ---------------
 " Tabular

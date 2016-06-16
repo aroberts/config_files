@@ -9,24 +9,21 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.vim/plugs')
 
 """ Navigation
-" Plug 'ZoomWin'
-" This fork is required due to remapping ; to :
-" Plug 'christoomey/vim-space'
-Plug 'kien/ctrlp.vim'
-Plug 'JazzCore/ctrlp-cmatcher'
+Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'JazzCore/ctrlp-cmatcher'
 
 """ UI Additions
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Plug 'scrooloose/nerdtree'
 Plug 'Rykka/colorv.vim'
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
 " Plug 'mbbill/undotree'
-" Plug 'jszakmeister/vim-togglecursor'
 
 """ Color schemes
 Plug 'nanotech/jellybeans.vim'
@@ -43,52 +40,46 @@ Plug 'aroberts/colorbundle.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 
 if executable('ag')
-  Plug 'epmatsw/ag.vim'
+  Plug 'rking/ag.vim'
 elseif executable('ack')
   Plug 'mileszs/ack.vim'
 endif
 
-" Plug 'milkypostman/vim-togglelist'
 Plug 'tpope/vim-abolish'
-" Plug 'scratch.vim'
-" Plug 'mattn/emmet-vim'
-" Plug 'mutewinter/GIFL'
-Plug 'AndrewRadev/switch.vim'
-" Plug 'tpope/vim-eunuch'
-" Plug 'itspriddle/vim-marked'
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'handlebars.html'] }
+" Plug 'mutewinter/GIFL' " wrap text in google-i'm-feeling-lucky search result
+" Plug 'AndrewRadev/switch.vim'
+Plug 'tpope/vim-eunuch' " shell commands/file manip in vim
 Plug 'mutewinter/UnconditionalPaste'
 Plug 'HelpClose'
 Plug 'mattn/gist-vim'
-Plug 'nelstrom/vim-visual-star-search'
+Plug 'bronson/vim-visual-star-search'
 Plug 'sk1418/Join'
 " Plug 'SirVer/ultisnips'
-Plug 'g3orge/vim-voogle'
-" Plug 'benmills/vimux'
-" Plug 'jgdavey/vim-turbux'
-" Plug 'ecomba/vim-ruby-refactoring'
-" Plug 'christoomey/vim-tmux-navigator'
 
 """ Automatic Helpers
-Plug 'IndexedSearch'
-Plug 'xolox/vim-session'
-" Plug 'Raimondi/delimitMate'
+Plug 'henrik/vim-indexed-search'
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
+" Plug 'Raimondi/delimitMate' " auto insert pair delimiters
 Plug 'scrooloose/syntastic'
-" Plug 'ervandew/supertab'
 Plug 'Valloric/MatchTagAlways'
-" Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
+
+" check file on disk for changes more often
 " Plug 'kballenegger/vim-autoreadwatch'
 
 """ Language Additions
 ""    Ruby
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-haml'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-bundler'
-Plug 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'tpope/vim-rake', { 'for': 'ruby' }
+Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
 ""    JavaScript
 Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
@@ -97,35 +88,24 @@ Plug 'leshill/vim-json'
 Plug 'nono/vim-handlebars'
 Plug 'othree/html5.vim'
 Plug 'indenthtml.vim'
-""    TomDoc
-Plug 'mutewinter/tomdoc.vim'
-Plug 'jc00ke/vim-tomdoc'
 ""    Other Languages
 Plug 'derekwyatt/vim-scala'
 Plug 'indentpython.vim'
-Plug 'msanders/cocoa.vim'
-Plug 'mutewinter/taskpaper.vim'
-Plug 'mutewinter/nginx.vim'
+Plug 'blueyed/nginx.vim'
 Plug 'timcharper/textile.vim'
 Plug 'hail2u/vim-css3-syntax'
-" Plug 'mutewinter/vim-tmux'
 Plug 'plasticboy/vim-markdown'
 Plug 'groenewege/vim-less'
-Plug 'wavded/vim-stylus'
 Plug 'tpope/vim-cucumber'
 Plug 'chrisbra/csv.vim'
 Plug 'mitsuhiko/vim-jinja'
 Plug 'keith/swift.vim'
-""" MatchIt
-" Plug 'matchit.zip'
-" Plug 'kana/vim-textobj-user'
-" Plug 'nelstrom/vim-textobj-rubyblock'
 " Libraries
 Plug 'L9'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'mattn/webapi-vim'
-Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-misc'
 
 " Ensime
 Plug 'ensime/ensime-vim'

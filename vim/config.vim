@@ -140,7 +140,7 @@ set mouse=a    " Mouse in all modes
 " set complete=.,w,b,u,U
 set complete=.,w,b,u,t,i
 
-" Use Ack instead of Grep when available
-if executable("ack")
-  set grepprg=ack\ -H\ --nogroup\ --nocolor
-endif
+" " Use Ack instead of Grep when available
+" if executable("ack")
+"   set grepprg=ack\ -H\ --nogroup\ --nocolor
+" endif

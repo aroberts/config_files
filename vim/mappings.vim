@@ -2,7 +2,7 @@
 " Mappings
 " ----------------------------------------
 
-" Set leader to ,
+" Set leader
 " Note: This line MUST come before any <leader> mappings
 let mapleader=" "
 let maplocalleader=" "
@@ -21,7 +21,7 @@ nnoremap vy ggVG
 " Hat-tip http://vimbits.com/bits/11
 nnoremap Y y$
 
-" Just to beginning and end of lines easier. From http://vimbits.com/bits/16
+" Jump to beginning and end of lines easier. From http://vimbits.com/bits/16
 noremap H ^
 noremap L $
 
@@ -91,8 +91,6 @@ inoremap <C-l> <C-x><C-l>
 
 " Easier Scrolling (think j/k with left hand)
 " All variations are mapped for now until I get used to one
-" C/M/D + d (page up)
-" C/M/D + f (page down)
 nnoremap <C-j> 15gjzz
 nnoremap <C-k> 15gkzz
 vnoremap <C-j> 15gjzz
@@ -114,7 +112,6 @@ inoremap jK <Esc>
 
 " Clear search
 noremap <silent><leader>/ :nohls<CR>
-noremap <silent><leader>nh :nohls<CR>
 
 " Highlight search word under cursor without jumping to next
 nnoremap <leader>h *<C-O>
@@ -152,11 +149,11 @@ nnoremap <leader>jt <Esc>:%!underscore print<CR><Esc>:set filetype=json<CR>
 nnoremap <leader><leader> <c-^>
 
 " Split window vertically or horizontally *and* switch to the new split!
-" nnoremap <silent> <leader>hs :split<Bar>:wincmd j<CR>
-" nnoremap <silent> <leader>vs :vsplit<Bar>:wincmd l<CR>
+nnoremap <silent> <leader>hs :split<Bar>:wincmd j<CR>
+nnoremap <silent> <leader>vs :vsplit<Bar>:wincmd l<CR>
 
 " Close the current window
-" nnoremap <silent> <leader>sc :close<CR>
+nnoremap <silent> <leader>sc :close<CR>
 " ---------------
 " Typo Fixes
 " ---------------
@@ -189,14 +186,11 @@ map <leader>w :w <C-R>=expand("%:h") . "/" <CR>
 " Normal mode: ,r
 map <leader>r :Gmove <C-R>=expand("%:h") . "/" <CR>
 
-" Edits the previously edited file
-" Normal mode: gb
-map gb <C-^>
-
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
+" add a blank line below cursor
 nnoremap cl o<Esc>^Dk
 
 " Tab completion
