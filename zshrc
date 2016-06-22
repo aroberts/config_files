@@ -84,6 +84,11 @@ unsetopt nomatch
 # enable caching of git-prompt
 # ZSH_THEME_GIT_PROMPT_CACHE=1
 
+find $HOME/.antigen/repos/*zsh-git-prompt.git -type f -name gitstatus | grep .bin &> /dev/null
+if [ $? -eq 0 ]; then
+  export GIT_PROMPT_EXECUTABLE="haskell"
+fi
+
 
 # prompt
 export PS1='$(virtualenv_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}]$(git_super_status) '
