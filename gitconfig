@@ -14,6 +14,7 @@
 [alias]
   c = commit -m
   ca = commit --amend
+  can = commit --amend --no-edit
   ap = add --patch
   a = add
   di = diff
@@ -33,7 +34,7 @@
   changes = diff --name-stats -r
   diffstat = diff --stat -r
   new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-  alias = !sh -c 'git config --list | grep "^alias" | sed "s/^alias\\.//"'
+  aliases = !sh -c 'git config --list | grep "^alias" | sed "s/^alias\\.//"'
   sweep = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
   up = !git fetch origin && git rebase origin/master
   pr = !hub pull-request
@@ -51,4 +52,4 @@
 [fetch]
   prune = true
 [mergetool]
-	keepBackup = false
+  keepBackup = false
