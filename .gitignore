@@ -2,6 +2,7 @@
 vim/.netrwhist
 vim/bundle
 vim/plugs
+vim/session
 vim/sessions
 vim/autoload/plug.vim
 .DS_STORE
