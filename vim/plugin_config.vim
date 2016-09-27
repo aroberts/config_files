@@ -29,6 +29,7 @@ let g:syntastic_scala_checkers = ['fsc']
 let g:syntastic_filetype_map = { "handlebars.html": "handlebars" }
 let g:syntastic_javascript_checkers = ['jshint']
 
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute ", "trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 
 " Hat tip http://git.io/SPIBfg
 let g:syntastic_error_symbol = '✗'
