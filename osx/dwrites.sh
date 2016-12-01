@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# no emoji substitutions in Messages.app
-# defaults write com.apple.messageshelper.MessageController SOInputLineSettings \
-# -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
+# emoji substitutions in Messages.app
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings \
+-dict-add "automaticEmojiSubstitutionEnablediMessage" -bool true
 #
+
+# safari find using substring rather than prefix
+defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool FALSE
 
