@@ -67,7 +67,7 @@ Plug 'dhruvasagar/vim-prosession'
 " Plug 'Raimondi/delimitMate' " auto insert pair delimiters
 Plug 'scrooloose/syntastic'
 Plug 'Valloric/MatchTagAlways'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 
 " check file on disk for changes more often
 " Plug 'kballenegger/vim-autoreadwatch'
@@ -108,7 +108,7 @@ Plug 'mattn/webapi-vim'
 " Plug 'xolox/vim-misc'
 
 " Ensime
-Plug 'ensime/ensime-vim'
+" Plug 'ensime/ensime-vim'
 
 call plug#end()
 
