@@ -1,0 +1,62 @@
+# antigen
+source "/usr/local/share/antigen/antigen.zsh"
+
+# oh-my-zsh by default
+antigen use oh-my-zsh
+
+# bundles
+antigen bundles <<EOBUNDLES
+  pip
+  brew
+  fabric
+  heroku
+  brew
+  vi-mode
+
+  zsh-users/zsh-history-substring-search
+
+  # virtualenv # the prompt provided here sucks
+  tonyseek/oh-my-zsh-virtualenv-prompt
+  virtualenvwrapper
+
+  # autoenv
+  Tarrasch/zsh-autoenv
+
+  # let's be clear about when we're overriding default OMZ
+  aroberts/oh-my-zsh plugins/invoke
+
+  # other crap
+  aroberts/zsh-git-prompt
+  # $HOME/Source/zsh-git-prompt
+
+  # my bundles
+  $HOME/.zsh/wo
+
+EOBUNDLES
+
+
+#################
+# CONFIGURATION #
+#################
+
+# enable caching of git-prompt
+# ZSH_THEME_GIT_PROMPT_CACHE=1
+
+# use haskell git executable for speed, where available
+find $HOME/.antigen/repos/*zsh-git-prompt.git -type f -name gitstatus | grep .bin &> /dev/null
+if [ $? -eq 0 ]; then
+  export GIT_PROMPT_EXECUTABLE="haskell"
+fi
+
+# autoenv config
+AUTOENV_FILE_ENTER=.env
+
+# zsh-history-substring-search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+
+# apply bundles and configuration to shell
+antigen apply

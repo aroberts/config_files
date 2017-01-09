@@ -1,8 +1,3 @@
-# antigen
-source "/usr/local/share/antigen/antigen.zsh"
-source "$HOME/.zsh/antigen-bundle-conf.zsh"
-source "$HOME/.zsh/antigen-bundles.zsh"
-
 # completion
 fpath=('/usr/local/share/zsh/site-functions' $fpath)
 autoload -U compinit
@@ -55,14 +50,11 @@ export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/heroku/bin:$PATH
 setopt prompt_subst
 
 # include zsh files - handled by antigen, and causes double-sourcing of
-# antigen-bundles if uncommented (see source cmd at top of file)
+# antigen-bundles if uncommented
 # for config_file ($HOME/.zsh/*.zsh) source $config_file
 
 # tab completion for custom git scripts
 zstyle ':completion:*:git:*' user-commands ${${(k)commands[(I)git-*]}#git-}
-
-# apply antigen bundles
-antigen-apply
 
 # vi mode
 bindkey -v
@@ -81,14 +73,7 @@ bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 # Allow [ or ] whereever you want
 unsetopt nomatch
 
-# enable caching of git-prompt
-# ZSH_THEME_GIT_PROMPT_CACHE=1
-
-find $HOME/.antigen/repos/*zsh-git-prompt.git -type f -name gitstatus | grep .bin &> /dev/null
-if [ $? -eq 0 ]; then
-  export GIT_PROMPT_EXECUTABLE="haskell"
-fi
-
+[[ -f ~/.antigenrc ]] && source ~/.antigenrc
 
 # prompt
 export PS1='$(virtualenv_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}]$(git_super_status) '

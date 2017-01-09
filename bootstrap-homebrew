@@ -6,6 +6,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 # install packages
 brew install \
   caskroom/cask/brew-cask \
+  antigen \
   zsh \
   readline \
   python \
