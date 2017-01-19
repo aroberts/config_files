@@ -1,8 +1,8 @@
 # antigen
 source "/usr/local/share/antigen/antigen.zsh"
 
-# oh-my-zsh by default
-antigen use oh-my-zsh
+# oh-my-zsh by default - uncommenting this pollutes my LSCOLORS
+# antigen use oh-my-zsh
 
 # bundles
 antigen bundles <<EOBUNDLES
@@ -56,7 +56,6 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
-
 
 # apply bundles and configuration to shell
 antigen apply
