@@ -73,7 +73,14 @@ bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 # Allow [ or ] whereever you want
 unsetopt nomatch
 
-[[ -f ~/.antigenrc ]] && source ~/.antigenrc
+# antigen
+ANTIGEN_SRC="/usr/local/share/antigen/antigen.zsh"
+if [ -e "$ANTIGEN_SRC" ]; then
+  source "$ANTIGEN_SRC"
+  [[ -f ~/.antigenrc ]] && source ~/.antigenrc
+else
+  echo "Antigen not installed, use \`brew install antigen\`"
+fi
 
 # prompt
 export PS1='$(virtualenv_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}]$(git_super_status) '
