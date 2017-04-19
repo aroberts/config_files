@@ -39,6 +39,7 @@
   up = !git fetch origin && git rebase origin/master
   pr = !hub pull-request
   co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
+  shell = !sh -c 'gitsh --git $(which hub)'
 [github]
   user = aroberts
 [push]
