@@ -1,13 +1,9 @@
 " Credit github.com/mutewinter/dot_vim
 
-" sets a bunch of variables we want when loading Vundle bundles
-colorscheme default
-
 " All of the plugins are installed with vim-plug from this file.
-" source ~/.vim/vundle.vim
 source ~/.vim/vim-plug.vim
 
-" Automatically detect file types. (must turn on after Vundle)
+" Automatically detect file types. (must turn on after vim-plug)
 filetype plugin indent on
 
 " Platform (Windows, Mac, etc.) configuration.
