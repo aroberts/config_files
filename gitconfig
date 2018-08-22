@@ -40,6 +40,7 @@
   pr = !hub pull-request
   co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
   sh = !sh -c 'gitsh --git $(which hub)'
+  conflicts = !sh -c 'git ls-files --unmerged | cut -f2 | uniq'
 [github]
   user = aroberts
 [push]
