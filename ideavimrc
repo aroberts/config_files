@@ -1,0 +1,32 @@
+set ignorecase
+set smartcase
+set scrolloff=3         " 3 lines above/below cursor when scrolling
+set timeoutlen=450
+
+" Integrate with system clipboard
+" set clipboard=unnamedplus,unnamed
+
+let mapleader=" "
+
+" Use Q for formatting the current paragraph (or visual selection)
+" DOESN'T WORK
+" vmap Q gq
+" nmap Q gqap
+
+" Action list: https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
+nmap <C-T> :action GotoClass<cr>
+nmap <C-A> :action Annotate<cr>
+nmap <C--><C--> :action CommentByLineComment<cr>
+vmap <C--><C--> :action CommentByLineComment<cr>
+
+set gdefault
+
+noremap H ^
+noremap L $
+
+nnoremap Y y$
+
+nnoremap <C-j> 15gjzz
+nnoremap <C-k> 15gkzz
+vnoremap <C-j> 15gjzz
+vnoremap <C-k> 15gkzz
