@@ -96,7 +96,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 # GRC aliases
-source "`brew --prefix`/etc/grc.bashrc"
+GRC_CONF="`brew --prefix`/etc/grc.bashrc"
+if [ -e "$GRC_CONF" ]; then
+  source "$GRC_CONF"
+fi
 
 if [ -e "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
