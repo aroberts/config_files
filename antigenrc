@@ -5,7 +5,7 @@
 antigen bundles <<EOBUNDLES
   pip
   brew
-  fabric
+  # fabric
   heroku
   brew
   vi-mode
@@ -13,14 +13,14 @@ antigen bundles <<EOBUNDLES
   zsh-users/zsh-history-substring-search
 
   # virtualenv # the prompt provided here sucks
-  tonyseek/oh-my-zsh-virtualenv-prompt
-  virtualenvwrapper
+  # tonyseek/oh-my-zsh-virtualenv-prompt
+  # virtualenvwrapper
 
   # autoenv
   Tarrasch/zsh-autoenv
 
   # let's be clear about when we're overriding default OMZ
-  aroberts/oh-my-zsh plugins/invoke
+  # aroberts/oh-my-zsh plugins/invoke
 
   # other crap
   aroberts/zsh-git-prompt
