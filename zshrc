@@ -83,7 +83,11 @@ else
 fi
 
 # prompt
-export PS1='$(virtualenv_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}]$(git_super_status) '
+export PS1='[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}]$(git_super_status) '
+which virtualenv_prompt_info > /dev/null
+if [ $? -eq 0 ]; then
+  export PS1='$(virtualenv_prompt_info)$PS1'
+fi
 
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONUNBUFFERED=1
