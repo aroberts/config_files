@@ -16,6 +16,7 @@ let mapleader=" "
 " Action list: https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
 nmap <C-T> :action GotoClass<cr>
 nmap <C-A> :action Annotate<cr>
+nmap <C-H> :action TypeHierarchy<cr>
 nmap <C--><C--> :action CommentByLineComment<cr>
 vmap <C--><C--> :action CommentByLineComment<cr>
 
