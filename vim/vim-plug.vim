@@ -20,7 +20,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'scrooloose/nerdtree'
-Plug 'Rykka/colorv.vim'
+" Plug 'Rykka/colorv.vim' # broken- https://github.com/gu-fan/colorv.vim/issues/32
 Plug 'mhinz/vim-signify'
 Plug 'mhinz/vim-startify'
 " Plug 'mbbill/undotree'

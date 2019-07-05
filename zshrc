@@ -83,7 +83,11 @@ else
 fi
 
 # prompt
-export PS1='$(virtualenv_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}]$(git_super_status) '
+export PS1='[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}]$(git_super_status) '
+which virtualenv_prompt_info > /dev/null
+if [ $? -eq 0 ]; then
+  export PS1='$(virtualenv_prompt_info)$PS1'
+fi
 
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONUNBUFFERED=1
@@ -96,7 +100,10 @@ export WORKON_HOME=$HOME/.virtualenvs
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 # GRC aliases
-source "`brew --prefix`/etc/grc.bashrc"
+GRC_CONF="`brew --prefix`/etc/grc.bashrc"
+if [ -e "$GRC_CONF" ]; then
+  source "$GRC_CONF"
+fi
 
 if [ -e "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
