@@ -3,7 +3,7 @@ wo () {
   targets=("$HOME/Source")
   if [[ -z $1 ]]; then
     ( for t in $targets; do
-      ls -d "$t"/*/ | xargs -n 1 basename
+      \ls -d "$t"/*/ | xargs -n 1 basename
     done ) | sort
   else
     for t in $targets; do
