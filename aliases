@@ -21,3 +21,5 @@ which rerun >/dev/null && alias pfs='prerun foreman start'
 
 which docker >/dev/null && \
         alias docker-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }} {{ .Name }}'"
+
+uname -a | grep Ubuntu && alias ls='ls --color'
