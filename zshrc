@@ -97,7 +97,7 @@ export NOSE_REDNOSE=1
 export WORKON_HOME=$HOME/.virtualenvs
 
 # javaaaaaaa
-uname | grep Darwin && export JAVA_HOME=$(/usr/libexec/java_home)
+uname | grep Darwin >/dev/null && export JAVA_HOME=$(/usr/libexec/java_home)
 
 # GRC aliases
 GRC_CONF="`brew --prefix`/etc/grc.bashrc"
