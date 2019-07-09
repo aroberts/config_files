@@ -96,13 +96,16 @@ export NOSE_REDNOSE=1
 # virtualenvwrapper setup
 export WORKON_HOME=$HOME/.virtualenvs
 
-# javaaaaaaa
-uname | grep Darwin >/dev/null && export JAVA_HOME=$(/usr/libexec/java_home)
+uname | grep Darwin >/dev/null
+if [ $? -eq 0 ]; then
+  # javaaaaaaa
+  export JAVA_HOME=$(/usr/libexec/java_home)
 
-# GRC aliases
-GRC_CONF="`brew --prefix`/etc/grc.bashrc"
-if [ -e "$GRC_CONF" ]; then
-  source "$GRC_CONF"
+  # GRC aliases
+  GRC_CONF="`brew --prefix`/etc/grc.bashrc"
+  if [ -e "$GRC_CONF" ]; then
+    source "$GRC_CONF"
+  fi
 fi
 
 if [ -e "$HOME/.zshrc.local" ]; then
