@@ -73,15 +73,6 @@ bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
 # Allow [ or ] whereever you want
 unsetopt nomatch
 
-# antigen
-ANTIGEN_SRC="/usr/local/share/antigen/antigen.zsh"
-if [ -e "$ANTIGEN_SRC" ]; then
-  source "$ANTIGEN_SRC"
-  [[ -f ~/.antigenrc ]] && source ~/.antigenrc
-else
-  echo "Antigen not installed, use \`brew install antigen\`"
-fi
-
 # prompt
 export PS1='[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}]$(git_super_status) '
 which virtualenv_prompt_info > /dev/null
@@ -98,18 +89,29 @@ export WORKON_HOME=$HOME/.virtualenvs
 
 uname | grep Darwin >/dev/null
 if [ $? -eq 0 ]; then
+  # antigen
+  ANTIGEN_SRC="/usr/local/share/antigen/antigen.zsh"
+
   # javaaaaaaa
   export JAVA_HOME=$(/usr/libexec/java_home)
 
   # GRC aliases
   GRC_CONF="`brew --prefix`/etc/grc.bashrc"
-  if [ -e "$GRC_CONF" ]; then
-    source "$GRC_CONF"
-  fi
 fi
 
 if [ -e "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
+fi
+
+if [ -e "$ANTIGEN_SRC" ]; then
+  source "$ANTIGEN_SRC"
+  [[ -f ~/.antigenrc ]] && source ~/.antigenrc
+else
+  echo "Antigen not installed, use \`brew install antigen\`"
+fi
+
+if [ -e "$GRC_CONF" ]; then
+  source "$GRC_CONF"
 fi
 
 psa() {
