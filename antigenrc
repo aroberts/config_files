@@ -51,8 +51,14 @@ EOBUNDLES
 AUTOENV_FILE_ENTER=.env
 
 # zsh-history-substring-search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+uname -a | grep Ubuntu >/dev/null
+if [ $? -eq 0 ]; then
+  bindkey '^[OA' history-substring-search-up
+  bindkey '^[OB' history-substring-search-down
+else
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+fi
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
