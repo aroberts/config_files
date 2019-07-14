@@ -15,6 +15,11 @@
   c = commit -m
   ca = commit --amend
   can = commit --amend --no-edit
+  cp = cherry-pick
+  com = checkout master
+  rbc = !git rebase --continue && git status
+  rbac = !git add . && git rebase --continue && git status
+  rbi = !git fetch origin && git rebase -i origin/master
   ap = add --patch
   a = add
   di = diff
