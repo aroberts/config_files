@@ -87,11 +87,12 @@ export NOSE_REDNOSE=1
 # virtualenvwrapper setup
 export WORKON_HOME=$HOME/.virtualenvs
 
+
+# antigen
+ANTIGEN_SRC="$HOME/.src/antigen/antigen.zsh"
+
 uname | grep Darwin >/dev/null
 if [ $? -eq 0 ]; then
-  # antigen
-  ANTIGEN_SRC="/usr/local/share/antigen/antigen.zsh"
-
   # javaaaaaaa
   export JAVA_HOME=$(/usr/libexec/java_home)
 
