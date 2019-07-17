@@ -13,6 +13,7 @@
   ca = commit --amend
   can = commit --amend --no-edit
   cp = cherry-pick
+  co = checkout
   com = checkout master
   rbc = !git rebase --continue && git status
   rbac = !git add . && git rebase --continue && git status
@@ -40,8 +41,7 @@
   aliases = !sh -c 'git config --list | grep "^alias" | sed "s/^alias\\.//"'
   sweep = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
   up = !git fetch origin && git rebase origin/master
-  pr = !hub pull-request
-  co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
+  cpr = !hub pull-request
   sh = !sh -c 'gitsh --git $(which hub)'
   conflicts = !sh -c 'git ls-files --unmerged | cut -f2 | uniq'
 [github]
