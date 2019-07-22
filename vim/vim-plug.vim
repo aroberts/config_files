@@ -49,13 +49,11 @@ elseif executable('ack')
 endif
 
 Plug 'tpope/vim-abolish'
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'handlebars.html'] }
-" Plug 'mutewinter/GIFL' " wrap text in google-i'm-feeling-lucky search result
-" Plug 'AndrewRadev/switch.vim'
+" Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'handlebars.html'] }
 Plug 'tpope/vim-eunuch' " shell commands/file manip in vim
-Plug 'mutewinter/UnconditionalPaste'
+Plug 'inkarkat/vim-UnconditionalPaste'
 Plug 'vim-scripts/HelpClose'
-Plug 'mattn/gist-vim'
+" Plug 'mattn/gist-vim'
 Plug 'bronson/vim-visual-star-search'
 Plug 'sk1418/Join'
 " Plug 'SirVer/ultisnips'
@@ -74,12 +72,12 @@ Plug 'Valloric/MatchTagAlways'
 
 """ Language Additions
 ""    Ruby
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'tpope/vim-rake', { 'for': 'ruby' }
-Plug 'tpope/vim-bundler', { 'for': 'ruby' }
-Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'tpope/vim-haml'
+" Plug 'tpope/vim-rails', { 'for': 'ruby' }
+" Plug 'tpope/vim-rake', { 'for': 'ruby' }
+" Plug 'tpope/vim-bundler', { 'for': 'ruby' }
+" Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
 ""    JavaScript
 Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
@@ -96,9 +94,9 @@ Plug 'timcharper/textile.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'groenewege/vim-less'
-Plug 'tpope/vim-cucumber'
+" Plug 'tpope/vim-cucumber'
 Plug 'chrisbra/csv.vim'
-Plug 'mitsuhiko/vim-jinja'
+" Plug 'mitsuhiko/vim-jinja'
 Plug 'keith/swift.vim'
 " Libraries
 Plug 'vim-scripts/L9'
@@ -106,9 +104,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'mattn/webapi-vim'
 " Plug 'xolox/vim-misc'
-
-" Ensime
-" Plug 'ensime/ensime-vim'
 
 call plug#end()
 
