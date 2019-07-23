@@ -12,6 +12,7 @@ alias xjcp='xargs -J % cp %'
 
 alias fixscreen='sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.screensharing.plist &&  sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist'
 
+alias tls='tmux ls'
 
 which htop >/dev/null && alias top=htop
 which hub >/dev/null && alias git=hub
