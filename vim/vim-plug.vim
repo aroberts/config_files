@@ -63,7 +63,7 @@ Plug 'henrik/vim-indexed-search'
 Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
 " Plug 'Raimondi/delimitMate' " auto insert pair delimiters
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'Valloric/MatchTagAlways'
 " Plug 'Valloric/YouCompleteMe'
 
