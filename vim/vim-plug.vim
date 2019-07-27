@@ -64,7 +64,7 @@ Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
 " Plug 'Raimondi/delimitMate' " auto insert pair delimiters
 Plug 'vim-syntastic/syntastic'
-Plug 'Valloric/MatchTagAlways'
+if has('python3') | Plug 'Valloric/MatchTagAlways' | endif
 " Plug 'Valloric/YouCompleteMe'
 
 " check file on disk for changes more often
