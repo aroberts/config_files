@@ -124,12 +124,3 @@ fi
 if [ -e "$GRC_CONF" ]; then
   source "$GRC_CONF"
 fi
-
-psa() {
-  # TODO: is this useful? move it to an antigen plugin
-  if [ ! -z $1 ] ; then
-    ps aux | ag $1
-  else
-    ps aux
-  fi
-}
