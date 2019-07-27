@@ -87,10 +87,18 @@ export NOSE_REDNOSE=1
 # virtualenvwrapper setup
 export WORKON_HOME=$HOME/.virtualenvs
 
+# color stuff
+if [ $TERM == "xterm" ]; then
+  export TERM=xterm-256color
+fi
+
+export LSCOLORS="exfxcxdxbxegedabagacad"
+export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
 # antigen
 ANTIGEN_SRC="$HOME/.src/antigen/antigen.zsh"
 
+# mac stuff
 uname | grep Darwin >/dev/null
 if [ $? -eq 0 ]; then
   # javaaaaaaa
@@ -100,6 +108,10 @@ if [ $? -eq 0 ]; then
   GRC_CONF="`brew --prefix`/etc/grc.bashrc"
 fi
 
+
+####### Config should go above this line so .zshrc.local can override it ######
+
+
 if [ -e "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
 fi
@@ -107,16 +119,11 @@ fi
 if [ -e "$ANTIGEN_SRC" ]; then
   source "$ANTIGEN_SRC"
   [[ -f ~/.antigenrc ]] && source ~/.antigenrc
-else
-  echo "Antigen not installed, use \`brew install antigen\`"
 fi
 
 if [ -e "$GRC_CONF" ]; then
   source "$GRC_CONF"
 fi
-
-export LSCOLORS="exfxcxdxbxegedabagacad"
-export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
 psa() {
   # TODO: is this useful? move it to an antigen plugin
