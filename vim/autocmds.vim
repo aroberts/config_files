@@ -29,6 +29,14 @@ if has("autocmd")
     autocmd BufNewFile,BufRead .ipythonrc set filetype=python
     autocmd BufNewFile,BufRead *.jinja set filetype=htmljinja
 
+    " https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+
+    " Notification after file change
+    " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+    autocmd FileChangedShellPost *
+          \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
     " set javascript tabs
     autocmd FileType javascript set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 
