@@ -42,7 +42,6 @@ let g:syntastic_warning_symbol = '⚠'
 au FileType scala nnoremap <localleader>y :EnTypeCheck<CR>
 au FileType scala nnoremap <localleader>b :EnDeclaration<CR>
 
-
 " ---------------
 " NERDTree
 " ---------------
@@ -58,6 +57,13 @@ au FileType scala nnoremap <localleader>b :EnDeclaration<CR>
 " Indent Guides
 " ---------------
 let g:indent_guides_enable_on_vim_startup = 1
+
+if !has("gui_running")
+  let indent_guides_auto_colors = 0
+
+  hi IndentGuidesOdd ctermbg=236
+  hi IndentGuidesEven ctermbg=238
+endif
 
 " ---------------
 " ProSession
