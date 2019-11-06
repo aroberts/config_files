@@ -36,6 +36,10 @@ Plug 'zeis/vim-kolor'
 Plug 'tpope/vim-vividchalk'
 Plug 'aroberts/colorbundle.vim'
 
+if executable('yarn')
+  Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install()}}
+endif
+
 """ Commands
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'

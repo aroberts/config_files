@@ -28,6 +28,7 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.eye set filetype=ruby
     autocmd BufNewFile,BufRead .ipythonrc set filetype=python
     autocmd BufNewFile,BufRead *.jinja set filetype=htmljinja
+    autocmd BufNewFile,BufRead *.sbt set filetype=scala
 
     " https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
     autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
@@ -46,6 +47,12 @@ if has("autocmd")
     " scss files
     autocmd FileType scss set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
     autocmd FileType handlebars.html set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
+
+    autocmd Filetype scala 
+          \ if exists('CocAction') |
+          \   source ~/.vim/coc-config.vim
+          \ endif
+
 
     " Help mode bindings
     " <enter> to follow tag, <bs> to go back, and q to quit.
