@@ -29,6 +29,7 @@ if has("autocmd")
     autocmd BufNewFile,BufRead .ipythonrc set filetype=python
     autocmd BufNewFile,BufRead *.jinja set filetype=htmljinja
     autocmd BufNewFile,BufRead *.sbt set filetype=scala
+    autocmd BufNewFile,BufRead *.tmux set filetype=tmux
 
     " https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
     autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
