@@ -17,3 +17,4 @@ sbt/1.0/zinc
 sbt/boot/
 sbt/preloaded
 
+tmux/plugins/*
