@@ -44,6 +44,7 @@
   cpr = !hub pull-request
   sh = !sh -c 'gitsh --git $(which hub)'
   conflicts = !sh -c 'git ls-files --unmerged | cut -f2 | uniq'
+  sup = !sh -c 'git submodule init && git submodule update'
 [github]
   user = aroberts
 [push]
