@@ -5,3 +5,4 @@ set -g @resurrect-save 'S'
 set -g @resurrect-restore 'R'
 
 set -g @plugin 'tmux-plugins/tmux-logging'
+set -g @logging_key 'O'
