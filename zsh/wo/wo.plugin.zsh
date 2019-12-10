@@ -7,7 +7,7 @@ wo () {
     done ) | sort
   else
     for t in $targets; do
-      local dir="$t/$@"
+      local dir="$t/$1"
       if [[ -d $dir ]]; then
         cd -P $dir
         return 0
