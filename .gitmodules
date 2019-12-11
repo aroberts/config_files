@@ -1,3 +1,6 @@
 [submodule "src/antigen"]
 	path = src/antigen
 	url = https://github.com/zsh-users/antigen.git
+[submodule "tmux/plugins/tmux-logging"]
+	path = tmux/plugins/tmux-logging
+	url = https://github.com/tmux-plugins/tmux-logging
