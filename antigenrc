@@ -4,10 +4,8 @@
 # bundles
 antigen bundles <<EOBUNDLES
   pip
-  brew
   # fabric
   heroku
-  brew
   vi-mode
 
   zsh-users/zsh-history-substring-search
