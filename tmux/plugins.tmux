@@ -1,8 +1,8 @@
-set -g @plugin 'tmux-plugins/tpm'
+tmux_plugin_root='~/.tmux/plugins'
 
-set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @resurrect-save 'S'
 set -g @resurrect-restore 'R'
+run-shell -b '#{tmux_plugin_root}/tmux-resurrect/resurrect.tmux'
 
-set -g @plugin 'tmux-plugins/tmux-logging'
 set -g @logging_key 'O'
+run-shell -b '#{tmux_plugin_root}/tmux-logging/logging.tmux'
