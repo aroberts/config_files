@@ -1,4 +1,4 @@
-tmux_plugin_root='~/.tmux/plugins'
+tmux_plugin_root='~/.tmux/tmux-plugins'
 
 set -g @resurrect-save 'S'
 set -g @resurrect-restore 'R'
