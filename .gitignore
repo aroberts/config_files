@@ -7,14 +7,12 @@ vim/sessions
 vim/autoload/plug.vim
 .DS_STORE
 
-sbt/0.13/plugins/project/
-sbt/0.13/plugins/target/
-sbt/0.13/plugins/idea.sbt
-sbt/0.13/target/
-sbt/1.0/plugins
-sbt/1.0/staging
-sbt/1.0/server
-sbt/1.0/zinc
+sbt/*/target/
+sbt/*/plugins
+sbt/*/staging
+sbt/*/server
+sbt/*/zinc
+sbt/*/swoval-jni
 sbt/boot/
 sbt/preloaded
 
