@@ -6,3 +6,5 @@ run-shell -b '#{tmux_plugin_root}/tmux-resurrect/resurrect.tmux'
 
 set -g @logging_key 'O'
 run-shell -b '#{tmux_plugin_root}/tmux-logging/logging.tmux'
+
+run-shell -b '#{tmux_plugin_root}/tmux-yank/yank.tmux'
