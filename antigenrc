@@ -7,6 +7,8 @@ antigen bundles <<EOBUNDLES
   # fabric
   heroku
   vi-mode
+  docker
+  docker-compose
 
   zsh-users/zsh-history-substring-search
 
