@@ -10,3 +10,6 @@
 [submodule "tmux/tmux-plugins/tmux-yank"]
 	path = tmux/tmux-plugins/tmux-yank
 	url = https://github.com/tmux-plugins/tmux-yank
+[submodule "vim/src/vim-plug"]
+	path = vim/src/vim-plug
+	url = https://github.com/junegunn/vim-plug.git
