@@ -102,5 +102,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'mattn/webapi-vim'
 " Plug 'xolox/vim-misc'
 
+Plug 'edkolev/tmuxline.vim'
+
 call plug#end()
 
