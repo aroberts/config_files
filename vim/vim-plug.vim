@@ -102,7 +102,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'mattn/webapi-vim'
 " Plug 'xolox/vim-misc'
 
-Plug 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim' " disable while not using
 
 call plug#end()
 
