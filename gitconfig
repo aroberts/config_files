@@ -61,3 +61,5 @@
   keepBackup = false
 [include]
   path = ~/.gitconfig.local
+[pull]
+	rebase = false
