@@ -25,6 +25,12 @@ SAVEHIST=4096
 # use vim as an editor
 export EDITOR=vim
 
+__SUDOCMD="sudo"
+
+if [ -e "$HOME/.zshrc.vars" ]; then
+  source "$HOME/.zshrc.vars"
+fi
+
 # aliases
 if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
@@ -68,7 +74,7 @@ bindkey "^R" history-incremental-search-backward
 bindkey "^P" history-search-backward
 bindkey "^Y" accept-and-hold
 bindkey "^N" insert-last-word
-bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
+bindkey -s "^T" "^[I$__SUDOCMD ^[A" # "t" for "toughguy"
 
 # Allow [ or ] whereever you want
 unsetopt nomatch

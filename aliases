@@ -29,10 +29,17 @@ __check docker-compose && alias dcu="docker-compose up -d"
 __check docker-compose && alias dcuf="docker-compose up -d --force-recreate"
 __check docker-compose && alias dcul="docker-compose up -d && docker-compose logs"
 
-
 which docker >/dev/null && \
         alias docker-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }} {{ .Name }}'"
 
 uname -a | grep -v Darwin >/dev/null && alias ls='ls --color'
+uname -a | grep -v Darwin >/dev/null && function addsysuser() {
+  syntax="addsysuser <description> <shortname>"
+  if [[ -z "$1" || -z "$2" ]]; then
+    echo $syntax
+  else
+    $__SUDOCMD adduser -D -g "$1" "$2" "$2" && id "$2"
+  fi
+}
 
 unfunction __check
