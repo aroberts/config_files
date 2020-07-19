@@ -51,14 +51,20 @@ EOBUNDLES
 AUTOENV_FILE_ENTER=.env
 
 # zsh-history-substring-search
-uname | grep Linux >/dev/null
-if [ $? -eq 0 ]; then
-  bindkey '^[OA' history-substring-search-up
-  bindkey '^[OB' history-substring-search-down
-else
-  bindkey '^[[A' history-substring-search-up
-  bindkey '^[[B' history-substring-search-down
-fi
+#
+# this block can't differentiate between warehouse and ec2 - just bind them all
+# uname | grep Linux >/dev/null
+# if [ $? -eq 0 ]; then
+#   bindkey '^[OA' history-substring-search-up
+#   bindkey '^[OB' history-substring-search-down
+# else
+#   bindkey '^[[A' history-substring-search-up
+#   bindkey '^[[B' history-substring-search-down
+# fi
+bindkey '^[OA' history-substring-search-up
+bindkey '^[OB' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
