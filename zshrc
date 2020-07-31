@@ -112,6 +112,8 @@ uname | grep Darwin >/dev/null
 if [ $? -eq 0 ]; then
   # javaaaaaaa
   export JAVA_HOME=$(/usr/libexec/java_home)
+  # no dock icon for java procs
+  export JAVA_TOOL_OPTIONS="-Dapple.awt.UIElement=true"
 
   # GRC aliases
   GRC_CONF="`brew --prefix`/etc/grc.bashrc"
