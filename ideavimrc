@@ -2,8 +2,19 @@ set ignorecase
 set smartcase
 set scrolloff=3         " 3 lines above/below cursor when scrolling
 set timeoutlen=450
+set surround
+set visualbell
+set noerrorbells
+set incsearch " Highlight search results when typing
+set hlsearch " Highlight search results
+
+set ignorecase " Ignore case when searching
+set smartcase " If there is an uppercase in your search term
+
+
 
 " Integrate with system clipboard
+set clipboard+=unnamed
 " set clipboard=unnamedplus,unnamed
 
 let mapleader=" "
@@ -31,3 +42,42 @@ nnoremap <C-j> 15gjzz
 nnoremap <C-k> 15gkzz
 vnoremap <C-j> 15gjzz
 vnoremap <C-k> 15gkzz
+
+" Refactorings
+" nnoremap <leader>oi :action OptimizeImports<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>rf :action RenameFile<CR>
+nnoremap <leader>ri :action Inline<CR>
+nnoremap <leader>rv :action IntroduceVariable<CR>
+nnoremap <leader>rm :action ExtractMethod<CR>
+nnoremap <leader>rr :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>rp :action IntroduceParameter<CR>
+nnoremap <leader>im :action ImplementMethods<CR>
+nnoremap <leader>om :action OverrideMethods<CR>
+
+" open quickfix menu
+nnoremap <leader>qf :action ShowIntentionActions<CR>
+
+" format code - ?
+nnoremap <leader>F :action ReformatCode<CR>
+
+" GoTo
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gr :action FindUsages<CR>
+nnoremap <leader>gi :action GotoImplementation<CR>
+nnoremap <leader>gs :action ActivateStructureToolWindow<CR>
+nnoremap <leader>sp :action ParameterInfo<CR>
+nnoremap <leader>si :action Scala.ShowImplicitArguments<CR>
+nnoremap <leader>sd :action QuickImplementations<CR>
+
+" Types
+nnoremap K :action Scala.TypeInfo<CR>
+vmap K :action Scala.TypeInfo<CR>
+
+" Search
+nnoremap <leader>fs :action GotoSymbol<CR>
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fc :action GotoClass<CR>
+nnoremap <leader>fa :action GotoAction<CR>
+nnoremap <leader>fg :action FindInPath<CR>
+nnoremap <leader>fr :action ReplaceInPath<CR>
