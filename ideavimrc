@@ -21,8 +21,12 @@ let mapleader=" "
 
 " Use Q for formatting the current paragraph (or visual selection)
 " DOESN'T WORK
-" vmap Q gq
-" nmap Q gqap
+vmap Q gq
+nmap Q gqap
+
+" Clear search
+" DOESN'T WORK
+" noremap <silent><leader>/ :nohls<CR>
 
 " Action list: https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
 nmap <C-T> :action GotoClass<cr>
