@@ -24,6 +24,8 @@ which hub >/dev/null && alias git=hub
 which rerun >/dev/null && alias prerun='rerun -p "**/*.{py,env,dev,foreman,js,css,hbs,scss}"'
 which rerun >/dev/null && alias pfs='prerun foreman start'
 
+__check dscacheutil && alias flush_dns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+
 __check docker-compose && alias dc="docker-compose"
 __check docker-compose && alias dcu="docker-compose up -d"
 __check docker-compose && alias dcuf="docker-compose up -d --force-recreate"
