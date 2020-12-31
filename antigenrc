@@ -3,9 +3,9 @@
 
 # bundles
 antigen bundles <<EOBUNDLES
-  pip
+  # pip
   # fabric
-  heroku
+  # heroku
   vi-mode
   docker
   docker-compose
