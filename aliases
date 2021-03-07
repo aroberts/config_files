@@ -37,8 +37,7 @@ __check kafkacat && alias kcat_082='kafkacat -Xapi.version.request=false -Xbroke
 __check ansible-vault && alias av=ansible-vault
 __check ansible-playbook && alias ap=ansible-playbook
 
-which docker >/dev/null && \
-        alias docker-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }} {{ .Name }}'"
+__check docker && alias docker-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }} {{ .Name }}'"
 
 uname -a | grep -v Darwin >/dev/null && alias ls='ls --color'
 uname -a | grep -v Darwin >/dev/null && function addsysuser() {
