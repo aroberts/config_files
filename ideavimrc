@@ -20,9 +20,15 @@ set clipboard+=unnamed
 let mapleader=" "
 
 " Use Q for formatting the current paragraph (or visual selection)
-" DOESN'T WORK
-vmap Q gq
-nmap Q gqap
+" DOESN'T WORK - https://youtrack.jetbrains.com/issue/VIM-186
+" vmap Q gq
+" nmap Q gqap
+
+" requires https://plugins.jetbrains.com/plugin/7234-wrap-to-column/versions
+nmap gqq :action com.andrewbrookins.idea.wrap.WrapAction<CR>
+vmap gq :action com.andrewbrookins.idea.wrap.WrapAction<CR>
+map Q :action com.andrewbrookins.idea.wrap.WrapAction<CR>
+
 
 " Clear search
 " DOESN'T WORK
