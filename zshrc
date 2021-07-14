@@ -119,6 +119,11 @@ if [ $? -eq 0 ]; then
   GRC_CONF="`brew --prefix`/etc/grc.bashrc"
 fi
 
+random_string () {
+  len=${1:=20}
+  openssl rand -base64 $(( $len * 2 )) | sed 's/[\/+=]*//g' | head -c $len
+}
+
 
 ####### Config should go above this line so .zshrc.local can override it ######
 
