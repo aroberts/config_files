@@ -2,4 +2,4 @@
 
 git pull
 git sup
-vim +PlugClean +PlugInstall +qall
+vim +PlugClean +PlugUpdate +PlugInstall +qall
