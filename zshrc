@@ -1,6 +1,6 @@
 # completion
 fpath=('/usr/local/share/zsh/site-functions' $fpath)
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
 # makes color constants available
