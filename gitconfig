@@ -62,6 +62,11 @@
 [include]
   path = ~/.gitconfig.local
 [pull]
-	rebase = false
+  rebase = false
 [init]
-	defaultBranch = master
+  defaultBranch = master
+
+[filter "ansible-vault"]
+  smudge = ansible-vault decrypt
+  clean = ansible-vault encrypt
+  required
