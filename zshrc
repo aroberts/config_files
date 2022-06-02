@@ -121,7 +121,7 @@ fi
 
 random_string () {
   len=${1:=20}
-  openssl rand -base64 $(( $len * 2 )) | sed 's/[\/+=]*//g' | head -c $len
+  openssl rand -base64 $(( $len * 2 )) | tr '\n' '=' | sed 's/[\/+=]*//g' | head -c $len
 }
 
 
