@@ -124,6 +124,12 @@ random_string () {
   openssl rand -base64 $(( $len * 2 )) | tr '\n' '=' | sed 's/[\/+=]*//g' | head -c $len
 }
 
+keepdir () {
+  for var in "$@"
+  do
+    mkdir -p $var && touch $var/.gitkeep
+  done
+}
 
 ####### Config should go above this line so .zshrc.local can override it ######
 
