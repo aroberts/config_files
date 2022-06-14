@@ -13,3 +13,6 @@
 [submodule "vim/src/vim-plug"]
 	path = vim/src/vim-plug
 	url = https://github.com/junegunn/vim-plug.git
+[submodule "tmux/tmux-plugins/tmux-continuum"]
+	path = tmux/tmux-plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum
