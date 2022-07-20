@@ -40,7 +40,7 @@ __check kafkacat && alias kcat='kafkacat -Xapi.version.request=false -Xbroker.ve
 __check kafkacat && alias kcat_082='kafkacat -Xapi.version.request=false -Xbroker.version.fallback=0.8.2'
 
 __check ansible-vault && alias av=ansible-vault
-__check ansible-playbook && alias ap=ansible-playbook
+__check ansible-playbook && alias ap="time ansible-playbook"
 
 __check docker && alias docker-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }} {{ .Name }}'"
 
