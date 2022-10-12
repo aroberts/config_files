@@ -33,6 +33,9 @@ nnoremap gO O<Esc>j
 " from http://vimbits.com/bits/356
 nnoremap U <C-r>
 
+" vim in tmux needs lots of redraws; handy shortcut
+nnoremap <leader>d :redraw!<CR>
+
 " Swap implementations of ` and ' jump to markers
 " By default, ' jumps to the marked line, ` jumps to the marked line and
 " column, so swap them
