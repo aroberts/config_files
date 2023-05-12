@@ -18,6 +18,7 @@
   rbc = !git rebase --continue && git status
   rbac = !git add . && git rebase --continue && git status
   rbi = !git fetch origin && git rebase -i origin/master
+  caall = !git add -A && git commit -m
   ap = add --patch
   a = add
   di = diff
