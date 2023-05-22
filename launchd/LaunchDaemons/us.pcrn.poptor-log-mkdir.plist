@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>us.pcrn.poptor-mkdirs</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/sh</string>
+      <string>-c</string>
+      <string>mkdir -p /var/log/aroberts; chmod g+w /var/log/aroberts; chown root:staff /var/log/aroberts</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+  </dict>
+</plist>
