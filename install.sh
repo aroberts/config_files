@@ -59,3 +59,6 @@ for name in *; do
     fi
   fi
 done
+
+# update launchd scripts, where appropriate
+uname | grep Darwin >/dev/null && launchd/install.sh
