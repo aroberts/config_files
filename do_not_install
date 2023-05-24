@@ -6,3 +6,4 @@ bootstrap
 bootstrap-homebrew
 update.sh
 launchd
+symlinks
