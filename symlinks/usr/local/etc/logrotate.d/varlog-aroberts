@@ -1,0 +1,9 @@
+/var/log/aroberts/* {
+  rotate 10
+  size 5M
+  compress
+  delaycompress
+  notifempty
+  missingok
+}
+
