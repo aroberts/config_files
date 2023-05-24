@@ -10,7 +10,7 @@
       <string>/Users/aroberts/Library/Mobile Documents/iCloud~md~obsidian/Documents/main</string>
     </array>
     <key>StartInterval</key>
-    <integer>60</integer>
+    <integer>600</integer>
     <key>StandardOutPath</key>
     <string>/var/log/aroberts/aroberts.obsidian.commit.log</string>
     <key>StandardErrorPath</key>
