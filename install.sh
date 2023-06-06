@@ -61,6 +61,6 @@ for name in *; do
 done
 
 # update launchd scripts, where appropriate
-uname | grep Darwin >/dev/null && launchd/install.sh
+uname | grep Darwin >/dev/null && launchd/install.sh || true
 # link in anything else that needs to be part of the system
-uname | grep Darwin >/dev/null && symlinks/install.sh
+uname | grep Darwin >/dev/null && symlinks/install.sh || true
