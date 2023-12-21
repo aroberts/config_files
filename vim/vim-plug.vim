@@ -95,6 +95,7 @@ Plug 'groenewege/vim-less'
 Plug 'chrisbra/csv.vim'
 " Plug 'mitsuhiko/vim-jinja'
 Plug 'keith/swift.vim'
+Plug 'hashivim/vim-terraform'
 " Libraries
 Plug 'vim-scripts/L9'
 Plug 'tpope/vim-repeat'
