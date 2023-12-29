@@ -85,6 +85,7 @@ which virtualenv_prompt_info > /dev/null
 if [ $? -eq 0 ]; then
   export PS1='$(virtualenv_prompt_info)$PS1'
 fi
+export RPROMPT='%{$fg[white]%}%T%{$reset_color%}'
 
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONUNBUFFERED=1
