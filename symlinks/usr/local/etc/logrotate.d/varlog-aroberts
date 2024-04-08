@@ -1,4 +1,5 @@
-/var/log/aroberts/* {
+/var/log/aroberts/*.log {
+  nocreate
   rotate 10
   size 5M
   compress
