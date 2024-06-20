@@ -26,7 +26,7 @@ antigen bundles <<EOBUNDLES
   aroberts/zsh-git-prompt
 
   # colors
-  unixorn/warhol.plugin.zsh
+  unixorn/warhol.plugin.zsh@main
 
   # my bundles
   $HOME/.zsh/wo
