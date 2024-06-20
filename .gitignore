@@ -14,5 +14,6 @@ sbt/*/zinc
 sbt/*/swoval-jni
 sbt/boot/
 sbt/preloaded
+sbt/1.0
 
 tmux/resurrect/*
