@@ -68,7 +68,9 @@
 [init]
   defaultBranch = master
 
-[filter "ansible-vault"]
-  smudge = ansible-vault decrypt
-  clean = ansible-vault encrypt
-  required
+# [filter "ansible-vault"]
+#   smudge = /Users/aroberts/bin/vault-git-tool smudge
+#   clean = /Users/aroberts/bin/vault-git-tool clean
+#   required
+# [diff "ansible-vault"]
+#   textconv = /Users/aroberts/bin/vault-git-tool clean
