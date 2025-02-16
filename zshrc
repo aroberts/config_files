@@ -50,7 +50,7 @@ fi
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export PATH=./.git/safe/../../bin:$PATH
-export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/heroku/bin:$PATH
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # expand functions in the prompt
 setopt prompt_subst
