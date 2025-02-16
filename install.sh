@@ -60,6 +60,9 @@ for name in *; do
   fi
 done
 
+# init/update submodules in this repo
+which git &>/dev/null && git submodule init && git submodule update
+
 # update launchd scripts, where appropriate
 uname | grep Darwin >/dev/null && launchd/install.sh || true
 # link in anything else that needs to be part of the system
