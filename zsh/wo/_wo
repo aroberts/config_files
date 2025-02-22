@@ -1,7 +1,10 @@
 #compdef wo
 #autoload
 
-cmds=( ${(uf)"$( wo )"} ) 
+## for whatever reason, when I migrated to a new machine, this completion did
+## not work until i ran `antigen apply` manually in an interactive session.
+## Noting for posterity
+local -a cmds=( ${(uf)"$( wo )"} )
 
 _describe 'completion for wo function' cmds
 
