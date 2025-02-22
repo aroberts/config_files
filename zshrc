@@ -1,5 +1,12 @@
+local local_install_prefix=/usr/local
+
+# brew detection and setup
+which brew &>/dev/null
+if [ $? -eq 0 ]; then
+  local local_install_prefix=`brew --prefix`
+fi
+
 # completion
-fpath=('/usr/local/share/zsh/site-functions' $fpath)
 autoload -Uz compinit
 compinit
 
@@ -50,7 +57,7 @@ fi
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export PATH=./.git/safe/../../bin:$PATH
-export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:"$local_install_prefix/sbin":"$local_install_prefix"/bin:$PATH
 
 # expand functions in the prompt
 setopt prompt_subst
