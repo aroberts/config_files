@@ -51,8 +51,15 @@
   user = aroberts
 [push]
   default = simple
+  autoSetupRemote = true
+  followTags = true
 [diff]
   compactionHeuristic = 1
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+[column]
+  ui = auto
 [pager]
   log = diff-highlight | less
   show = diff-highlight | less
