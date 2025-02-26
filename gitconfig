@@ -58,20 +58,36 @@
   algorithm = histogram
   colorMoved = plain
   mnemonicPrefix = true
+[merge]
+  conflictstyle = zdiff3
 [column]
   ui = auto
+[branch]
+  sort = -committerdate
+[tag]
+  sort = version:refname
 [pager]
   log = diff-highlight | less
   show = diff-highlight | less
   diff = diff-highlight | less
+[commit]
+  verbose = true
 [fetch]
   prune = true
+  pruneTags = true
+  all = true
 [mergetool]
   keepBackup = false
 [include]
   path = ~/.gitconfig.local
+[rebase]
+  autosquash = true
+  autostash = true
+  updateRefs = true
 [pull]
   rebase = false
+[help]
+  autocorrect = prompt
 [init]
   defaultBranch = master
 
