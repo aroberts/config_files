@@ -60,8 +60,6 @@
   mnemonicPrefix = true
 [merge]
   conflictstyle = zdiff3
-[column]
-  ui = auto
 [branch]
   sort = -committerdate
 [tag]
