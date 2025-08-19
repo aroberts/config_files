@@ -57,7 +57,7 @@ fi
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export PATH=./.git/safe/../../bin:$PATH
-export PATH=$HOME/bin:"$local_install_prefix/sbin":"$local_install_prefix"/bin:$PATH
+export PATH=$HOME/bin:"$local_install_prefix/sbin":"$local_install_prefix"/bin:$HOME/.local/bin:$PATH
 
 # expand functions in the prompt
 setopt prompt_subst
