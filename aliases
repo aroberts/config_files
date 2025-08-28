@@ -8,7 +8,6 @@ __check(){
 alias versions_pip="pip freeze | grep -v \"^\-e\" | cut -d = -f 1 | xargs -n 1 pip search | grep -B2 'LATEST:'"
 alias outline='ag --nocolor "^\s*(class|def)\s"'
 alias sl=ls
-alias mivm=mvim
 alias unflac='find . -iname \*.flac -print0 | xargs -0 -n 1 flac2mp3'
 
 alias ag='\ag --pager="less -XFR"'
@@ -42,13 +41,20 @@ __check lazydocker && ldoc() {
 
 __check terraform && alias tf=terraform
 
-__check kafkacat && alias kcat='kafkacat -Xapi.version.request=false -Xbroker.version.fallback=0.9.0.1'
-__check kafkacat && alias kcat_082='kafkacat -Xapi.version.request=false -Xbroker.version.fallback=0.8.2'
-
 __check ansible-vault && alias av=ansible-vault
 __check ansible-playbook && alias ap="time ansible-playbook"
 
 __check docker && alias docker-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }} {{ .Name }}'"
+
+#################### WORK STUFF ########################
+
+__check claude && alias 8x8-claude='CLAUDE_CONFIG_DIR=~/.8x8-claude claude'
+
+__check kafkacat && alias kcat='kafkacat -Xapi.version.request=false -Xbroker.version.fallback=0.9.0.1'
+__check kafkacat && alias kcat_082='kafkacat -Xapi.version.request=false -Xbroker.version.fallback=0.8.2'
+
+################ END WORK STUFF ########################
+
 
 uname -a | grep -v Darwin >/dev/null && alias ls='ls --color'
 uname -a | grep -v Darwin >/dev/null && function addsysuser() {

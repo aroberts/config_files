@@ -34,6 +34,10 @@ export EDITOR=vim
 
 __SUDOCMD="sudo"
 
+# do path early, so any command checks work in an expected way
+export PATH=./.git/safe/../../bin:$PATH
+export PATH=$HOME/bin:"$local_install_prefix/sbin":"$local_install_prefix"/bin:$HOME/.local/bin:$PATH
+
 if [ -e "$HOME/.zshrc.vars" ]; then
   source "$HOME/.zshrc.vars"
 fi
@@ -55,9 +59,6 @@ fi
 # fi
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-export PATH=./.git/safe/../../bin:$PATH
-export PATH=$HOME/bin:"$local_install_prefix/sbin":"$local_install_prefix"/bin:$HOME/.local/bin:$PATH
 
 # expand functions in the prompt
 setopt prompt_subst
