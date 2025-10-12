@@ -34,12 +34,6 @@ __check docker && docker-running-versions() {
   docker inspect $(docker ps  | awk '{print $2}' | grep -v ID) | jq -c .[].RepoTags
 }
 
-# __check docker-compose && alias dc="docker-compose"
-# __check docker-compose && alias dcu="docker-compose up -d"
-# __check docker-compose && alias dcuf="docker-compose up -d --force-recreate"
-# __check docker-compose && alias dcul="docker-compose up -d && docker-compose logs"
-# __check docker-compose && alias dclf="docker-compose logs -f --tail=100"
-
 __check lazydocker && ldoc() {
   DOCKER_HOST=ssh://${2:-ansible}@$1 lazydocker
 }
