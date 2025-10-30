@@ -7,6 +7,7 @@ if [ $? -eq 0 ]; then
 fi
 
 # completion
+fpath=(~/.zsh/completions $fpath)
 autoload -Uz compinit
 compinit
 

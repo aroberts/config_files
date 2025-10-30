@@ -1,0 +1,25 @@
+#compdef service-exec
+
+_service-exec() {
+  local -a services
+  local state
+
+  _arguments -C \
+    '-v[Additional logging]' \
+    '1: :->service' \
+    '*::arg:->args'
+
+  case $state in
+    service)
+      # Get list of running docker services
+      services=(${(f)"$(docker service ls --format '{{.Name}}' 2>/dev/null)"})
+      _describe -t services 'docker service' services
+      ;;
+    args)
+      # After service name, complete commands/files normally
+      _command_names -e
+      ;;
+  esac
+}
+
+_service-exec "$@"
