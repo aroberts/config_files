@@ -45,6 +45,16 @@ __check ansible-playbook && alias ap="time ansible-playbook"
 
 __check docker && alias docker-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }} {{ .Name }}'"
 
+__check docker && dcon() {
+  if [ $# -eq 0 ]; then
+    docker context ls
+  elif [ $# -eq 1 ]; then
+    docker context use "$1"
+  else
+    docker context "$@"
+  fi
+}
+
 #################### WORK STUFF ########################
 
 __check claude && alias 8x8-claude='CLAUDE_CONFIG_DIR=~/.8x8-claude claude'
