@@ -70,6 +70,7 @@ __check kafkacat && alias kcat_082='kafkacat -Xapi.version.request=false -Xbroke
 __check jenv && jenv() {
   unfunction jenv
   eval "$(jenv init -)"
+  jenv enable-plugin export
   jenv "$@"
 }
 
