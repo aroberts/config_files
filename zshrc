@@ -48,6 +48,9 @@ if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
 fi
 
+# functions
+for func_file ($HOME/.zsh/functions/*.zsh(N)) source $func_file
+
 # rvm
 if [ -e "$HOME/.rvm/scripts/rvm" ]; then
   source "$HOME/.rvm/scripts/rvm"

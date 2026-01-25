@@ -87,15 +87,6 @@ __uname_not Darwin && function addsysuser() {
   fi
 }
 
-__check tea && {
-  _tea() {
-    unfunction _tea
-    source <(tea completion zsh)
-    _tea "$@"
-  }
-  compdef _tea tea
-}
-
 unfunction __check
 unfunction __uname
 unfunction __uname_not
