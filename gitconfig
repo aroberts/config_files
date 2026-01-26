@@ -85,7 +85,7 @@
 [pull]
   rebase = false
 [help]
-  autocorrect = prompt
+	autocorrect = 0
 [init]
   defaultBranch = master
 
