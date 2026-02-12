@@ -54,7 +54,7 @@ syntax enable
 set nobackup           " Turn off backups
 set nowritebackup
 set noswapfile
-" set autoread           " Automatically reload changes if detected
+set autoread           " Automatically reload changes if detected
 " set wildmenu           " Turn on WiLd menu
 " set hidden             " Change buffer - without saving
 set history=256        " Number of things to remember in history.
