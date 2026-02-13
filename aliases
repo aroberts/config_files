@@ -55,9 +55,13 @@ __check docker && dcon() {
   fi
 }
 
+__check claude && tmp-claude() {
+  cd `mktemp -d -t claude-tmp` && claude
+}
+
 #################### WORK STUFF ########################
 
-__check claude && 8x8-claude() {
+__check claude && test -d ~/.8x8-claude && 8x8-claude() {
   if [[ -n "$SSH_TTY" && "$(uname)" == "Darwin" ]]; then
     security unlock-keychain || return 1
   fi
