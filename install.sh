@@ -79,3 +79,5 @@ uname | grep Darwin >/dev/null && symlinks/install.sh || true
 if [[ "$NO_UPDATES" != true ]]; then
   "$PWD/manage_updates.sh" install
 fi
+
+true
