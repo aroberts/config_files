@@ -21,7 +21,9 @@ install_macos() {
   mkdir -p "$(dirname "$PLIST_PATH")"
 
   # Unload existing if present
+  local already_installed=false
   if launchctl list "$PLIST_LABEL" &>/dev/null; then
+    already_installed=true
     launchctl unload "$PLIST_PATH" 2>/dev/null || true
   fi
 
@@ -50,7 +52,11 @@ install_macos() {
 EOF
 
   launchctl load "$PLIST_PATH"
-  echo "Installed launchd agent: $PLIST_LABEL"
+  if [[ "$already_installed" == true ]]; then
+    echo "Reinstalled launchd agent: $PLIST_LABEL"
+  else
+    echo "Installed launchd agent: $PLIST_LABEL"
+  fi
 }
 
 uninstall_macos() {
@@ -70,6 +76,12 @@ install_linux() {
 
   local cron_line="$minute * * * * $AUTO_UPDATE >> $STATE_DIR/update.log 2>&1 $CRON_TAG"
 
+  # Check if already installed
+  local already_installed=false
+  if crontab -l 2>/dev/null | grep -q "$CRON_TAG"; then
+    already_installed=true
+  fi
+
   # Filter out old entry and append new one
   local tmp
   tmp=$(mktemp)
@@ -77,7 +89,11 @@ install_linux() {
   echo "$cron_line" >> "$tmp"
   crontab "$tmp"
   rm -f "$tmp"
-  echo "Installed cron entry (minute $minute)"
+  if [[ "$already_installed" == true ]]; then
+    echo "Reinstalled cron entry (minute $minute)"
+  else
+    echo "Installed cron entry (minute $minute)"
+  fi
 }
 
 uninstall_linux() {
