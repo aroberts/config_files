@@ -7,3 +7,5 @@ bootstrap-homebrew
 update.sh
 launchd
 symlinks
+auto-update.sh
+manage_updates.sh
