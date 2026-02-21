@@ -85,7 +85,7 @@ install_linux() {
   # Filter out old entry and append new one
   local tmp
   tmp=$(mktemp)
-  (crontab -l 2>/dev/null || true) | grep -v "$CRON_TAG" > "$tmp"
+  (crontab -l 2>/dev/null || true) | { grep -v "$CRON_TAG" || true; } > "$tmp"
   echo "$cron_line" >> "$tmp"
   crontab "$tmp"
   rm -f "$tmp"
@@ -99,7 +99,7 @@ install_linux() {
 uninstall_linux() {
   local tmp
   tmp=$(mktemp)
-  (crontab -l 2>/dev/null || true) | grep -v "$CRON_TAG" > "$tmp"
+  (crontab -l 2>/dev/null || true) | { grep -v "$CRON_TAG" || true; } > "$tmp"
   crontab "$tmp"
   rm -f "$tmp"
   echo "Uninstalled cron entry"
