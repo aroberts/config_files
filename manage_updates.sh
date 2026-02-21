@@ -105,7 +105,9 @@ uninstall_linux() {
   echo "Uninstalled cron entry"
 }
 
-[[ $# -lt 1 ]] && usage
+if [[ $# -lt 1 ]]; then
+  usage
+fi
 
 case "$(uname -s)" in
   Darwin)
