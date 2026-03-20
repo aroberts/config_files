@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>aroberts.pdl-sync</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/aroberts/bin/pdl-sync.sh</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>3600</integer>
+    <!--
+    <key>WatchPaths</key>
+    <array>
+      <string>/Users/aroberts/pdl</string>
+    </array>
+    -->
+    <key>StandardOutPath</key>
+    <string>/var/log/aroberts/aroberts.pdl-sync.log</string>
+    <key>StandardErrorPath</key>
+    <string>/var/log/aroberts/aroberts.pdl-sync.log</string>
+  </dict>
+</plist>
