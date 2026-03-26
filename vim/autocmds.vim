@@ -76,6 +76,15 @@ if has("autocmd")
     " Allow stylesheets to autocomplete hyphenated words
     autocmd FileType css,scss,sass setlocal iskeyword+=-
 
+    " Auto-start session tracking for bare vim and vim <dir> in git repos
+    " (obsession tracks to Session.vim in CWD; does NOT load existing sessions)
+    autocmd VimEnter * nested
+          \ if !exists('g:this_obsession') &&
+          \     isdirectory('.git') &&
+          \     (argc() == 0 || (argc() == 1 && isdirectory(argv(0)))) |
+          \   silent! Obsess |
+          \ endif
+
     autocmd TabEnter * normal "<Esc>"
     " Leave the return key alone when in command line windows, since it's used
     " to run commands there.

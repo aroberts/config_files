@@ -1,4 +1,5 @@
 *.swp
 *.swo
+Session.vim
 
 /.claude/settings.local.json

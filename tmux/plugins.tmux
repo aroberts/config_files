@@ -2,6 +2,9 @@ tmux_plugin_root='~/.tmux/tmux-plugins'
 
 set -g @resurrect-save 'S'
 set -g @resurrect-restore 'R'
+set -g @resurrect-strategy-vim 'session'
+set -g @resurrect-processes 'claude'
+set -g @resurrect-hook-post-save-layout '~/.tmux/scripts/resurrect-claude-save.sh'
 run-shell -b '#{tmux_plugin_root}/tmux-resurrect/resurrect.tmux'
 
 set -g @logging_key 'O'
