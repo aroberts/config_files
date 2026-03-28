@@ -6,6 +6,6 @@
 ## Noting for posterity
 local -a cmds=( ${(uf)"$( wo )"} )
 
-_describe 'completion for wo function' cmds
+compadd -M 'm:{a-zA-Z}={A-Za-z}' -a cmds
 
 

@@ -13,5 +13,13 @@ wo () {
         return 0
       fi
     done
+    # case-insensitive fallback
+    for t in $targets; do
+      local match=( $t/(#i)$1(N/) )
+      if (( ${#match} )); then
+        cd -P $match[1]
+        return 0
+      fi
+    done
   fi
 }
