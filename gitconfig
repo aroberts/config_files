@@ -96,3 +96,11 @@
 #   required
 # [diff "ansible-vault"]
 #   textconv = /Users/aroberts/bin/vault-git-tool clean
+
+
+
+
+
+[include]
+    # Includes a file relative to the location of the current config file
+    path = .gitconfig-local
