@@ -1,0 +1,19 @@
+# Equivalent of macOS Terminal.app "Pro" profile
+
+# Font
+font-family = Monaco for Powerline
+font-size = 15
+
+# Colors
+background = 000000
+foreground = f2f2f2
+cursor-color = 4d4d4d
+selection-background = 313581
+
+# Window
+window-width = 120
+window-height = 30
+window-title-font-family = Monaco for Powerline
+
+# Behavior
+confirm-close-surface = false
