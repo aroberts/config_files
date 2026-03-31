@@ -322,6 +322,14 @@ let g:tcomment_maps = 1
 " vnoremap <silent><leader>cb :TCommentBlock<CR>
 
 " ---------------
+" vim-tbone
+" ---------------
+nnoremap <leader>y :Tyank<CR>
+vnoremap <leader>y :Tyank<CR>
+nnoremap <leader>p :Tput<CR>
+vnoremap <leader>tw :Twrite<space>
+
+" ---------------
 " Netrw
 " ---------------
 " Hide python garbage files by default

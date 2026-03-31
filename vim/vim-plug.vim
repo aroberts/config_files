@@ -37,6 +37,7 @@ endif
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-tbone' " tmux integration
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 
 if executable('ag')
