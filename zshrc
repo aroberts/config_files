@@ -56,6 +56,12 @@ if [ -e "$HOME/.rvm/scripts/rvm" ]; then
   source "$HOME/.rvm/scripts/rvm"
 fi
 
+
+# openscad-kit
+if [ -e "$HOME/Source/openscad-kit/bin" ]; then
+  export PATH="$HOME/Source/openscad-kit/bin:$PATH"
+fi
+
 # docker
 # : ${DOCKER_VIRTUALBOX_NAME:=dockerbox}
 # if [ -d "$HOME/.docker/machine/machines/$DOCKER_VIRTUALBOX_NAME" ]; then
