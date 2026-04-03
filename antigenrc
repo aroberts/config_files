@@ -1,7 +1,7 @@
 # oh-my-zsh by default - uncommenting this pollutes my LSCOLORS
 # antigen use oh-my-zsh
 
-export ANTIGEN_LOG=~/.antigen/debug.log
+# export ANTIGEN_LOG=~/.antigen/debug.log
 
 # bundles
 antigen bundles <<EOBUNDLES
