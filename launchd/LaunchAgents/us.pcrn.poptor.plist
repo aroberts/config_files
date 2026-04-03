@@ -5,7 +5,7 @@
     <key>Label</key>
     <string>us.pcrn.poptor</string>
     <key>Program</key>
-    <string>/Users/aroberts/bin/poptor</string>
+    <string>/Users/aroberts/bin/personal/poptor</string>
     <key>StartInterval</key>
     <integer>60</integer>
     <key>StandardOutPath</key>

@@ -37,7 +37,7 @@ __SUDOCMD="sudo"
 
 # do path early, so any command checks work in an expected way
 export PATH=./.git/safe/../../bin:$PATH
-export PATH=$HOME/bin:"$local_install_prefix/sbin":"$local_install_prefix"/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:$HOME/bin/personal:"$local_install_prefix/sbin":"$local_install_prefix"/bin:$HOME/.local/bin:$PATH
 
 if [ -e "$HOME/.zshrc.vars" ]; then
   source "$HOME/.zshrc.vars"

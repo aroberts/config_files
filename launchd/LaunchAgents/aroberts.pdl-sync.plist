@@ -6,7 +6,7 @@
     <string>aroberts.pdl-sync</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/Users/aroberts/bin/pdl-sync.sh</string>
+      <string>/Users/aroberts/bin/personal/pdl-sync.sh</string>
     </array>
     <key>StartInterval</key>
     <integer>3600</integer>
