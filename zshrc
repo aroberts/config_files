@@ -157,7 +157,7 @@ if [ -e "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
 fi
 
-export ZSH_WO_PATHS="$HOME/Source:$HOME/CAD"
+export ZSH_WO_PATHS="$HOME/Source"
 
 if [ -e "$ANTIGEN_SRC" ]; then
   source "$ANTIGEN_SRC"
