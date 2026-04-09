@@ -70,6 +70,8 @@ fi
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+export ZSH_WO_PATHS="$HOME/Source"
+
 # expand functions in the prompt
 setopt prompt_subst
 
@@ -156,8 +158,6 @@ keepdir () {
 if [ -e "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
 fi
-
-export ZSH_WO_PATHS="$HOME/Source"
 
 if [ -e "$ANTIGEN_SRC" ]; then
   source "$ANTIGEN_SRC"
