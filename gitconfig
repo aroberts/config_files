@@ -1,3 +1,4 @@
+# set machine specific user in .gitconfig.local
 [user]
   name = Andrew Roberts
   email = adroberts@gmail.com
