@@ -8,8 +8,9 @@ fi
 
 # completion
 fpath=(~/bin/completions ~/.zsh/completions $fpath)
-autoload -Uz compinit
-compinit
+# Queue compdef calls until compinit runs (via antigen apply)
+typeset -ga _queued_compdefs=()
+compdef() { _queued_compdefs+=("${(j: :)@}") }
 
 # makes color constants available
 autoload -U colors
@@ -152,7 +153,13 @@ fi
 if [ -e "$ANTIGEN_SRC" ]; then
   source "$ANTIGEN_SRC"
   [[ -f ~/.antigenrc ]] && source ~/.antigenrc
+else
+  autoload -Uz compinit
+  compinit
 fi
+# Replay any compdef calls that were queued before compinit
+for _def in "${_queued_compdefs[@]}"; do compdef ${=_def}; done
+unset _queued_compdefs _def
 
 if [ -e "$GRC_CONF" ]; then
   source "$GRC_CONF"
