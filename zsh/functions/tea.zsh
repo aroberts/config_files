@@ -42,11 +42,3 @@ tea() {
   # Fallback
   command tea "$@"
 }
-
-# Lazy-loaded completion
-_tea() {
-  unfunction _tea
-  source <(tea completion zsh)
-  _tea "$@"
-}
-compdef _tea tea

@@ -1,0 +1,6 @@
+#compdef tea
+
+# Lazy-loaded: sources real completions from `tea completion zsh` on first use
+unfunction _tea
+source <(tea completion zsh)
+_tea "$@"

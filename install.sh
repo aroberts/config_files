@@ -70,6 +70,12 @@ done
 # init/update submodules in this repo
 which git &>/dev/null && git submodule init && git submodule update
 
+# --- Antidote migration cleanup (remove this block after rollout) ---
+if [ -L "$HOME/.antigenrc" ] || [ -d "$HOME/.antigen" ] || [ -d "$PWD/src/antigen" ]; then
+  [ -x "$PWD/cleanup-antigen.sh" ] && "$PWD/cleanup-antigen.sh" "$PWD"
+fi
+# --- End antidote migration cleanup ---
+
 # link in anything else that needs to be part of the system
 uname | grep Darwin >/dev/null && symlinks/install.sh || true
 

@@ -83,6 +83,9 @@ update_repo() {
     log "$name: fast-forward merge succeeded"
     rm -f "$marker"
 
+    # Update submodules in case any refs changed
+    git -C "$repo_path" submodule update --init || log "WARNING: submodule update failed for $name"
+
     # Check for new root entries in config repo and re-install if needed
     if [[ "$name" == "config" ]]; then
       local snapshot_after

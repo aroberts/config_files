@@ -8,9 +8,6 @@ fi
 
 # completion
 fpath=(~/bin/completions ~/.zsh/completions $fpath)
-# Queue compdef calls until compinit runs (via antigen apply)
-typeset -ga _queued_compdefs=()
-compdef() { _queued_compdefs+=("${(j: :)@}") }
 
 # makes color constants available
 autoload -U colors
@@ -76,26 +73,13 @@ export ZSH_WO_PATHS="$HOME/Source"
 # expand functions in the prompt
 setopt prompt_subst
 
-# include zsh files - handled by antigen, and causes double-sourcing of
-# antigen-bundles if uncommented
+# include zsh files - handled by antidote, and causes double-sourcing of
+# plugin bundles if uncommented
 # for config_file ($HOME/.zsh/*.zsh) source $config_file
 
 # tab completion for custom git scripts
 zstyle ':completion:*:git:*' user-commands ${${(k)commands[(I)git-*]}#git-}
 
-# vi mode
-bindkey -v
-bindkey "^F" vi-cmd-mode
-# bindkey jj vi-cmd-mode
-
-# handy keybindings
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
-bindkey "^R" history-incremental-search-backward
-bindkey "^P" history-search-backward
-bindkey "^Y" accept-and-hold
-bindkey "^N" insert-last-word
-bindkey -s "^T" "^[I$__SUDOCMD ^[A" # "t" for "toughguy"
 
 # Allow [ or ] whereever you want
 unsetopt nomatch
@@ -116,8 +100,8 @@ fi
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
-# antigen
-ANTIGEN_SRC="$HOME/.src/antigen/antigen.zsh"
+# antidote
+ANTIDOTE_SRC="$HOME/.src/antidote/antidote.zsh"
 
 # mac stuff
 uname | grep Darwin >/dev/null
@@ -150,16 +134,38 @@ if [ -e "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
 fi
 
-if [ -e "$ANTIGEN_SRC" ]; then
-  source "$ANTIGEN_SRC"
-  [[ -f ~/.antigenrc ]] && source ~/.antigenrc
+if [ -e "$ANTIDOTE_SRC" ]; then
+  source "$ANTIDOTE_SRC"
+  antidote load
 else
   autoload -Uz compinit
   compinit
 fi
-# Replay any compdef calls that were queued before compinit
-for _def in "${_queued_compdefs[@]}"; do compdef ${=_def}; done
-unset _queued_compdefs _def
+
+# git prompt config
+export ZSH_THEME_GIT_PROMPT_PREFIX="("
+export ZSH_THEME_GIT_PROMPT_SUFFIX=")"
+export ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}%{●%G%}"
+export ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[cyan]%}%{𝛥%G%}"
+export ZSH_THEME_GIT_PROMPT_BEHIND="%{↓%G%}"
+export ZSH_THEME_GIT_PROMPT_AHEAD="%{↑%G%}"
+export ZSH_THEME_GIT_PROMPT_BEHIND_AHEAD_SECTION_SEPARATOR=""
+export ZSH_THEME_GIT_PROMPT_UNTRACKED="%{…%G%}"
+
+# keybinding overrides (after vi-mode plugin)
+bindkey "^F" vi-cmd-mode
+bindkey "^P" history-search-backward
+bindkey "^Y" accept-and-hold
+bindkey "^N" insert-last-word
+bindkey -s "^T" "^[I$__SUDOCMD ^[A" # "t" for "toughguy"
+
+# history substring search
+bindkey '^[OA' history-substring-search-up
+bindkey '^[OB' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 if [ -e "$GRC_CONF" ]; then
   source "$GRC_CONF"

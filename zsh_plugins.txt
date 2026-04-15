@@ -1,0 +1,23 @@
+# vi mode (OMZ plugin — provides zle hooks, vv edit-command-line, insert-mode bindings)
+ohmyzsh/ohmyzsh path:plugins/vi-mode branch:master
+
+# docker completions
+greymd/docker-zsh-completion kind:fpath branch:master
+
+# history substring search
+zsh-users/zsh-history-substring-search branch:master
+
+# autoenv
+Tarrasch/zsh-autoenv branch:master
+
+# git prompt
+aroberts/zsh-git-prompt branch:master
+
+# colors
+unixorn/warhol.plugin.zsh
+
+# worktree helper
+aroberts/wo-zsh-plugin
+
+# completions — must be last, runs compinit after all fpath modifications
+mattmc3/ez-compinit
