@@ -17,7 +17,7 @@ aroberts/zsh-git-prompt branch:master
 unixorn/warhol.plugin.zsh
 
 # worktree helper
-aroberts/wo-zsh-plugin
+aroberts/zsh-wo-plugin
 
 # completions — must be last, runs compinit after all fpath modifications
 mattmc3/ez-compinit
