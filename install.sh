@@ -1,12 +1,5 @@
 #!/bin/bash
 
-NO_UPDATES=false
-for arg in "$@"; do
-  case "$arg" in
-    --no-updates) NO_UPDATES=true ;;
-  esac
-done
-
 cutstring="DO NOT EDIT BELOW THIS LINE"
 
 install() # src, target
@@ -78,10 +71,5 @@ fi
 
 # link in anything else that needs to be part of the system
 uname | grep Darwin >/dev/null && symlinks/install.sh || true
-
-# install auto-update schedule
-if [[ "$NO_UPDATES" != true ]]; then
-  "$PWD/manage_updates.sh" install
-fi
 
 true
