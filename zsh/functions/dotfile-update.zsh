@@ -27,29 +27,6 @@ _dotfile_update_mtime() {
   stat -f %m $1 2>/dev/null || stat -c %Y $1 2>/dev/null
 }
 
-# One-shot migration: remove the old launchd/cron auto-updater on hosts that
-# still have it. Gated on a marker so this runs exactly once per host.
-_dotfile_update_migrate_scheduled() {
-  local marker=$_dotfile_update_state/launchd_uninstalled
-  [[ -f $marker ]] && return
-
-  local plist=$HOME/Library/LaunchAgents/us.pcrn.dotfile_update.plist
-  if [[ -f $plist ]]; then
-    launchctl unload $plist 2>/dev/null
-    rm -f $plist
-  fi
-
-  if (( $+commands[crontab] )); then
-    if crontab -l 2>/dev/null | grep -q '# dotfile-auto-update'; then
-      (crontab -l 2>/dev/null | grep -v '# dotfile-auto-update') | crontab -
-    fi
-  fi
-
-  touch $marker
-}
-
-_dotfile_update_migrate_scheduled
-
 _dotfile_update_tick() {
   local stamp=$_dotfile_update_state/last_fetch
   local lockdir=$_dotfile_update_state/lock
