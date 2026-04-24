@@ -24,7 +24,10 @@ typeset -gi _dotfile_update_threshold=${DOTFILE_UPDATE_THRESHOLD:-3600}
 mkdir -p $_dotfile_update_state
 
 _dotfile_update_mtime() {
-  stat -f %m $1 2>/dev/null || stat -c %Y $1 2>/dev/null
+  # GNU stat first: BSD stat rejects -c and falls through. The reverse order
+  # breaks on Linux because GNU stat treats -f as "filesystem info" (not an
+  # error) and %m prints the mount point, which then crashes (( )) arithmetic.
+  stat -c %Y $1 2>/dev/null || stat -f %m $1 2>/dev/null
 }
 
 _dotfile_update_tick() {
