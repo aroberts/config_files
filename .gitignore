@@ -16,4 +16,7 @@ sbt/boot/
 sbt/preloaded
 sbt/1.0
 
+# contains tokens
+config/gcx/*
+
 tmux/resurrect/*
