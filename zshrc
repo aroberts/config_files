@@ -55,9 +55,9 @@ if [ -e "$HOME/.rvm/scripts/rvm" ]; then
 fi
 
 
-# openscad-kit
-if [ -e "$HOME/Source/openscad-kit/bin" ]; then
-  export PATH="$HOME/Source/openscad-kit/bin:$PATH"
+# solid-kit
+if [ -e "$HOME/Source/solid-kit/bin" ]; then
+  export PATH="$HOME/Source/solid-kit/bin:$PATH"
 fi
 
 # docker
