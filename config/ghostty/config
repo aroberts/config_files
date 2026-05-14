@@ -17,3 +17,6 @@ window-title-font-family = Monaco for Powerline
 
 # Behavior
 confirm-close-surface = false
+
+# Shell integration — push terminfo over SSH so xterm-ghostty works on remotes
+shell-integration-features = cursor,title,path,ssh-terminfo
