@@ -14,6 +14,8 @@ selection-background = 313581
 window-width = 120
 window-height = 30
 window-title-font-family = Monaco for Powerline
+working-directory = home
+window-inherit-working-directory = false
 
 # Behavior
 confirm-close-surface = false
