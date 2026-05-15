@@ -1,6 +1,13 @@
-local local_install_prefix=/usr/local
+
+# ghostty integration
+if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
+  autoload -Uz -- "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+  ghostty-integration
+  unfunction ghostty-integration
+fi
 
 # brew detection and setup
+local local_install_prefix=/usr/local
 which brew &>/dev/null
 if [ $? -eq 0 ]; then
   local local_install_prefix=`brew --prefix`
