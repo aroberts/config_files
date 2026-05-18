@@ -15,6 +15,11 @@ fi
 
 # completion
 fpath=(~/bin/completions ~/.zsh/completions $fpath)
+# bring in kubectl completions if installed
+if [[ $commands[kubectl] ]]; then
+    source <(kubectl completion zsh)
+fi
+
 
 # makes color constants available
 autoload -U colors
@@ -79,10 +84,6 @@ export ZSH_WO_PATHS="$HOME/Source"
 
 # expand functions in the prompt
 setopt prompt_subst
-
-# include zsh files - handled by antidote, and causes double-sourcing of
-# plugin bundles if uncommented
-# for config_file ($HOME/.zsh/*.zsh) source $config_file
 
 # tab completion for custom git scripts
 zstyle ':completion:*:git:*' user-commands ${${(k)commands[(I)git-*]}#git-}
