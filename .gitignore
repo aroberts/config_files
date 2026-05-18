@@ -19,4 +19,6 @@ sbt/1.0
 # contains tokens
 config/gcx/*
 
+config/zed/prompts
+
 tmux/resurrect/*
