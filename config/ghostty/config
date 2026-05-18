@@ -23,13 +23,12 @@ window-padding-y = 0,5
 # Behavior
 # confirm-close-surface = false
 shell-integration = zsh
-shell-integration-features = no-cursor
+# ssh-terminfo intentionally omitted: its wrapper closes the SSH session when
+# tmux detaches. Install xterm-ghostty terminfo per-host with the
+# `install-ghostty-ssh-terminfo` shell function (see aliases).
+shell-integration-features = cursor,title,path
 # note: see zshrc "ghostty integration"
 
 # scrollback-limit in bytes, roughly 125,000 lines
 scrollback-limit = 100000000
-
-
-# Shell integration — push terminfo over SSH so xterm-ghostty works on remotes
-shell-integration-features = cursor,title,path,ssh-terminfo
 

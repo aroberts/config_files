@@ -26,6 +26,16 @@ __uname Darwin && __check caffeinate && alias keep_screen_awake="caffeinate -dim
 
 alias tls='tmux ls'
 
+# Install Ghostty's terminfo on a remote host so TERM=xterm-ghostty works there.
+# Usage: install-ghostty-ssh-terminfo user@host
+install-ghostty-ssh-terminfo() {
+  if [ $# -ne 1 ]; then
+    echo "usage: install-ghostty-ssh-terminfo <user@host>" >&2
+    return 1
+  fi
+  infocmp -x xterm-ghostty | ssh "$1" -- tic -x -
+}
+
 which htop >/dev/null && alias top=htop
 
 __check dscacheutil && alias flush_dns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
