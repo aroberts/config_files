@@ -15,10 +15,6 @@ fi
 
 # completion
 fpath=(~/bin/completions ~/.zsh/completions $fpath)
-# bring in kubectl completions if installed
-if [[ $commands[kubectl] ]]; then
-    source <(kubectl completion zsh)
-fi
 
 
 # makes color constants available
@@ -148,6 +144,11 @@ if [ -e "$ANTIDOTE_SRC" ]; then
 else
   autoload -Uz compinit
   compinit
+fi
+
+# bring in kubectl completions if installed (must come after compinit)
+if [[ $commands[kubectl] ]]; then
+  source <(kubectl completion zsh)
 fi
 
 # git prompt config
