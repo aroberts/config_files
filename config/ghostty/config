@@ -15,7 +15,6 @@ adjust-cell-height = +22%
 # Window
 window-width = 130
 window-height = 44
-window-title-font-family = Monaco for Powerline
 working-directory = home
 window-inherit-working-directory = false
 window-padding-x = 8
