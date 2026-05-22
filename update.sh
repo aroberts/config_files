@@ -2,6 +2,8 @@
 # Manual interactive update: pull, submodules, zsh plugins, vim plugins.
 # Records HEAD on success so dotfile-update.zsh stops nudging.
 
+# ./zsh/dotfile-update.zsh calls this to actually perform the updates
+
 set -e
 
 REPO="$(cd "$(dirname "$0")" && pwd)"
