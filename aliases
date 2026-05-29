@@ -72,9 +72,9 @@ __check claude && tmp-claude() {
 #################### WORK STUFF ########################
 
 __check claude && test -d ~/.8x8-claude && 8x8-claude() {
-  if [[ -n "$SSH_TTY" && "$(uname)" == "Darwin" ]]; then
-    security unlock-keychain || return 1
-  fi
+  # if [[ -n "$SSH_TTY" && "$(uname)" == "Darwin" ]]; then
+  #   security unlock-keychain || return 1
+  # fi
   CLAUDE_CONFIG_DIR=~/.8x8-claude command claude "$@"
 }
 
