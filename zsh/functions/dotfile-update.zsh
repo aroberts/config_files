@@ -54,9 +54,14 @@ _dotfile_update_tick() {
     trap "rmdir $lockdir 2>/dev/null" EXIT
 
     echo "$(date '+%Y-%m-%d %H:%M:%S') fetching $_dotfile_update_repo"
-    git -C $_dotfile_update_repo fetch --quiet \
+    # BatchMode prevents ssh prompts that would leak to the user's tty even
+    # though fd 1/2 are redirected; ConnectTimeout caps the wait on unreachable
+    # remotes. Fetch only origin — merge --ff-only uses its upstream anyway,
+    # and the other remotes are LAN hosts that are slow or flaky.
+    GIT_SSH_COMMAND='ssh -o BatchMode=yes -o ConnectTimeout=5' \
+      git -C $_dotfile_update_repo fetch --quiet origin \
       && git -C $_dotfile_update_repo merge --ff-only --quiet
-  ) >>$_dotfile_update_state/update.log 2>&1 &!
+  ) </dev/null >>$_dotfile_update_state/update.log 2>&1 &!
 }
 
 _dotfile_update_nudge() {
