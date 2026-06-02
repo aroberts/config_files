@@ -88,13 +88,26 @@ zstyle ':completion:*:git:*' user-commands ${${(k)commands[(I)git-*]}#git-}
 # Allow [ or ] whereever you want
 unsetopt nomatch
 
+# host-specific prompt segments; default empty, populate in ~/.zshrc.local
+# (read at render time thanks to prompt_subst, so .zshrc.local can set them)
+
+# static label
+# PROMPT_LOCAL='%{$fg_bold[red]%}prod %{$reset_color%}'
+# RPROMPT_LOCAL='%{$fg[yellow]%}k8s:dev %{$reset_color%}'
+#
+# or dynamic, recomputed each prompt:
+# precmd_local() { PROMPT_LOCAL="${$(kubectl config current-context 2>/dev/null)} " }
+# autoload -Uz add-zsh-hook && add-zsh-hook precmd precmd_local
+: ${PROMPT_LOCAL:=}
+: ${RPROMPT_LOCAL:=}
+
 # prompt
-export PS1='[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}]$(git_super_status) '
+export PS1='[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}]${PROMPT_LOCAL}$(git_super_status) '
 which virtualenv_prompt_info > /dev/null
 if [ $? -eq 0 ]; then
   export PS1='$(virtualenv_prompt_info)$PS1'
 fi
-export RPROMPT='%{$fg[white]%}%T%{$reset_color%}'
+export RPROMPT='${RPROMPT_LOCAL}%{$fg[white]%}%T%{$reset_color%}'
 
 # color stuff
 if [ $TERM == "xterm" ]; then
