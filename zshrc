@@ -172,6 +172,13 @@ export ZSH_THEME_GIT_PROMPT_UNTRACKED="%{…%G%}"
 
 # keybinding overrides (after vi-mode plugin)
 bindkey "^F" vi-cmd-mode
+
+# Shift+Escape emits ESC [ 27 ; 2 ~ (modifyOtherKeys disambiguation). ZLE doesn't
+# bind it, so it gets parsed as ESC + count 27 + ~, swap-casing ~27 chars. Bind
+# the whole sequence so it just acts like Escape (insert->command mode).
+bindkey -M viins '^[[27;2~' vi-cmd-mode
+bindkey -M vicmd '^[[27;2~' vi-cmd-mode
+
 bindkey "^P" history-search-backward
 bindkey "^Y" accept-and-hold
 bindkey "^N" insert-last-word
