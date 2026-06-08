@@ -73,6 +73,16 @@ if has("autocmd")
     " For all text files set 'textwidth' to 78 characters.
     autocmd FileType text setlocal textwidth=78
 
+    " Soft word wrap for markdown (visual wrap at word boundaries, no
+    " inserted line breaks). Global default is nowrap (see config.vim).
+    " Move by visual rows so j/k feel natural on wrapped lines; a count
+    " (e.g. 3j) still moves by logical lines.
+    autocmd FileType markdown setlocal wrap linebreak
+    autocmd FileType markdown nnoremap <buffer><expr> j v:count ? 'j' : 'gj'
+    autocmd FileType markdown nnoremap <buffer><expr> k v:count ? 'k' : 'gk'
+    autocmd FileType markdown xnoremap <buffer><expr> j v:count ? 'j' : 'gj'
+    autocmd FileType markdown xnoremap <buffer><expr> k v:count ? 'k' : 'gk'
+
     " Allow stylesheets to autocomplete hyphenated words
     autocmd FileType css,scss,sass setlocal iskeyword+=-
 
