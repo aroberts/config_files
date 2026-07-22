@@ -32,3 +32,4 @@ shell-integration-features = cursor,title,path
 # scrollback-limit in bytes, roughly 125,000 lines
 scrollback-limit = 100000000
 
+# macos-titlebar-style = tabs
