@@ -9,7 +9,7 @@ run-shell -b '#{tmux_plugin_root}/tmux-resurrect/resurrect.tmux'
 
 set -g @logging_key 'O'
 set -g @screen-capture-key 'o'
-set -g @save-complete-history-key 'C-O'
+set -g @save-complete-history-key 'C-o'
 
 run-shell -b '#{tmux_plugin_root}/tmux-logging/logging.tmux'
 run-shell -b '#{tmux_plugin_root}/tmux-yank/yank.tmux'
