@@ -59,8 +59,16 @@ _dotfile_update_tick() {
     # remotes. Fetch only origin — merge --ff-only uses its upstream anyway,
     # and the other remotes are LAN hosts that are slow or flaky.
     export GIT_SSH_COMMAND='ssh -o BatchMode=yes -o ConnectTimeout=5'
+    local before=$(git -C $_dotfile_update_repo rev-parse HEAD)
     git -C $_dotfile_update_repo fetch --quiet origin \
       && git -C $_dotfile_update_repo merge --ff-only --quiet
+
+    # check out the submodule commits the merge recorded, so they don't show
+    # as modified and block later updates (e.g. admin_setup's git task). Only
+    # when HEAD moved, to leave an in-progress submodule bump alone.
+    if [[ $(git -C $_dotfile_update_repo rev-parse HEAD) != $before ]]; then
+      git -C $_dotfile_update_repo submodule update --init --recursive --quiet
+    fi
 
     # overlays (see zshrc) get the same treatment when they track a remote
     local overlay
