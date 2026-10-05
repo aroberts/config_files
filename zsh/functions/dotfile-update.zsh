@@ -58,9 +58,18 @@ _dotfile_update_tick() {
     # though fd 1/2 are redirected; ConnectTimeout caps the wait on unreachable
     # remotes. Fetch only origin — merge --ff-only uses its upstream anyway,
     # and the other remotes are LAN hosts that are slow or flaky.
-    GIT_SSH_COMMAND='ssh -o BatchMode=yes -o ConnectTimeout=5' \
-      git -C $_dotfile_update_repo fetch --quiet origin \
+    export GIT_SSH_COMMAND='ssh -o BatchMode=yes -o ConnectTimeout=5'
+    git -C $_dotfile_update_repo fetch --quiet origin \
       && git -C $_dotfile_update_repo merge --ff-only --quiet
+
+    # overlays (see zshrc) get the same treatment when they track a remote
+    local overlay
+    for overlay ($_dotfile_update_repo/overlays/*(N/)); do
+      git -C $overlay rev-parse --abbrev-ref @{u} &>/dev/null || continue
+      echo "$(date '+%Y-%m-%d %H:%M:%S') fetching $overlay"
+      git -C $overlay fetch --quiet origin \
+        && git -C $overlay merge --ff-only --quiet
+    done
   ) </dev/null >>$_dotfile_update_state/update.log 2>&1 &!
 }
 
