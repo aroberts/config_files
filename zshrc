@@ -14,7 +14,7 @@ if [ $? -eq 0 ]; then
 fi
 
 # completion
-fpath=(~/bin/completions ~/.zsh/completions $fpath)
+fpath=(~/bin/completions ~/bin/personal/completions(N/) ~/.zsh/completions $fpath)
 
 
 # makes color constants available
