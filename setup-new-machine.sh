@@ -7,8 +7,8 @@
 # into ~/Source, linked from ~/config and ~/bin (the layout
 # pcrn-mgmt's admin_setup.yml uses). Fetches go over anonymous https so
 # dotfile-update works before any ssh keys exist; pushes go over ssh.
-# Creates a local overlays/work repo holding the git identity, then runs
-# install.sh.
+# Creates a local overlays/work repo holding the git identity, runs
+# install.sh, then brew bundle for the base Brewfile and each overlay's.
 #
 # Options:
 #   --email <addr>      email for overlays/work/gitconfig (prompted otherwise)
@@ -130,6 +130,14 @@ done
 
 say "Running install.sh"
 "$config/install.sh"
+
+if command -v brew &>/dev/null; then
+  for brewfile in "$config/Brewfile" "$config"/overlays/*/Brewfile; do
+    [ -f "$brewfile" ] || continue
+    say "Installing packages from ${brewfile#$config/}"
+    brew bundle --file "$brewfile" || warn "brew bundle failed for $brewfile"
+  done
+fi
 
 say "Installing fonts"
 mkdir -p "$HOME/Library/Fonts"
