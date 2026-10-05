@@ -31,7 +31,7 @@ install() # src, target
     fi
   else
     echo "Creating $dst"
-    if [[ -n `grep "$cutstring" "$src"` ]]; then
+    if [ -f "$src" ] && grep -q "$cutstring" "$src"; then
       cp "$PWD/$src" "$dst"
     else
       ln -s "$PWD/$src" "$dst"
