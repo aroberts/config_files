@@ -23,6 +23,9 @@ config/zed/prompts
 
 tmux/resurrect/*
 
+# fontconfig cache id, written by fc-cache on Linux hosts
+fonts/.uuid
+
 # separate repos, see the overlays loop in zshrc
 overlays/*
 
