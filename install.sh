@@ -69,6 +69,11 @@ if [ -L "$HOME/.antigenrc" ] || [ -d "$HOME/.antigen" ] || [ -d "$PWD/src/antige
 fi
 # --- End antidote migration cleanup ---
 
+# overlays run their own installers
+for overlay_install in overlays/*/install.sh; do
+  [ -x "$overlay_install" ] && "$overlay_install"
+done
+
 # link in anything else that needs to be part of the system
 uname | grep Darwin >/dev/null && symlinks/install.sh || true
 

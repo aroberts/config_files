@@ -1,7 +1,8 @@
-# set machine specific user in .gitconfig.local
+# email lives in an overlay (overlays/*/gitconfig) or ~/.gitconfig.local;
+# useConfigOnly makes commits fail loudly instead of guessing one
 [user]
   name = Andrew Roberts
-  email = adroberts@gmail.com
+  useConfigOnly = true
 [color]
   diff = auto
   status = auto
@@ -49,8 +50,6 @@
   conflicts = !sh -c 'git ls-files --unmerged | cut -f2 | uniq'
   sup = !sh -c 'git submodule init && git submodule update'
   pushall = "!git remote | xargs -n 1 git push"
-[github]
-  user = aroberts
 [push]
   default = simple
   autoSetupRemote = true
@@ -78,8 +77,6 @@
   all = true
 [mergetool]
   keepBackup = false
-[include]
-  path = ~/.gitconfig.local
 [rebase]
   autosquash = true
   autostash = true
@@ -98,10 +95,8 @@
 # [diff "ansible-vault"]
 #   textconv = /Users/aroberts/bin/vault-git-tool clean
 
-
-
-
-
+# includes go last so overlays and machine-local config override the above
 [include]
-    # Includes a file relative to the location of the current config file
-    path = .gitconfig-local
+  path = ~/config/overlays/personal/gitconfig
+  path = ~/config/overlays/work/gitconfig
+  path = ~/.gitconfig.local

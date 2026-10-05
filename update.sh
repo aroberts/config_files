@@ -12,6 +12,10 @@ STATE_DIR="$HOME/.local/state/dotfile_update"
 git -C "$REPO" pull
 git -C "$REPO" submodule update --init --recursive
 
+for overlay in "$REPO"/overlays/*(N/); do
+  git -C "$overlay" rev-parse --abbrev-ref @{u} &>/dev/null && git -C "$overlay" pull
+done
+
 if [[ -r "$HOME/.src/antidote/antidote.zsh" ]]; then
   source "$HOME/.src/antidote/antidote.zsh"
   antidote update

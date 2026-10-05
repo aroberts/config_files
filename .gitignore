@@ -22,3 +22,10 @@ config/gcx/*
 config/zed/prompts
 
 tmux/resurrect/*
+
+# separate repos, see the overlays loop in zshrc
+overlays/*
+
+# app state written through the ~/.config symlink
+config/gh/hosts.yml
+config/configstore/

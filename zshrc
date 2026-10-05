@@ -57,16 +57,21 @@ fi
 # functions
 for func_file ($HOME/.zsh/functions/*.zsh(N)) source $func_file
 
+# overlays: gitignored repos under overlays/ (e.g. personal, work), each laid
+# out like this one: aliases, zshrc, zsh/functions/*.zsh, zsh/completions
+for overlay_dir (${${(%):-%x}:A:h}/overlays/*(N/)); do
+  fpath=($overlay_dir/zsh/completions $fpath)
+  [ -e "$overlay_dir/aliases" ] && source "$overlay_dir/aliases"
+  for func_file ($overlay_dir/zsh/functions/*.zsh(N)) source $func_file
+  [ -e "$overlay_dir/zshrc" ] && source "$overlay_dir/zshrc"
+done
+unset overlay_dir
+
 # rvm
 if [ -e "$HOME/.rvm/scripts/rvm" ]; then
   source "$HOME/.rvm/scripts/rvm"
 fi
 
-
-# solid-kit
-if [ -e "$HOME/Source/solid-kit/bin" ]; then
-  export PATH="$HOME/Source/solid-kit/bin:$PATH"
-fi
 
 # docker
 # : ${DOCKER_VIRTUALBOX_NAME:=dockerbox}

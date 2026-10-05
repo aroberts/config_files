@@ -11,3 +11,4 @@ auto-update.sh
 manage_updates.sh
 cleanup-antigen.sh
 Session.vim
+overlays
