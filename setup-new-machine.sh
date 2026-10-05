@@ -14,7 +14,7 @@
 #   --email <addr>      email for overlays/work/gitconfig (prompted otherwise)
 #   --macos-defaults    also run config's bootstrap: keyboard, trackpad, Dock,
 #                       Finder, Safari and power settings, plus a Caps Lock ->
-#                       Control LaunchAgent (sudo)
+#                       Control LaunchAgent (pmset needs sudo)
 
 set -euo pipefail
 
@@ -70,11 +70,12 @@ fi
 if [ ! -x /opt/homebrew/bin/brew ] && ! command -v brew &>/dev/null; then
   if id -Gn | grep -qw admin; then
     say "Installing Homebrew"
-    # NONINTERACTIVE skips the installer's prompts but also its sudo password
-    # prompt, so cache sudo credentials first
-    sudo -v
-    NONINTERACTIVE=1 /bin/bash -c \
-      "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # the .pkg needs one sudo; install.sh needs several, or cached
+    # credentials when NONINTERACTIVE, which sudo without a timeout lacks
+    brew_pkg=$(mktemp -d)/Homebrew.pkg
+    curl -fsSL -o "$brew_pkg" https://github.com/Homebrew/brew/releases/latest/download/Homebrew.pkg
+    sudo installer -pkg "$brew_pkg" -target /
+    rm -rf "$(dirname "$brew_pkg")"
   else
     warn "not an admin user; skipping Homebrew. zshrc works without it, but tmux, ag, grc, etc. come from brew."
   fi
