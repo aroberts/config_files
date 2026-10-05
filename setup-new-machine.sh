@@ -12,7 +12,9 @@
 #
 # Options:
 #   --email <addr>      email for overlays/work/gitconfig (prompted otherwise)
-#   --macos-defaults    also run config's bootstrap (Finder/keyboard defaults, sudo)
+#   --macos-defaults    also run config's bootstrap: keyboard, trackpad, Dock,
+#                       Finder, Safari and power settings, plus a Caps Lock ->
+#                       Control LaunchAgent (sudo)
 
 set -euo pipefail
 
@@ -149,9 +151,14 @@ say "Installing vim plugins"
 vim -E -s -u "$HOME/.vimrc" +PlugInstall +qall || true
 [ -n "$(ls -A "$HOME/.vim/plugs" 2>/dev/null)" ] || warn "no vim plugins installed; run :PlugInstall"
 
+macos_steps=
 if [ -n "$macos_defaults" ]; then
   say "Applying macOS defaults"
   "$config/bootstrap"
+  macos_steps='
+  - log out and back in for the trackpad settings to apply
+  - Safari settings need Full Disk Access for the terminal; grant it and
+    re-run ~/config/bootstrap if they did not stick'
 fi
 
 say "Done"
@@ -162,5 +169,5 @@ Next steps:
   - gh auth login (config/gh/hosts.yml is untracked, so this stays local)
   - add an ssh key to GitHub before pushing from ~/config or ~/bin
   - machine-only settings go in ~/.zshrc.local and ~/.gitconfig.local
-  - work aliases, functions and git settings go in ~/config/overlays/work
+  - work aliases, functions and git settings go in ~/config/overlays/work$macos_steps
 EOF

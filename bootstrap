@@ -6,11 +6,15 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+osx=$(cd "$(dirname "$0")" && pwd)/osx
+
+# --- keyboard ---
+
 # Enable character repeat on keydown
 # defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Set a shorter Delay until key repeat
-defaults write NSGlobalDomain InitialKeyRepeat -int 35
+defaults write NSGlobalDomain InitialKeyRepeat -int 30
 
 # Set keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 2
@@ -18,30 +22,95 @@ defaults write NSGlobalDomain KeyRepeat -int 2
 # Full keyboard access (tabbable controls
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
 
-# Set default Finder location to home folder (~/)
-defaults write com.apple.finder NewWindowTarget -string "PfLo" && \
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
+# Caps Lock -> Control on every keyboard, reapplied at login by a LaunchAgent
+agent=aroberts.remap-capslock-to-control
+mkdir -p ~/Library/LaunchAgents
+cp "$osx/$agent.plist" ~/Library/LaunchAgents/
+launchctl bootout "gui/$(id -u)/$agent" 2>/dev/null
+launchctl bootstrap "gui/$(id -u)" ~/Library/LaunchAgents/$agent.plist
 
-# Use current directory as default search scope in Finder
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+# --- trackpad and mouse ---
 
-# Show icons for hard drives, servers, and removable media on the desktop
+# Tap to click
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true && \
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true && \
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Disable natural scrolling
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# Mouse tracking speed
+defaults write NSGlobalDomain com.apple.mouse.scaling -float 0.875
+
+# --- appearance ---
+
+# Show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Switch between light and dark appearance automatically
+defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool true
+
+# List view in open and save panels
+defaults write NSGlobalDomain NavPanelFileListModeForOpenMode -int 2 && \
+defaults write NSGlobalDomain NavPanelFileListModeForSaveMode -int 2
+
+# Always show Sound and Focus in the menu bar
+defaults -currentHost write com.apple.controlcenter Sound -int 18 && \
+defaults -currentHost write com.apple.controlcenter FocusModes -int 18
+
+# --- dock and windows ---
+
+# Hide recent applications in the Dock
+defaults write com.apple.dock show-recents -bool false
+
+# Disable the bottom-right hot corner (default is Quick Note)
+defaults write com.apple.dock wvous-br-corner -int 1 && \
+defaults write com.apple.dock wvous-br-modifier -int 0
+
+# Don't fill the screen when dragging a window to the menu bar
+defaults write com.apple.WindowManager EnableTopTilingByEdgeDrag -bool false
+
+# --- finder ---
+
+# List view by default
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# Open folders in new windows, not tabs
+defaults write com.apple.finder FinderSpawnTab -bool false
+
+# Show icons for external drives and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true && \
-defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true && \
-defaults write com.apple.finder ShowMountedServersOnDesktop -bool true && \
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false && \
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false && \
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
-# Avoid creating .DS_Store files on network volumes
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+# --- safari (sandboxed: the terminal needs Full Disk Access to write these) ---
 
 # Enable the Develop menu and the Web Inspector in Safari
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true && \
 defaults write com.apple.Safari IncludeDevelopMenu -bool true && \
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true && \
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true && \
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 
-# Show the ~/Library folder
-chflags nohidden ~/Library
+# Show the full URL, the status bar and the favorites bar
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true && \
+defaults write com.apple.Safari ShowOverlayStatusBar -bool true && \
+defaults write com.apple.Safari ShowFavoritesBar-v2 -bool true
 
+# Reopen the last session's windows at launch
+defaults write com.apple.Safari AlwaysRestoreSessionAtLaunch -bool true
 
+# safari find using substring rather than prefix
+defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
+
+# --- messages ---
+
+# emoji substitutions in Messages.app
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings \
+-dict-add "automaticEmojiSubstitutionEnablediMessage" -bool true
+
+# --- power ---
+
+# Never sleep on AC power
+sudo pmset -c sleep 0
+
+# Restart the apps that cache these settings; trackpad changes need a logout
+killall Dock Finder ControlCenter 2>/dev/null || true
