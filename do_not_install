@@ -12,3 +12,4 @@ manage_updates.sh
 cleanup-antigen.sh
 Session.vim
 overlays
+setup-new-machine.sh
