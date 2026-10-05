@@ -3,11 +3,13 @@
 # (overlays/*/Brewfile); setup-new-machine.sh runs all of them.
 
 # mirrors pcrn-mgmt vars/default_packages.yml
+brew "zsh"
 brew "git"
 brew "tmux"
 brew "vim"
 brew "jq"
 brew "the_silver_searcher"
+brew "htop"
 
 # config depends on these
 brew "grc"     # warhol zsh plugin and GRC_CONF in zshrc do nothing without it
