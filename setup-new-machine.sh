@@ -3,7 +3,8 @@
 #
 #   bash <(curl -fsSL https://raw.githubusercontent.com/aroberts/config_files/master/setup-new-machine.sh)
 #
-# Clones both repos into ~/Source, linked from ~/config and ~/bin (the layout
+# Installs Homebrew if missing (admin users only), then clones both repos
+# into ~/Source, linked from ~/config and ~/bin (the layout
 # pcrn-mgmt's admin_setup.yml uses). Fetches go over anonymous https so
 # dotfile-update works before any ssh keys exist; pushes go over ssh.
 # Creates a local overlays/work repo holding the git identity, then runs
@@ -65,8 +66,19 @@ if ! xcode-select -p &>/dev/null; then
 fi
 
 if [ ! -x /opt/homebrew/bin/brew ] && ! command -v brew &>/dev/null; then
-  warn "Homebrew not found. zshrc works without it, but tmux, ag, grc, etc. come from brew."
+  if id -Gn | grep -qw admin; then
+    say "Installing Homebrew"
+    # NONINTERACTIVE skips the installer's prompts but also its sudo password
+    # prompt, so cache sudo credentials first
+    sudo -v
+    NONINTERACTIVE=1 /bin/bash -c \
+      "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  else
+    warn "not an admin user; skipping Homebrew. zshrc works without it, but tmux, ag, grc, etc. come from brew."
+  fi
 fi
+# zprofile sets this up in new shells; this script needs it now
+[ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 mkdir -p "$source_dir"
 
