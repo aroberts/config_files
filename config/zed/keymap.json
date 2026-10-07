@@ -88,7 +88,7 @@
       "g j": "workspace::ActivatePaneDown",
       "g k": "workspace::ActivatePaneUp",
       "g l": "workspace::ActivatePaneRight",
-      // ideavim/coc gr = find usages (fires at once instead of waiting for Zed's grr/grn/gri/gra)
+      // ideavim gr = find usages (fires at once instead of waiting for Zed's grr/grn/gri/gra)
       "g r": "editor::FindAllReferences",
       // ctrlp: let g:ctrlp_map = '<c-t>'
       "ctrl-t": "file_finder::Toggle",

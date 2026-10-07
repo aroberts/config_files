@@ -49,12 +49,6 @@ if has("autocmd")
     autocmd FileType scss set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
     autocmd FileType handlebars.html set tabstop=2|set shiftwidth=2|set softtabstop=2|set expandtab
 
-    autocmd Filetype scala 
-          \ if exists('CocAction') |
-          \   source ~/.vim/coc-config.vim
-          \ endif
-
-
     " Help mode bindings
     " <enter> to follow tag, <bs> to go back, and q to quit.
     " From http://ctoomey.com/posts/an-incremental-approach-to-vim/
