@@ -1,0 +1,160 @@
+// Zed keymap
+//
+// Vim mappings ported from ~/.vim (mappings.vim, plugin_config.vim) and the
+// IDE-style leader mappings from ~/.ideavimrc. Leader is space.
+//
+// To see Zed's built-in vim bindings, run `zed: open default keymap` from the
+// command palette.
+[
+  {
+    // noremap H ^ / noremap L $
+    "context": "VimControl && !menu",
+    "bindings": {
+      "shift-h": "vim::FirstNonWhitespace",
+      "shift-l": "vim::EndOfLine",
+    },
+  },
+  {
+    // nnoremap/vnoremap <C-j> 15gjzz, <C-k> 15gkzz
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !menu",
+    "bindings": {
+      "ctrl-j": ["workspace::SendKeystrokes", "1 5 j z z"],
+      "ctrl-k": ["workspace::SendKeystrokes", "1 5 k z z"],
+    },
+  },
+  {
+    // autocmd FileType markdown: j/k move by display line unless given a count
+    "context": "Editor && (extension == md || extension == markdown) && (vim_mode == normal || vim_mode == visual) && !VimCount && !menu",
+    "bindings": {
+      "j": ["vim::Down", { "display_lines": true }],
+      "k": ["vim::Up", { "display_lines": true }],
+    },
+  },
+  {
+    // map Q gq
+    "context": "Editor && vim_mode == visual && !menu",
+    "bindings": {
+      "shift-q": "vim::Rewrap",
+    },
+  },
+  {
+    // QQ rewraps the current line, like gqq
+    "context": "vim_operator == gq",
+    "bindings": {
+      "shift-q": "vim::CurrentLine",
+    },
+  },
+  {
+    // vim-abolish coercions: crs crc crm cr- crk crt cru. These leave the
+    // converted word selected; press escape to get back to normal mode.
+    "context": "vim_operator == c",
+    "bindings": {
+      "r s": "editor::ConvertToSnakeCase",
+      "r c": "editor::ConvertToLowerCamelCase",
+      "r m": "editor::ConvertToUpperCamelCase",
+      "r -": "editor::ConvertToKebabCase",
+      "r k": "editor::ConvertToKebabCase",
+      "r t": "editor::ConvertToTitleCase",
+      // only becomes UPPER_SNAKE if the word is already snake_case
+      "r u": "editor::ConvertToUpperCase",
+    },
+  },
+  {
+    // MapCR(): <enter> writes the buffer if it's modified. Limited to file
+    // editors in panes so it doesn't shadow enter in multibuffers (search
+    // results, diagnostics) or the agent panel.
+    "context": "Pane > Editor && mode == full && !multibuffer && !MessageEditor && vim_mode == normal && !menu",
+    "bindings": {
+      "enter": ["workspace::Save", { "save_intent": "save_all" }],
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal && !menu",
+    "bindings": {
+      // ---------------
+      // Regular mappings
+      // ---------------
+      // nnoremap Y y$
+      "shift-y": "vim::YankToEndOfLine",
+      // nnoremap U <C-r>
+      "shift-u": "vim::Redo",
+      // map Q gq
+      "shift-q": "vim::PushRewrap",
+      // nnoremap go o<Esc>k / gO O<Esc>j
+      "g o": "vim::InsertEmptyLineBelow",
+      "g shift-o": "vim::InsertEmptyLineAbove",
+      // gh/gj/gk/gl :wincmd h/j/k/l
+      "g h": "workspace::ActivatePaneLeft",
+      "g j": "workspace::ActivatePaneDown",
+      "g k": "workspace::ActivatePaneUp",
+      "g l": "workspace::ActivatePaneRight",
+      // ideavim/coc gr = find usages (fires at once instead of waiting for Zed's grr/grn/gri/gra)
+      "g r": "editor::FindAllReferences",
+      // ctrlp: let g:ctrlp_map = '<c-t>'
+      "ctrl-t": "file_finder::Toggle",
+
+      // ---------------
+      // Leader mappings (vimrc)
+      // ---------------
+      // Unbind bare space (vim::WrappingRight) so leader sequences don't hit
+      // Zed's fixed 1s chord timeout, which also closes the which-key popup.
+      // The popup now stays up until the next key; escape cancels.
+      "space": null,
+      "space space": "pane::AlternateFile",
+      "space /": "buffer_search::Dismiss",
+      // *<C-O>: highlight the word under the cursor without moving off it.
+      // Must stay above "space h s" or that binding becomes unreachable.
+      "space h": ["workspace::SendKeystrokes", "* shift-n"],
+      "space h s": "pane::SplitDown",
+      "space v s": "pane::SplitRight",
+      // :close -- merges this split's tabs into the next pane
+      "space s c": "pane::JoinIntoNext",
+      // :w %:h/
+      "space w": "workspace::SaveAs",
+      // OpenURL()
+      "space o": "editor::OpenUrl",
+      // format entire file
+      "space f e f": "editor::Format",
+      // underline the current line with - / = ; surround a comment with dashes
+      "space u l": ["workspace::SendKeystrokes", "\" u y y \" u p shift-v r -"],
+      "space u u l": ["workspace::SendKeystrokes", "\" u y y \" u p shift-v r ="],
+      "space c u l": ["workspace::SendKeystrokes", "\" u y y \" u p w v g _ r - ^ \" u y y k \" u shift-p"],
+      // open the right-docked terminal, or focus it if it's already open
+      "space t": "terminal_panel::ToggleFocus",
+      // ag.vim
+      "space a g": "pane::DeploySearch",
+      "space a s": "pane::DeploySearch",
+
+      // ---------------
+      // fugitive / signify
+      // ---------------
+      "space g s": "git_panel::ToggleFocus",
+      "space g c": "git::Commit",
+      "space g p": "git::Push",
+      "space g u": "git::Pull",
+      "space g d": "editor::ExpandAllDiffHunks",
+      "space g x": "editor::CollapseAllDiffHunks",
+      "space g j": "editor::GoToHunk",
+      "space g k": "editor::GoToPreviousHunk",
+
+      // ---------------
+      // IDE mappings (ideavimrc)
+      // ---------------
+      "space f f": "file_finder::Toggle",
+      "space f s": "project_symbols::Toggle",
+      "space f c": "project_symbols::Toggle",
+      "space f a": "command_palette::Toggle",
+      "space f g": "pane::DeploySearch",
+      "space f r": ["pane::DeploySearch", { "replace_enabled": true }],
+      "space r n": "editor::Rename",
+      // Refactorings.QuickListPopupAction / ShowIntentionActions
+      "space r r": "editor::ToggleCodeActions",
+      "space q f": "editor::ToggleCodeActions",
+      "space shift-f": "editor::Format",
+      "space g i": "editor::GoToImplementation",
+      "space s p": "editor::ShowSignatureHelp",
+      // Scala.ShowImplicitArguments -- Metals shows implicits as inlay hints
+      "space s i": "editor::ToggleInlayHints",
+    },
+  },
+]
