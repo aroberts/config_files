@@ -4,8 +4,8 @@
 #   1. Throttled background `git fetch && merge --ff-only` on the config repo.
 #      Throttle: DOTFILE_UPDATE_THRESHOLD seconds (default 3600).
 #   2. Red banner if the repo is behind upstream (merge stuck / diverged).
-#   3. Yellow banner if plugin config (vimrc / zsh_plugins.txt) has changed
-#      since last update.sh run.
+#   3. Yellow banner if plugin config (vimrc / vim/vim-plug.vim /
+#      zsh_plugins.txt) has changed since last update.sh run.
 #
 # State under ~/.local/state/dotfile_update:
 #   last_fetch        — mtime gates the background fetch
@@ -97,7 +97,7 @@ _dotfile_update_nudge() {
 
   local changed
   changed=$(git -C $repo diff --name-only $baseline HEAD 2>/dev/null)
-  if grep -qE '^(zsh_plugins\.txt|vimrc)$' <<<$changed; then
+  if grep -qE '^(zsh_plugins\.txt|vimrc|vim/vim-plug\.vim)$' <<<$changed; then
     print -P "%F{yellow}dotfiles: plugin config changed — run update.sh%f"
   fi
 }
