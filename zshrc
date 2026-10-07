@@ -124,8 +124,11 @@ ANTIDOTE_SRC="$HOME/.src/antidote/antidote.zsh"
 # mac stuff
 uname | grep Darwin >/dev/null
 if [ $? -eq 0 ]; then
-  # javaaaaaaa
-  export JAVA_HOME=$(/usr/libexec/java_home)
+  # javaaaaaaa (stay quiet when no JDK is installed)
+  if JAVA_HOME_CANDIDATE=$(/usr/libexec/java_home 2>/dev/null); then
+    export JAVA_HOME=$JAVA_HOME_CANDIDATE
+  fi
+  unset JAVA_HOME_CANDIDATE
   # no dock icon for java procs
   export JAVA_TOOL_OPTIONS="-Dapple.awt.UIElement=true"
 
