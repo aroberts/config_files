@@ -90,9 +90,6 @@
       "g l": "workspace::ActivatePaneRight",
       // ideavim gr = find usages (fires at once instead of waiting for Zed's grr/grn/gri/gra)
       "g r": "editor::FindAllReferences",
-      // ctrlp: let g:ctrlp_map = '<c-t>'
-      "ctrl-t": "file_finder::Toggle",
-
       // ---------------
       // Leader mappings (vimrc)
       // ---------------
@@ -155,6 +152,14 @@
       "space s p": "editor::ShowSignatureHelp",
       // Scala.ShowImplicitArguments -- Metals shows implicits as inlay hints
       "space s i": "editor::ToggleInlayHints",
+    },
+  },
+  {
+    // ctrlp: let g:ctrlp_map = '<c-t>'. Workspace context so it also works
+    // before any editor is focused (e.g. right after `zed .`).
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-t": "file_finder::Toggle",
     },
   },
 ]
