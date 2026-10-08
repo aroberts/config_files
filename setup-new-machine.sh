@@ -137,7 +137,7 @@ say "Running install.sh"
 if command -v brew &>/dev/null; then
   for brewfile in "$config/Brewfile" "$config"/overlays/*/Brewfile; do
     [ -f "$brewfile" ] || continue
-    say "Installing packages from ${brewfile#$config/}"
+    say "Installing packages from ${brewfile#"$config"/}"
     brew bundle --file "$brewfile" || warn "brew bundle failed for $brewfile"
   done
 fi
