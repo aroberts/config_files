@@ -81,12 +81,12 @@ if has("autocmd")
     autocmd FileType css,scss,sass setlocal iskeyword+=-
 
     " Auto-start session tracking for bare vim and vim <dir> in git repos
-    " (obsession tracks to Session.vim in CWD; does NOT load existing sessions)
+    " (obsession tracks to .session.vim in CWD; does NOT load existing sessions)
     autocmd VimEnter * nested
           \ if !exists('g:this_obsession') &&
           \     isdirectory('.git') &&
           \     (argc() == 0 || (argc() == 1 && isdirectory(argv(0)))) |
-          \   silent! Obsess |
+          \   silent! Obsess .session.vim |
           \ endif
 
     autocmd TabEnter * normal "<Esc>"

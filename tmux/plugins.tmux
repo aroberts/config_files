@@ -2,7 +2,9 @@ tmux_plugin_root='~/.tmux/tmux-plugins'
 
 set -g @resurrect-save 'S'
 set -g @resurrect-restore 'R'
-set -g @resurrect-strategy-vim 'session'
+set -g @resurrect-strategy-vim 'dotsession'
+# resurrect resolves strategies only inside its own strategies/ dir.
+run-shell 'ln -sf ../../../scripts/resurrect-vim-dotsession.sh #{tmux_plugin_root}/tmux-resurrect/strategies/vim_dotsession.sh'
 set -g @resurrect-processes 'claude'
 set -g @resurrect-hook-post-save-layout '~/.tmux/scripts/resurrect-claude-save.sh'
 # resurrect.tmux sets @resurrect-save-script-path itself, so point it at the

@@ -4,6 +4,7 @@
 [submodule "tmux/plugins/tmux-resurrect"]
 	path = tmux/tmux-plugins/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect
+	ignore = untracked
 [submodule "tmux/tmux-plugins/tmux-yank"]
 	path = tmux/tmux-plugins/tmux-yank
 	url = https://github.com/tmux-plugins/tmux-yank

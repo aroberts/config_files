@@ -11,5 +11,6 @@ auto-update.sh
 manage_updates.sh
 cleanup-antigen.sh
 Session.vim
+.session.vim
 overlays
 setup-new-machine.sh
