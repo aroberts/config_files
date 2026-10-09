@@ -64,6 +64,8 @@ __check claude && tmp-claude() {
   cd `mktemp -d -t claude-tmp` && claude
 }
 
+__check claude && alias opus='claude --model opus --effort xhigh'
+
 #################### WORK STUFF ########################
 
 __check claude && test -d ~/.8x8-claude && 8x8-claude() {
