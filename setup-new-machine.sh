@@ -9,6 +9,7 @@
 # dotfile-update works before any ssh keys exist; pushes go over ssh.
 # Creates a local overlays/work repo holding the git identity, runs
 # install.sh, then brew bundle for the base Brewfile and each overlay's.
+# Always turns on full keyboard access so tab reaches every UI control.
 #
 # Options:
 #   --email <addr>      email for overlays/work/gitconfig (prompted otherwise)
@@ -151,6 +152,9 @@ say "Installing vim plugins"
 # vim -E -s exits non-zero even when PlugInstall succeeds; check the result
 vim -E -s -u "$HOME/.vimrc" +PlugInstall +qall || true
 [ -n "$(ls -A "$HOME/.vim/plugs" 2>/dev/null)" ] || warn "no vim plugins installed; run :PlugInstall"
+
+say "Enabling full keyboard access (tab reaches all UI controls)"
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
 
 macos_steps=
 if [ -n "$macos_defaults" ]; then
