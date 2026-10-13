@@ -66,14 +66,6 @@ if !has("gui_running")
   hi IndentGuidesEven ctermbg=238
 endif
 
-" ---------------
-" ProSession
-" ---------------
-" let g:loaded_prosession = 1
-" let g:prosession_on_startup = 1
-" let g:prosession_default_session = 0
-" let g:prosession_per_branch = 0
-
 
 " ---------------
 " Tabular

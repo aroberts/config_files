@@ -55,7 +55,6 @@ Plug 'sk1418/Join'
 """ Automatic Helpers
 Plug 'henrik/vim-indexed-search'
 Plug 'tpope/vim-obsession'
-Plug 'dhruvasagar/vim-prosession'
 " Plug 'Raimondi/delimitMate' " auto insert pair delimiters
 Plug 'vim-syntastic/syntastic'
 
