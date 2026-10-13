@@ -66,6 +66,13 @@ __check claude && tmp-claude() {
 
 __check claude && alias opus='claude --model opus --effort xhigh'
 
+# Over ssh the login keychain is locked, and claude can't read its credentials.
+# Unlock it first, prompting only when it's actually locked.
+__uname Darwin && __check claude && rclaude() {
+  security show-keychain-info >/dev/null 2>&1 || security unlock-keychain || return 1
+  claude "$@"
+}
+
 #################### WORK STUFF ########################
 
 __check claude && test -d ~/.8x8-claude && 8x8-claude() {
