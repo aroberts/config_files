@@ -7,7 +7,6 @@
     <!-- bootstrap replaces __SCRIPT__ and __LOG__ when it installs this -->
     <key>ProgramArguments</key>
     <array>
-      <string>/bin/bash</string>
       <string>__SCRIPT__</string>
     </array>
     <key>RunAtLoad</key>

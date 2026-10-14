@@ -23,10 +23,10 @@ cp "$osx/$agent.plist" ~/Library/LaunchAgents/
 launchctl bootout "gui/$(id -u)/$agent" 2>/dev/null
 launchctl bootstrap "gui/$(id -u)" ~/Library/LaunchAgents/$agent.plist
 
-# Bounce WireGuard tunnels when the Wi-Fi network changes (see wifi-vpn-bounce.sh)
+# Bounce WireGuard tunnels when the Wi-Fi network changes (see wifi-vpn-bounce)
 agent=aroberts.wifi-vpn-bounce
 log=~/Library/Logs/$agent.log
-sed -e "s|__SCRIPT__|$osx/wifi-vpn-bounce.sh|" -e "s|__LOG__|$log|" \
+sed -e "s|__SCRIPT__|$osx/wifi-vpn-bounce|" -e "s|__LOG__|$log|" \
   "$osx/$agent.plist" > ~/Library/LaunchAgents/$agent.plist
 launchctl bootout "gui/$(id -u)/$agent" 2>/dev/null
 launchctl bootstrap "gui/$(id -u)" ~/Library/LaunchAgents/$agent.plist
