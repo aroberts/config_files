@@ -86,6 +86,10 @@ export ZSH_WO_PATHS="$HOME/Source"
 # expand functions in the prompt
 setopt prompt_subst
 
+# offer git aliases and all commands alongside common ones (git's _git wrapper
+# defaults tag-order to common-commands only, which hides aliases)
+zstyle ':completion:*:*:git:*' tag-order 'common-commands alias-commands all-commands'
+
 # tab completion for custom git scripts
 zstyle ':completion:*:git:*' user-commands ${${(k)commands[(I)git-*]}#git-}
 
