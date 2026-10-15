@@ -64,7 +64,7 @@ __check claude && tmp-claude() {
   cd `mktemp -d -t claude-tmp` && claude
 }
 
-__check claude && alias opus='claude --model opus --effort xhigh'
+__check claude && alias clop='claude --model opus --effort xhigh'
 
 # Over ssh the login keychain is locked, and claude can't read its credentials.
 # Unlock it first, prompting only when it's actually locked.
