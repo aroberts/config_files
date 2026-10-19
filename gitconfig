@@ -71,8 +71,8 @@
 [commit]
   verbose = true
 [fetch]
+  # no pruneTags: it deletes the local-only archive/* tags from git archive-branch
   prune = true
-  pruneTags = true
   all = true
 [mergetool]
   keepBackup = false
