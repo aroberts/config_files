@@ -43,7 +43,6 @@
   diffstat = diff --stat -r
   new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
   aliases = !sh -c 'git config --list | grep "^alias" | sed "s/^alias\\.//"'
-  sweep = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
   up = !git fetch origin && git rebase origin/master
   cpr = !hub pull-request
   sh = !sh -c 'gitsh --git $(which hub)'
